@@ -45,8 +45,8 @@ static NSUserDefaults *prefs = nil;
         alarmFromNow = [alarmFromNowDefault retain];
         [cal setEventTitle:defaultEventTitle];
         [cal setEventUrl:defaultEventUrl];
-		eventStartDate  = [[[PMDate dateZeroSeconds]addTimeInterval:600]retain];
-        eventEndDate    = [[eventStartDate addTimeInterval:60]retain];
+		eventStartDate  = [[[PMDate dateZeroSeconds]dateByAddingTimeInterval:600]retain];
+        eventEndDate    = [[eventStartDate dateByAddingTimeInterval:60]retain];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalEventsChangedExternallyNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalEventsChangedNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalCalendarsChangedExternallyNotification object:nil];
@@ -61,7 +61,7 @@ static NSUserDefaults *prefs = nil;
         return;
 
     prefs = [NSUserDefaults standardUserDefaults];
-    alarmFromNowDefault = [[PMDate midnightOfDate:[NSDate distantPast]]addTimeInterval:60*10];
+    alarmFromNowDefault = [[PMDate midnightOfDate:[NSDate distantPast]]dateByAddingTimeInterval:60*10];
     [alarmFromNowDefault retain];
 }
 
@@ -251,7 +251,7 @@ static NSUserDefaults *prefs = nil;
 		}
 		
 		if ([cbAllDayEvent state] == NSOffState) {
-			[self setEventEndDate:[eventStartDate addTimeInterval:60*60]];
+			[self setEventEndDate:[eventStartDate dateByAddingTimeInterval:60*60]];
 		}
         [oldEventStartDate release];
     }   

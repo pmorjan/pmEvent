@@ -24,14 +24,14 @@
 + (NSDate *)dateZeroSecondsOfDate:(NSDate *)aDate 
 {
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSSecondCalendarUnit fromDate:aDate];
-    return [aDate addTimeInterval:(-1 * [dateComponents second])];
+    return [aDate dateByAddingTimeInterval:(-1 * [dateComponents second])];
 }
 
 + (NSDate *)dateZeroSeconds 
 {
     NSDate *currDate = [NSDate date];
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSSecondCalendarUnit fromDate:currDate];
-    return [currDate addTimeInterval:(-1 * [dateComponents second])];
+    return [currDate dateByAddingTimeInterval:(-1 * [dateComponents second])];
 }
 
 @end

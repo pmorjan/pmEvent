@@ -39,7 +39,7 @@
 
     if ([eventAllDay boolValue]) {
         newEvent.startDate = [PMDate midnightOfDate:startDate];
-        newEvent.endDate   = [PMDate midnightOfDate:[endDate addTimeInterval:24*3600]];
+        newEvent.endDate   = [PMDate midnightOfDate:[endDate dateByAddingTimeInterval:24*3600]];
     } else {
         newEvent.startDate  = startDate;
         newEvent.endDate    = endDate;
