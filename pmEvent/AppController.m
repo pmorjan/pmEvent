@@ -30,7 +30,7 @@
 static NSDate *alarmFromNowDefault;
 static NSString *defaultEventTitle = @"Event";
 static NSString *defaultAlarmTitle = @"Alarm";
-static NSString *defaultEventUrl   = @"";
+static NSString *defaultEventUrl   = @"Testing Branch";
 static NSUserDefaults *prefs = nil;
 
 #pragma mark -
