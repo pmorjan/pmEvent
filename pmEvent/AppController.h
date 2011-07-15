@@ -42,8 +42,7 @@
 - (IBAction)deleteEvent:(id)sender;
 - (IBAction)createEvent:(id)sender;
 - (IBAction)launchIcal:(id)sender;
-- (IBAction)cbQuickAlarmChanged:(id)sender;
-- (IBAction)cbAllDayEventChanged:(id)sender;
+- (IBAction)updateState:(id)sender;
 - (IBAction)quit:(id)sender;
 - (NSArray *)events;
 - (void)setEventStartDate:(NSDate *)newDate;

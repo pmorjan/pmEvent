@@ -83,20 +83,18 @@ static NSUserDefaults *prefs = nil;
         }
     }
 
-    [popUpAlarm     setMenu:[AlarmMenu alarmMenuWithTitle:@"Alarm"]];
-	[self addObserver:self forKeyPath:@"eventStartDate" options:NSKeyValueObservingOptionNew context:NULL];
+    [popUpAlarm setMenu:[AlarmMenu alarmMenuWithTitle:@"Alarm"]];
 
     NSLocale * locale = [[[NSLocale alloc] initWithLocaleIdentifier:@"de_DE"]autorelease];
-    [datePickerAlarm setLocale:locale];
-
-    [datePickerStart    setEnabled:YES];
-    [datePickerStart2   setEnabled:YES];
-    [datePickerEnd      setEnabled:YES];
-    [datePickerAlarm    setEnabled:NO];
-    [comboBoxAlarm      setEnabled:YES];
-    [cbAllDayEvent      setEnabled:YES];
+    [datePickerAlarm    setLocale:locale];
+    [datePickerStart    setLocale:locale];
+    [datePickerStart2   setLocale:locale];
+    [datePickerEnd      setLocale:locale];
     [alarmMinutesField  setHidden:YES];
 
+    [cbQuickAlarm setState:[prefs integerForKey:@"cbQuickAlarmState"]];
+    [self updateState:nil];
+        
     [NSApp activateIgnoringOtherApps:YES];
     [window makeKeyAndOrderFront:self];
 }
@@ -116,6 +114,7 @@ static NSUserDefaults *prefs = nil;
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
     [prefs setObject:[[popUpCalendars selectedItem]title] forKey:@"calMenuTitle"];
+    [prefs setObject:[NSNumber numberWithInteger:[cbQuickAlarm state]] forKey:@"cbQuickAlarmState"];
     [prefs synchronize];
 }
 
@@ -142,7 +141,6 @@ static NSUserDefaults *prefs = nil;
         // no alarm
         [cal setAlarmAbsoluteTrigger:nil];
         [cal setAlarmRelativeTrigger:nil];
-
     } else if ([obj intValue] == 0) {
         // on date
         [cal setAlarmRelativeTrigger:nil];
@@ -180,7 +178,7 @@ static NSUserDefaults *prefs = nil;
     }
 }
 
-- (IBAction)cbQuickAlarmChanged:(id)sender
+- (IBAction)updateState:(id)sender
 {
     if ([cbQuickAlarm state] == NSOnState) {
         if ([[cal eventTitle] isEqualToString:defaultEventTitle]) {
@@ -214,11 +212,7 @@ static NSUserDefaults *prefs = nil;
         [self p_stopTimer];
         [self setEventStartDate:[PMDate dateZeroSecondsOfDate:self->eventStartDate]];
     }
-    [self cbAllDayEventChanged:nil];
-}
 
-- (IBAction)cbAllDayEventChanged:(id)sender
-{
     if ([cbAllDayEvent state] == NSOnState) {
 		// no time part
         [datePickerStart setDatePickerElements:NSYearMonthDayDatePickerElementFlag];
@@ -257,7 +251,6 @@ static NSUserDefaults *prefs = nil;
     }   
 }
 
-
 #pragma mark -
 #pragma mark public methods
 
@@ -275,14 +268,6 @@ static NSUserDefaults *prefs = nil;
     [self didChangeValueForKey:@"events"];
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath
-                     ofObject:(id)object
-                       change:(NSDictionary *)change
-                      context:(void*)context
-{
-	// nothing to observe for now
-}
-
 - (void)p_updateEventDates:(id)userInfo
 {
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar]
@@ -295,8 +280,8 @@ static NSUserDefaults *prefs = nil;
 - (void)p_startTimerIfNeeded
 {
     if ([cbQuickAlarm state] == NSOnState) {
-        DLog(@"starting alarmTimer");
         if (uptimeTimer == nil) {
+            DLog(@"starting alarmTimer");
             uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                                            target:self selector:@selector(p_updateEventDates:)
                                                          userInfo:nil repeats:YES];
