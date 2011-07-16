@@ -731,7 +731,7 @@
 											<string key="NSFrameSize">{395, 70}</string>
 											<reference key="NSSuperview" ref="390270527"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="469017656"/>
+											<reference key="NSNextKeyView" ref="641981865"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="609318864">
 												<reference key="NSNextResponder" ref="469017656"/>
@@ -985,7 +985,7 @@
 							<string key="NSFrame">{{24, 60}, {397, 88}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="390270527"/>
+							<reference key="NSNextKeyView" ref="469017656"/>
 							<int key="NSsFlags">562</int>
 							<reference key="NSVScroller" ref="641981865"/>
 							<reference key="NSHScroller" ref="74481325"/>
@@ -1199,6 +1199,7 @@
 							<string key="NSFrame">{{345, 18}, {76, 25}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="896156804">
 								<int key="NSCellFlags">-2080244224</int>
@@ -1248,7 +1249,7 @@
 											<string key="NSFrame">{{246, 20}, {139, 148}}</string>
 											<reference key="NSSuperview" ref="358555942"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="557174352"/>
+											<reference key="NSNextKeyView" ref="1058424847"/>
 											<int key="NSViewLayerContentsRedrawPolicy">2</int>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSDatePickerCell" key="NSCell" id="402698680">
@@ -1292,7 +1293,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 										<object class="NSDatePicker" id="1035077439">
 											<reference key="NSNextResponder" ref="358555942"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{76, 150}, {128, 27}}</string>
+											<string key="NSFrame">{{76, 150}, {147, 27}}</string>
 											<reference key="NSSuperview" ref="358555942"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="1046251294"/>
@@ -1316,7 +1317,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 										<object class="NSDatePicker" id="654939498">
 											<reference key="NSNextResponder" ref="358555942"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{76, 124}, {128, 27}}</string>
+											<string key="NSFrame">{{76, 124}, {147, 27}}</string>
 											<reference key="NSSuperview" ref="358555942"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="614227317"/>
@@ -1610,7 +1611,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 											<string key="NSFrame">{{68, 13}, {67, 14}}</string>
 											<reference key="NSSuperview" ref="358555942"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="90658421"/>
+											<reference key="NSNextKeyView" ref="557174352"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="104038465">
 												<int key="NSCellFlags">68288064</int>
@@ -1628,7 +1629,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 											<string key="NSFrame">{{168, 20}, {66, 14}}</string>
 											<reference key="NSSuperview" ref="358555942"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="1058424847"/>
+											<reference key="NSNextKeyView" ref="90658421"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="997237950">
 												<int key="NSCellFlags">68288064</int>
@@ -2587,22 +2588,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: eventStartDate</string>
-						<reference key="source" ref="703126550"/>
-						<reference key="destination" ref="976324537"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="703126550"/>
-							<reference key="NSDestination" ref="976324537"/>
-							<string key="NSLabel">value: eventStartDate</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">eventStartDate</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">928</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: eventEndDate</string>
 						<reference key="source" ref="654939498"/>
 						<reference key="destination" ref="976324537"/>
@@ -2688,6 +2673,26 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<reference key="destination" ref="454727426"/>
 					</object>
 					<int key="connectionID">942</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: eventStartDate</string>
+						<reference key="source" ref="703126550"/>
+						<reference key="destination" ref="976324537"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="703126550"/>
+							<reference key="NSDestination" ref="976324537"/>
+							<string key="NSLabel">value: eventStartDate</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">eventStartDate</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSConditionallySetsEnabled</string>
+								<boolean value="NO" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">943</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4343,7 +4348,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">942</int>
+			<int key="maxID">943</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4356,6 +4361,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>alarmPopUpMinutesChanged:</string>
+							<string>checkDNS:</string>
 							<string>createEvent:</string>
 							<string>deleteEvent:</string>
 							<string>launchIcal:</string>
@@ -4364,6 +4370,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -4377,6 +4384,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>alarmPopUpMinutesChanged:</string>
+							<string>checkDNS:</string>
 							<string>createEvent:</string>
 							<string>deleteEvent:</string>
 							<string>launchIcal:</string>
@@ -4387,6 +4395,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">alarmPopUpMinutesChanged:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">checkDNS:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -4417,6 +4429,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>alarmMinutesField</string>
 							<string>btDeleteEvent</string>
+							<string>button</string>
 							<string>cbAllDayEvent</string>
 							<string>cbQuickAlarm</string>
 							<string>comboBoxAlarm</string>
@@ -4428,12 +4441,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<string>eventArrayController</string>
 							<string>popUpAlarm</string>
 							<string>popUpCalendars</string>
+							<string>progress</string>
 							<string>textFieldTitle</string>
+							<string>urlLabel</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSTextField</string>
+							<string>NSButton</string>
 							<string>NSButton</string>
 							<string>NSButton</string>
 							<string>NSButton</string>
@@ -4446,6 +4462,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<string>NSArrayController</string>
 							<string>NSPopUpButton</string>
 							<string>NSPopUpButton</string>
+							<string>NSProgressIndicator</string>
+							<string>NSTextField</string>
 							<string>NSTextField</string>
 							<string>NSWindow</string>
 						</object>
@@ -4456,6 +4474,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>alarmMinutesField</string>
 							<string>btDeleteEvent</string>
+							<string>button</string>
 							<string>cbAllDayEvent</string>
 							<string>cbQuickAlarm</string>
 							<string>comboBoxAlarm</string>
@@ -4467,7 +4486,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<string>eventArrayController</string>
 							<string>popUpAlarm</string>
 							<string>popUpCalendars</string>
+							<string>progress</string>
 							<string>textFieldTitle</string>
+							<string>urlLabel</string>
 							<string>window</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -4478,6 +4499,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">btDeleteEvent</string>
+								<string key="candidateClassName">NSButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">button</string>
 								<string key="candidateClassName">NSButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -4525,7 +4550,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 								<string key="candidateClassName">NSPopUpButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">progress</string>
+								<string key="candidateClassName">NSProgressIndicator</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">textFieldTitle</string>
+								<string key="candidateClassName">NSTextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">urlLabel</string>
 								<string key="candidateClassName">NSTextField</string>
 							</object>
 							<object class="IBToOneOutletInfo">

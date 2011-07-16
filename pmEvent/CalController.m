@@ -4,7 +4,7 @@
 //
 
 #import "CalController.h"
-#import "PMDate.h"
+#import "DateCategory.h"
 
 @implementation CalController
 
@@ -38,15 +38,14 @@
     CalEvent *newEvent = [CalEvent event];
 
     if ([eventAllDay boolValue]) {
-        newEvent.startDate = [PMDate midnightOfDate:startDate];
-        newEvent.endDate   = [PMDate midnightOfDate:[endDate dateByAddingTimeInterval:24*3600]];
+        newEvent.startDate = [startDate dateAtMidnight];
+        newEvent.endDate   = [[endDate dateAtMidnight] dateAddOneDay];
     } else {
         newEvent.startDate  = startDate;
         newEvent.endDate    = endDate;
     }
 
-   if (    [newEvent.startDate compare:newEvent.endDate] == NSOrderedSame
-        || [newEvent.startDate compare:newEvent.endDate] == NSOrderedDescending) {
+   if ([newEvent.startDate compare:newEvent.endDate] == NSOrderedDescending) {
        NSAlert *alertPanel = [NSAlert alertWithMessageText:@"Invalid date range" defaultButton:nil
                                            alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
        [alertPanel setAlertStyle:NSCriticalAlertStyle];
@@ -103,15 +102,11 @@
 
 + (NSArray *)eventsOnDate:(NSDate*)date
 {
-	
-    NSDate *eventStartMidnight = [PMDate midnightOfDate:date];
-    NSDateComponents *oneDay = [[[NSDateComponents alloc] init]autorelease]; 
-    [oneDay setDay:1]; 
-    NSDate *eventStartMidnightPlus1d = [[NSCalendar currentCalendar] dateByAddingComponents:oneDay toDate:eventStartMidnight options:0];
-    
+    NSDate *eventStart = [date dateAtMidnight];
+    NSDate *eventEnd   = [eventStart dateAddOneDay];
 	CalCalendarStore *store = [CalCalendarStore defaultCalendarStore];
-	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:eventStartMidnight
-                                                                         endDate:eventStartMidnightPlus1d
+	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:eventStart
+                                                                         endDate:eventEnd  
                                                                        calendars:[store calendars]];
     return [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];
 }
