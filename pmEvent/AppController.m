@@ -42,6 +42,11 @@ static NSUserDefaults *prefs = nil;
     if (self != nil) {
         cal = [[CalController alloc]init];
         alarmMinutes = [NSNumber numberWithInt:5];
+#ifdef DEBUG
+        [defaultEventTitle release];
+        defaultEventTitle = [[defaultEventTitle stringByAppendingString:@" ### Debug Mode ###"]retain];
+        defaultAlarmTitle = [[defaultAlarmTitle stringByAppendingString:@" ### Debug Mode ###"]retain];
+#endif
         alarmFromNow = [alarmFromNowDefault retain];
         [cal setEventTitle:defaultEventTitle];
         [cal setEventUrl:defaultEventUrl];
