@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D06695A313D04475008063F0 /* TransformerNumberBoolValueToString.m in Sources */ = {isa = PBXBuildFile; fileRef = D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */; };
 		D06695AD13D04F9C008063F0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06695AB13D04F9C008063F0 /* MainMenu.xib */; };
+		D06809A913D1E5150009E65A /* DateCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D06809A813D1E5150009E65A /* DateCategory.m */; };
 		D08636F013D03D1E00EA7D50 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
 		D08636FA13D03D1E00EA7D50 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D08636F813D03D1E00EA7D50 /* InfoPlist.strings */; };
 		D08636FD13D03D1E00EA7D50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D08636FC13D03D1E00EA7D50 /* main.m */; };
@@ -17,7 +18,6 @@
 		D086371D13D03D4E00EA7D50 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371513D03D4E00EA7D50 /* AppController.m */; };
 		D086371E13D03D4E00EA7D50 /* CalController.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371713D03D4E00EA7D50 /* CalController.m */; };
 		D086371F13D03D4E00EA7D50 /* CalMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371913D03D4E00EA7D50 /* CalMenu.m */; };
-		D086372013D03D4E00EA7D50 /* PMDate.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371B13D03D4E00EA7D50 /* PMDate.m */; };
 		D086372313D03D7900EA7D50 /* ical.png in Resources */ = {isa = PBXBuildFile; fileRef = D086372113D03D7900EA7D50 /* ical.png */; };
 		D086372413D03D7900EA7D50 /* ical.icns in Resources */ = {isa = PBXBuildFile; fileRef = D086372213D03D7900EA7D50 /* ical.icns */; };
 		D086372813D03D9000EA7D50 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D086372613D03D9000EA7D50 /* License.txt */; };
@@ -28,6 +28,8 @@
 		D06695A113D04475008063F0 /* TransformerNumberBoolValueToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformerNumberBoolValueToString.h; sourceTree = "<group>"; };
 		D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformerNumberBoolValueToString.m; sourceTree = "<group>"; };
 		D06695AC13D04F9C008063F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D06809A713D1E5140009E65A /* DateCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCategory.h; sourceTree = "<group>"; };
+		D06809A813D1E5150009E65A /* DateCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCategory.m; sourceTree = "<group>"; };
 		D08636EB13D03D1E00EA7D50 /* pmEvent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pmEvent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08636EF13D03D1E00EA7D50 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D08636F213D03D1E00EA7D50 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -46,8 +48,6 @@
 		D086371713D03D4E00EA7D50 /* CalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalController.m; sourceTree = "<group>"; };
 		D086371813D03D4E00EA7D50 /* CalMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalMenu.h; sourceTree = "<group>"; };
 		D086371913D03D4E00EA7D50 /* CalMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalMenu.m; sourceTree = "<group>"; };
-		D086371A13D03D4E00EA7D50 /* PMDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMDate.h; sourceTree = "<group>"; };
-		D086371B13D03D4E00EA7D50 /* PMDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMDate.m; sourceTree = "<group>"; };
 		D086372113D03D7900EA7D50 /* ical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ical.png; sourceTree = "<group>"; };
 		D086372213D03D7900EA7D50 /* ical.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ical.icns; sourceTree = "<group>"; };
 		D086372613D03D9000EA7D50 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
@@ -117,8 +117,8 @@
 				D086371713D03D4E00EA7D50 /* CalController.m */,
 				D086371813D03D4E00EA7D50 /* CalMenu.h */,
 				D086371913D03D4E00EA7D50 /* CalMenu.m */,
-				D086371A13D03D4E00EA7D50 /* PMDate.h */,
-				D086371B13D03D4E00EA7D50 /* PMDate.m */,
+				D06809A713D1E5140009E65A /* DateCategory.h */,
+				D06809A813D1E5150009E65A /* DateCategory.m */,
 				D06695AB13D04F9C008063F0 /* MainMenu.xib */,
 				D08636F613D03D1E00EA7D50 /* Supporting Files */,
 			);
@@ -211,8 +211,8 @@
 				D086371D13D03D4E00EA7D50 /* AppController.m in Sources */,
 				D086371E13D03D4E00EA7D50 /* CalController.m in Sources */,
 				D086371F13D03D4E00EA7D50 /* CalMenu.m in Sources */,
-				D086372013D03D4E00EA7D50 /* PMDate.m in Sources */,
 				D06695A313D04475008063F0 /* TransformerNumberBoolValueToString.m in Sources */,
+				D06809A913D1E5150009E65A /* DateCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

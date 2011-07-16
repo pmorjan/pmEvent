@@ -7,11 +7,11 @@
 #import "AppController.h"
 #import "CalMenu.h"
 #import "AlarmMenu.h"
-#import "PMDate.h"
+#import "DateCategory.h"
 
 @interface AppController (Private)
 - (void)p_updateEventDates:(id)userInfo;
-- (void)p_startTimerIfNeeded;
+- (void)p_startTimer;
 - (void)p_stopTimer;
 - (void)p_statusItemClick:(id)sender;
 - (void)p_eventsChanged:(NSNotification *)notification;
@@ -50,7 +50,7 @@ static NSUserDefaults *prefs = nil;
         alarmFromNow = [alarmFromNowDefault retain];
         [cal setEventTitle:defaultEventTitle];
         [cal setEventUrl:defaultEventUrl];
-		eventStartDate  = [[[PMDate dateZeroSeconds]dateByAddingTimeInterval:600]retain];
+		eventStartDate  = [[[[NSDate date]dateZeroSeconds]dateByAddingTimeInterval:600]retain];
         eventEndDate    = [[eventStartDate dateByAddingTimeInterval:60]retain];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalEventsChangedExternallyNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalEventsChangedNotification object:nil];
@@ -66,7 +66,7 @@ static NSUserDefaults *prefs = nil;
         return;
 
     prefs = [NSUserDefaults standardUserDefaults];
-    alarmFromNowDefault = [[PMDate midnightOfDate:[NSDate distantPast]]dateByAddingTimeInterval:60*10];
+    alarmFromNowDefault = [[[NSDate distantPast]dateAtMidnight]dateByAddingTimeInterval:60*10];
     [alarmFromNowDefault retain];
 }
 
@@ -125,7 +125,7 @@ static NSUserDefaults *prefs = nil;
 
 - (void)windowDidBecomeKey:(NSNotification *)aNotification
 {
-    [self p_startTimerIfNeeded];
+    [self p_startTimer];
     [window makeFirstResponder:textFieldTitle];
 }
 
@@ -197,7 +197,7 @@ static NSUserDefaults *prefs = nil;
         [cbAllDayEvent      setEnabled:NO];
         [popUpAlarm selectItemWithTitle:@"on date"];
         [self alarmPopUpMinutesChanged:nil];
-        [self p_startTimerIfNeeded];
+        [self p_startTimer];
         [window makeFirstResponder:datePickerAlarm];
         [popUpCalendars     setNextKeyView:datePickerAlarm];
         [cal setEventAllDay:[NSNumber numberWithBool:NO]];
@@ -215,9 +215,9 @@ static NSUserDefaults *prefs = nil;
         [window makeFirstResponder:datePickerStart];
         [popUpCalendars     setNextKeyView:datePickerStart];
         [self p_stopTimer];
-        [self setEventStartDate:[PMDate dateZeroSecondsOfDate:self->eventStartDate]];
+        [self setEventStartDate:[eventStartDate dateZeroSeconds]];
     }
-
+    
     if ([cbAllDayEvent state] == NSOnState) {
 		// no time part
         [datePickerStart setDatePickerElements:NSYearMonthDayDatePickerElementFlag];
@@ -244,13 +244,13 @@ static NSUserDefaults *prefs = nil;
 		[eventStartDate release];                                      
 		eventStartDate = [newDate retain];
         
-        if ( ! [[PMDate midnightOfDate:newDate] isEqualToDate:[PMDate midnightOfDate:oldEventStartDate]] ){
+        if ( ! [[newDate dateAtMidnight] isEqualToDate:[oldEventStartDate dateAtMidnight]] ){
 			// this is a new day, need to update events
             [self p_eventsChanged:nil];
 		}
 		
 		if ([cbAllDayEvent state] == NSOffState) {
-			[self setEventEndDate:[eventStartDate dateByAddingTimeInterval:60*60]];
+			[self setEventEndDate:[eventStartDate dateByAddingTimeInterval:0]];
 		}
         [oldEventStartDate release];
     }   
@@ -278,11 +278,10 @@ static NSUserDefaults *prefs = nil;
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar]
                                         components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
                                         fromDate:alarmFromNow];
-
     [self setEventStartDate:[[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:[NSDate date] options:0]];
 }
 
-- (void)p_startTimerIfNeeded
+- (void)p_startTimer
 {
     if ([cbQuickAlarm state] == NSOnState) {
         if (uptimeTimer == nil) {
