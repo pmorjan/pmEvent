@@ -207,7 +207,7 @@ static NSUserDefaults *prefs = nil;
     return [NSDate date];
 }
 
-- (NSString *)eventStartDate 
+- (NSDate *)eventStartDate 
 {
     return [[eventStartDate retain] autorelease];
 }

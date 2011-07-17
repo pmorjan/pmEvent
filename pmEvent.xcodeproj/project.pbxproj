@@ -22,6 +22,7 @@
 		D086372413D03D7900EA7D50 /* ical.icns in Resources */ = {isa = PBXBuildFile; fileRef = D086372213D03D7900EA7D50 /* ical.icns */; };
 		D086372813D03D9000EA7D50 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D086372613D03D9000EA7D50 /* License.txt */; };
 		D086372A13D03DC200EA7D50 /* CalendarStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D086372913D03DC200EA7D50 /* CalendarStore.framework */; };
+		D0DFF60413D3180E001F1E14 /* README in Resources */ = {isa = PBXBuildFile; fileRef = D0DFF60313D3180E001F1E14 /* README */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		D086372213D03D7900EA7D50 /* ical.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ical.icns; sourceTree = "<group>"; };
 		D086372613D03D9000EA7D50 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		D086372913D03DC200EA7D50 /* CalendarStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CalendarStore.framework; path = System/Library/Frameworks/CalendarStore.framework; sourceTree = SDKROOT; };
+		D0DFF60313D3180E001F1E14 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				D08636FB13D03D1E00EA7D50 /* pmEvent-Prefix.pch */,
 				D08636FC13D03D1E00EA7D50 /* main.m */,
 				D08636FE13D03D1E00EA7D50 /* Credits.rtf */,
+				D0DFF60313D3180E001F1E14 /* README */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				D086372413D03D7900EA7D50 /* ical.icns in Resources */,
 				D086372813D03D9000EA7D50 /* License.txt in Resources */,
 				D06695AD13D04F9C008063F0 /* MainMenu.xib in Resources */,
+				D0DFF60413D3180E001F1E14 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
