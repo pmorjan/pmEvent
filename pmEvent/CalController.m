@@ -55,10 +55,13 @@
 
     newEvent.title      = eventTitle;
     newEvent.notes      = eventNotes;
-    newEvent.url        = [[[NSURL URLWithString:eventUrl]retain]autorelease];
     newEvent.calendar   = eventCalendar;
     newEvent.isAllDay   = [eventAllDay boolValue];
 
+    if (eventUrl != nil) {
+        newEvent.url = [[[NSURL URLWithString:eventUrl]retain]autorelease];        
+    }
+    
     /* remove default alarms */
     if ([newEvent hasAlarm]) {
         [newEvent removeAlarms:[newEvent alarms]];
@@ -89,7 +92,7 @@
     }
 }
 
--(void)deleteEvent:(CalEvent *)evt
++ (void)deleteEvent:(CalEvent *)evt
 {
     NSError *err;
     if ([[CalCalendarStore defaultCalendarStore] removeEvent:evt span:CalSpanThisEvent error:&err] != YES) {

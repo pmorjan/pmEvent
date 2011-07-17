@@ -18,17 +18,18 @@
     NSNumber    *alarmRelativeTrigger;
 }
 
-@property(readwrite, copy)   NSString *eventTitle;
-@property(readwrite, copy)   NSString *eventNotes;
-@property(readwrite, copy)   NSString *eventUrl;
-@property(readwrite, copy)   NSNumber *eventAllDay;
-@property(readwrite, retain) CalCalendar *eventCalendar;
+@property(copy)   NSString *eventTitle;
+@property(copy)   NSString *eventNotes;
+@property(copy)   NSString *eventUrl;
+@property(copy)   NSNumber *eventAllDay;
+@property(retain) CalCalendar *eventCalendar;
 
-@property(readwrite, retain) NSDate   *alarmAbsoluteTrigger;
-@property(readwrite, copy)   NSNumber *alarmRelativeTrigger;
+@property(retain) NSDate   *alarmAbsoluteTrigger;
+@property(copy)   NSNumber *alarmRelativeTrigger;
 
-- (void)deleteEvent:(CalEvent *)event;
-- (void)createEventWithStart:(NSDate*)start end:(NSDate*)end;
++ (void)deleteEvent:(CalEvent *)event;
 + (NSArray *)eventsOnDate:(NSDate*)date;
+
+- (void)createEventWithStart:(NSDate*)start end:(NSDate*)end;
 
 @end

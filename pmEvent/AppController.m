@@ -10,7 +10,7 @@
 #import "DateCategory.h"
 
 @interface AppController (Private)
-- (void)p_updateEventDates:(id)userInfo;
+- (void)p_updateAlarmDates:(id)userInfo;
 - (void)p_startTimer;
 - (void)p_stopTimer;
 - (void)p_statusItemClick:(id)sender;
@@ -24,34 +24,27 @@
 @synthesize window;
 @synthesize alarmMinutes;
 @synthesize alarmFromNow;
-@synthesize eventStartDate;
 @synthesize eventEndDate;
+@synthesize alarmDate;
+@synthesize eventTitle, eventNotes, eventUrl;
 
-static NSDate *alarmFromNowDefault;
-static NSString *defaultEventTitle = @"Event";
-static NSString *defaultAlarmTitle = @"Alarm";
-static NSString *defaultEventUrl   = @"Testing Branch";
 static NSUserDefaults *prefs = nil;
 
 #pragma mark -
 #pragma mark init
 
-- (id) init
+- (id)init
 {
     self = [super init];
     if (self != nil) {
-        cal = [[CalController alloc]init];
-        alarmMinutes = [NSNumber numberWithInt:5];
+        alarmMinutes = [[NSNumber numberWithInt:5]retain];
 #ifdef DEBUG
-        [defaultEventTitle release];
-        defaultEventTitle = [[defaultEventTitle stringByAppendingString:@" ### Debug Mode ###"]retain];
-        defaultAlarmTitle = [[defaultAlarmTitle stringByAppendingString:@" ### Debug Mode ###"]retain];
+        eventNotes = @"### Debug Mode ###";
 #endif
-        alarmFromNow = [alarmFromNowDefault retain];
-        [cal setEventTitle:defaultEventTitle];
-        [cal setEventUrl:defaultEventUrl];
-		eventStartDate  = [[[[NSDate date]dateZeroSeconds]dateByAddingTimeInterval:600]retain];
-        eventEndDate    = [[eventStartDate dateByAddingTimeInterval:60]retain];
+        alarmFromNow    = [[[[NSDate distantPast]dateAtMidnight]dateByAddingTimeInterval:60*10]retain];
+		eventStartDate  = [[[[NSDate date]dateZeroSeconds]dateByAddingTimeInterval:60*10]retain];
+        eventEndDate    = [[eventStartDate dateByAddingTimeInterval:60*60]retain];
+        alarmDate       = [[NSDate date]retain];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalEventsChangedExternallyNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalEventsChangedNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalCalendarsChangedExternallyNotification object:nil];
@@ -64,10 +57,8 @@ static NSUserDefaults *prefs = nil;
 {
     if (self != [AppController class])
         return;
-
+    
     prefs = [NSUserDefaults standardUserDefaults];
-    alarmFromNowDefault = [[[NSDate distantPast]dateAtMidnight]dateByAddingTimeInterval:60*10];
-    [alarmFromNowDefault retain];
 }
 
 - (void)awakeFromNib
@@ -87,19 +78,9 @@ static NSUserDefaults *prefs = nil;
             [popUpCalendars selectItemWithTitle:calMenuTitle];
         }
     }
+    [popUpAlarm setMenu:[AlarmMenu alarmMenuWithTitle:@""]];
 
-    [popUpAlarm setMenu:[AlarmMenu alarmMenuWithTitle:@"Alarm"]];
-
-    NSLocale * locale = [[[NSLocale alloc] initWithLocaleIdentifier:@"de_DE"]autorelease];
-    [datePickerAlarm    setLocale:locale];
-    [datePickerStart    setLocale:locale];
-    [datePickerStart2   setLocale:locale];
-    [datePickerEnd      setLocale:locale];
-    [alarmMinutesField  setHidden:YES];
-
-    [cbQuickAlarm setState:[prefs integerForKey:@"cbQuickAlarmState"]];
-    [self updateState:nil];
-        
+    [window makeFirstResponder:datePickerAlarmInput];        
     [NSApp activateIgnoringOtherApps:YES];
     [window makeKeyAndOrderFront:self];
 }
@@ -119,14 +100,14 @@ static NSUserDefaults *prefs = nil;
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
     [prefs setObject:[[popUpCalendars selectedItem]title] forKey:@"calMenuTitle"];
-    [prefs setObject:[NSNumber numberWithInteger:[cbQuickAlarm state]] forKey:@"cbQuickAlarmState"];
     [prefs synchronize];
 }
 
 - (void)windowDidBecomeKey:(NSNotification *)aNotification
 {
     [self p_startTimer];
-    [window makeFirstResponder:textFieldTitle];
+    updateEventEndTime = YES;
+    [window makeFirstResponder:datePickerAlarmInput];        
 }
 
 - (void)windowDidResignKey:(NSNotification *)aNotification
@@ -139,36 +120,49 @@ static NSUserDefaults *prefs = nil;
 
 - (IBAction)createEvent:(id)sender
 {
-    [cal setEventCalendar:[[popUpCalendars selectedItem]representedObject]];
-
+    CalController *cal = [[CalController alloc]init];
+    cal.eventCalendar = [[popUpCalendars selectedItem]representedObject];
+    cal.eventTitle    = eventTitle == nil ? @"NoTitle" : eventTitle;
+    cal.eventNotes    = eventNotes;
+    cal.eventUrl      = eventUrl;
+    
     NSNumber *obj = [[popUpAlarm selectedItem]representedObject];
     if (obj == nil) {
         // no alarm
-        [cal setAlarmAbsoluteTrigger:nil];
-        [cal setAlarmRelativeTrigger:nil];
     } else if ([obj intValue] == 0) {
         // on date
-        [cal setAlarmRelativeTrigger:nil];
-        [cal setAlarmAbsoluteTrigger:eventStartDate];
+        cal.alarmAbsoluteTrigger = eventStartDate;
     } else {
         // before
-        [cal setAlarmAbsoluteTrigger:nil];
-        [cal setAlarmRelativeTrigger:[NSNumber numberWithInt:[alarmMinutes intValue] * [obj intValue]]];
+        cal.alarmRelativeTrigger = [NSNumber numberWithInt:[alarmMinutes intValue] * [obj intValue]];
     }
     [cal createEventWithStart:eventStartDate end:eventEndDate];
+    [cal release];
+}
+
+- (IBAction)createAlarm:(id)sender
+{
+    CalController *cal = [[CalController alloc]init];
+    cal.eventCalendar = [[popUpCalendars selectedItem]representedObject];
+    cal.eventTitle    = eventTitle == nil ? @"NoTitle" : self.eventTitle;
+    cal.eventNotes    = eventNotes;
+    cal.eventUrl      = eventUrl;
+    cal.alarmAbsoluteTrigger = alarmDate;
+    [cal createEventWithStart:alarmDate end:alarmDate];
+    [cal release];
 }
 
 - (IBAction)deleteEvent:(id)sender
 {
     CalEvent *calEvent = [[eventArrayController selectedObjects]objectAtIndex:0];
-    [cal deleteEvent:calEvent];
+    [CalController deleteEvent:calEvent];
 }
 
-- (IBAction)launchIcal:(id)sender {
+- (IBAction)launchIcal:(id)sender 
+{
     NSWorkspace *ws = [[[NSWorkspace alloc]init]autorelease];
     [ws launchApplication:@"iCal"];
 }
-
 
 - (IBAction)alarmPopUpMinutesChanged:(id)sender
 {
@@ -183,49 +177,21 @@ static NSUserDefaults *prefs = nil;
     }
 }
 
-- (IBAction)updateState:(id)sender
+- (IBAction)cbAllDayEvent:(id)sender
 {
-    if ([cbQuickAlarm state] == NSOnState) {
-        if ([[cal eventTitle] isEqualToString:defaultEventTitle]) {
-            [cal setEventTitle:defaultAlarmTitle];
-        }
-        [datePickerStart    setEnabled:NO];
-        [datePickerStart2   setEnabled:NO];
-        [datePickerEnd      setEnabled:NO];
-        [datePickerAlarm    setEnabled:YES];
-        [comboBoxAlarm      setEnabled:NO];
-        [cbAllDayEvent      setEnabled:NO];
-        [popUpAlarm selectItemWithTitle:@"on date"];
-        [self alarmPopUpMinutesChanged:nil];
-        [self p_startTimer];
-        [window makeFirstResponder:datePickerAlarm];
-        [popUpCalendars     setNextKeyView:datePickerAlarm];
-        [cal setEventAllDay:[NSNumber numberWithBool:NO]];
-
-    } else {
-        if ([[cal eventTitle] isEqualToString:defaultAlarmTitle]) {
-            [cal setEventTitle:defaultEventTitle];
-        }
-        [datePickerStart    setEnabled:YES];
-        [datePickerStart2   setEnabled:YES];
-        [datePickerEnd      setEnabled:YES];
-        [datePickerAlarm    setEnabled:NO];
-        [comboBoxAlarm      setEnabled:YES];
-        [cbAllDayEvent      setEnabled:YES];
-        [window makeFirstResponder:datePickerStart];
-        [popUpCalendars     setNextKeyView:datePickerStart];
-        [self p_stopTimer];
-        [self setEventStartDate:[eventStartDate dateZeroSeconds]];
-    }
-    
     if ([cbAllDayEvent state] == NSOnState) {
 		// no time part
-        [datePickerStart setDatePickerElements:NSYearMonthDayDatePickerElementFlag];
-        [datePickerEnd   setDatePickerElements:NSYearMonthDayDatePickerElementFlag];
+        [datePickerEventStart setDatePickerElements:NSYearMonthDayDatePickerElementFlag];
+        [datePickerEventEnd   setDatePickerElements:NSYearMonthDayDatePickerElementFlag];
     } else {
-        [datePickerStart setDatePickerElements:NSYearMonthDayDatePickerElementFlag | NSHourMinuteSecondDatePickerElementFlag];
-        [datePickerEnd   setDatePickerElements:NSYearMonthDayDatePickerElementFlag | NSHourMinuteSecondDatePickerElementFlag];
+        [datePickerEventStart setDatePickerElements:NSYearMonthDayDatePickerElementFlag | NSHourMinuteSecondDatePickerElementFlag];
+        [datePickerEventEnd   setDatePickerElements:NSYearMonthDayDatePickerElementFlag | NSHourMinuteSecondDatePickerElementFlag];
     }
+}
+
+- (IBAction)eventEndTimeChanged:(id)sender 
+{
+    updateEventEndTime = NO;
 }
 
 - (IBAction)quit:(id)sender
@@ -236,36 +202,46 @@ static NSUserDefaults *prefs = nil;
 #pragma mark -
 #pragma mark Properties
 
-- (void)setEventStartDate:(NSDate *)newDate {   
+- (NSDate *)currentDate 
+{
+    return [NSDate date];
+}
+
+- (NSString *)eventStartDate 
+{
+    return [[eventStartDate retain] autorelease];
+}
+
+- (void)setEventStartDate:(NSDate *)newDate 
+{
 
     if (eventStartDate != newDate) {                             		
             
-        NSDate *oldEventStartDate = [eventStartDate copy];
+        NSDate *oldStartDate = [eventStartDate copy];
 		[eventStartDate release];                                      
 		eventStartDate = [newDate retain];
         
-        if ( ! [[newDate dateAtMidnight] isEqualToDate:[oldEventStartDate dateAtMidnight]] ){
+        if ( ! [[newDate dateAtMidnight] isEqualToDate:[oldStartDate dateAtMidnight]] ){
 			// this is a new day, need to update events
             [self p_eventsChanged:nil];
 		}
 		
-		if ([cbAllDayEvent state] == NSOffState) {
-			[self setEventEndDate:[eventStartDate dateByAddingTimeInterval:0]];
+		if (updateEventEndTime && [cbAllDayEvent state] == NSOffState) {
+			[self setEventEndDate:[eventStartDate dateByAddingTimeInterval:60*60]];
 		}
-        [oldEventStartDate release];
+        [oldStartDate release];
     }   
 }
 
 #pragma mark -
 #pragma mark public methods
 
--(NSArray*) events {
+- (NSArray*) events {
 	return [CalController eventsOnDate:eventStartDate];
 }
 	 
 #pragma mark -
 #pragma mark private methods
-
 
 - (void) p_eventsChanged:(NSNotification *)notification
 {
@@ -273,24 +249,24 @@ static NSUserDefaults *prefs = nil;
     [self didChangeValueForKey:@"events"];
 }
 
-- (void)p_updateEventDates:(id)userInfo
+- (void)p_updateAlarmDate:(id)userInfo
 {
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar]
                                         components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
                                         fromDate:alarmFromNow];
-    [self setEventStartDate:[[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:[NSDate date] options:0]];
+    [self setAlarmDate:[[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:[NSDate date] options:0]];
 }
 
 - (void)p_startTimer
 {
-    if ([cbQuickAlarm state] == NSOnState) {
-        if (uptimeTimer == nil) {
-            DLog(@"starting alarmTimer");
-            uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                           target:self selector:@selector(p_updateEventDates:)
-                                                         userInfo:nil repeats:YES];
-            [uptimeTimer retain];
-        }
+    if (uptimeTimer == nil) {
+        DLog(@"starting alarmTimer");
+        uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                       target:self 
+                                                     selector:@selector(p_updateAlarmDate:)
+                                                     userInfo:nil 
+                                                      repeats:YES];
+        [uptimeTimer retain];
     }
 }
 
@@ -322,7 +298,6 @@ static NSUserDefaults *prefs = nil;
 - (void) dealloc
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [cal dealloc];
     [super dealloc];
 }
 
