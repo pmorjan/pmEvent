@@ -79,8 +79,6 @@ static NSUserDefaults *prefs = nil;
         }
     }
     [popUpAlarm setMenu:[AlarmMenu alarmMenuWithTitle:@""]];
-
-    [window makeFirstResponder:datePickerAlarmInput];        
     [NSApp activateIgnoringOtherApps:YES];
     [window makeKeyAndOrderFront:self];
 }
@@ -107,7 +105,7 @@ static NSUserDefaults *prefs = nil;
 {
     [self p_startTimer];
     updateEventEndTime = YES;
-    [window makeFirstResponder:datePickerAlarmInput];        
+    [window makeFirstResponder:datePickerAlarmInput];
 }
 
 - (void)windowDidResignKey:(NSNotification *)aNotification

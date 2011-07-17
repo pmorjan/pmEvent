@@ -14,12 +14,11 @@
 }
 
 - (NSDate *)dateAtMidnight 
-{
-    // TODO: 
-    NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]autorelease];
-    NSDateComponents *components = [gregorian components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+{   
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
                                                 fromDate:self];
-    return [gregorian dateFromComponents:components];
+    return [calendar dateFromComponents:components];
 }
 
 - (NSDate *)dateAddOneDay 
@@ -28,4 +27,5 @@
     [components setDay:1]; 
     return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
 }
+
 @end
