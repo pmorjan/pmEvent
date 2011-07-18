@@ -225,7 +225,7 @@ static NSUserDefaults *prefs = nil;
 		}
 		
 		if (updateEventEndTime && [cbAllDayEvent state] == NSOffState) {
-			[self setEventEndDate:[eventStartDate dateByAddingTimeInterval:60*60]];
+			self.eventEndDate = [eventStartDate dateByAddingTimeInterval:60*60];
 		}
         [oldStartDate release];
     }   
@@ -252,7 +252,7 @@ static NSUserDefaults *prefs = nil;
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar]
                                         components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
                                         fromDate:alarmFromNow];
-    [self setAlarmDate:[[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:[NSDate date] options:0]];
+    self.alarmDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:[NSDate date] options:0];
 }
 
 - (void)p_startTimer
