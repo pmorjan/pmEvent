@@ -63,6 +63,13 @@ static NSUserDefaults *prefs = nil;
 
 - (void)awakeFromNib
 {
+    if (! [[[NSCalendar currentCalendar]calendarIdentifier] isEqualToString:NSGregorianCalendar]) {
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Calendar not supported" defaultButton:nil alternateButton:nil
+                                           otherButton:nil informativeTextWithFormat:@"Gregorian Calendar only!"];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+        [alert runModal];
+        [NSApp terminate:nil];
+    }
     statusItem = [[[NSStatusBar systemStatusBar]statusItemWithLength:-1]retain];
     [statusItem setImage:[NSImage imageNamed:@"ical.png"]];
     [statusItem setTarget:self];
@@ -216,7 +223,8 @@ static NSUserDefaults *prefs = nil;
     if (eventStartDate != newDate) {                             		
             
         NSDate *oldStartDate = [eventStartDate copy];
-		[eventStartDate release];                                      
+		[eventStartDate release];
+        eventStartDate = nil;
 		eventStartDate = [newDate retain];
         
         if ( ! [[newDate dateAtMidnight] isEqualToDate:[oldStartDate dateAtMidnight]] ){
@@ -259,11 +267,8 @@ static NSUserDefaults *prefs = nil;
 {
     if (uptimeTimer == nil) {
         DLog(@"starting alarmTimer");
-        uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                       target:self 
-                                                     selector:@selector(p_updateAlarmDate:)
-                                                     userInfo:nil 
-                                                      repeats:YES];
+        uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(p_updateAlarmDate:)
+                                                     userInfo:nil repeats:YES];
         [uptimeTimer retain];
     }
 }
@@ -295,6 +300,11 @@ static NSUserDefaults *prefs = nil;
 #pragma mark -
 - (void) dealloc
 {
+    [alarmMinutes release];
+    [alarmFromNow release];
+    [eventStartDate release];
+    [eventEndDate release];
+    [alarmFromNow release];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }

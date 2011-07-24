@@ -9,5 +9,5 @@
 @interface NSDate (DateCategory)
 - (NSDate *)dateZeroSeconds;
 - (NSDate *)dateAtMidnight;
-- (NSDate *)dateAddOneDay;
+- (NSDate *)dateByAddingOneDay;
 @end

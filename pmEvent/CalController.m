@@ -39,7 +39,7 @@
 
     if ([eventAllDay boolValue]) {
         newEvent.startDate = [startDate dateAtMidnight];
-        newEvent.endDate   = [[endDate dateAtMidnight] dateAddOneDay];
+        newEvent.endDate   = [[endDate dateAtMidnight] dateByAddingOneDay];
     } else {
         newEvent.startDate  = startDate;
         newEvent.endDate    = endDate;
@@ -106,21 +106,12 @@
 + (NSArray *)eventsOnDate:(NSDate*)date
 {
     NSDate *eventStart = [date dateAtMidnight];
-    NSDate *eventEnd   = [eventStart dateAddOneDay];
+    NSDate *eventEnd   = [eventStart dateByAddingOneDay];
 	CalCalendarStore *store = [CalCalendarStore defaultCalendarStore];
 	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:eventStart
                                                                          endDate:eventEnd  
                                                                        calendars:[store calendars]];
     return [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];
-}
-
-#pragma mark dealloc
-
-- (void)dealloc
-{
-    [alarmAbsoluteTrigger release];
-    [eventCalendar release];
-    [super dealloc];
 }
 
 @end

@@ -9,23 +9,26 @@
 
 - (NSDate *)dateZeroSeconds 
 {
-    NSDateComponents *dateComponents = [[NSCalendar currentCalendar] components:NSSecondCalendarUnit fromDate:self];
-    return [self dateByAddingTimeInterval:(-1 * [dateComponents second])];
+    NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]autorelease];
+    NSUInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:self];
+    return [gregorian dateFromComponents:components];
 }
 
 - (NSDate *)dateAtMidnight 
 {   
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
-                                                fromDate:self];
-    return [calendar dateFromComponents:components];
+    NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]autorelease];
+    NSUInteger flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSDateComponents *components = [gregorian components:flags fromDate:self];
+    return [gregorian dateFromComponents:components];
 }
 
-- (NSDate *)dateAddOneDay 
+- (NSDate *)dateByAddingOneDay
 {
+    NSCalendar *gregorian = [[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]autorelease];
     NSDateComponents *components = [[[NSDateComponents alloc] init]autorelease]; 
     [components setDay:1]; 
-    return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
+    return [gregorian dateByAddingComponents:components toDate:self options:0];
 }
 
 @end
