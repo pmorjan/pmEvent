@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D018E23313DDF0F000D3FE20 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D018E23113DDF0F000D3FE20 /* README.md */; };
+		D018E23413DDF0F000D3FE20 /* ScreenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = D018E23213DDF0F000D3FE20 /* ScreenShot.png */; };
 		D06695A313D04475008063F0 /* TransformerNumberBoolValueToString.m in Sources */ = {isa = PBXBuildFile; fileRef = D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */; };
 		D06695AD13D04F9C008063F0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06695AB13D04F9C008063F0 /* MainMenu.xib */; };
 		D06809A913D1E5150009E65A /* DateCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D06809A813D1E5150009E65A /* DateCategory.m */; };
@@ -22,10 +24,11 @@
 		D086372413D03D7900EA7D50 /* ical.icns in Resources */ = {isa = PBXBuildFile; fileRef = D086372213D03D7900EA7D50 /* ical.icns */; };
 		D086372813D03D9000EA7D50 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D086372613D03D9000EA7D50 /* License.txt */; };
 		D086372A13D03DC200EA7D50 /* CalendarStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D086372913D03DC200EA7D50 /* CalendarStore.framework */; };
-		D0DFF60413D3180E001F1E14 /* README in Resources */ = {isa = PBXBuildFile; fileRef = D0DFF60313D3180E001F1E14 /* README */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D018E23113DDF0F000D3FE20 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		D018E23213DDF0F000D3FE20 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScreenShot.png; path = ../ScreenShot.png; sourceTree = "<group>"; };
 		D06695A113D04475008063F0 /* TransformerNumberBoolValueToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformerNumberBoolValueToString.h; sourceTree = "<group>"; };
 		D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformerNumberBoolValueToString.m; sourceTree = "<group>"; };
 		D06695AC13D04F9C008063F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -53,7 +56,6 @@
 		D086372213D03D7900EA7D50 /* ical.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ical.icns; sourceTree = "<group>"; };
 		D086372613D03D9000EA7D50 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		D086372913D03DC200EA7D50 /* CalendarStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CalendarStore.framework; path = System/Library/Frameworks/CalendarStore.framework; sourceTree = SDKROOT; };
-		D0DFF60313D3180E001F1E14 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +140,8 @@
 				D08636FB13D03D1E00EA7D50 /* pmEvent-Prefix.pch */,
 				D08636FC13D03D1E00EA7D50 /* main.m */,
 				D08636FE13D03D1E00EA7D50 /* Credits.rtf */,
-				D0DFF60313D3180E001F1E14 /* README */,
+				D018E23113DDF0F000D3FE20 /* README.md */,
+				D018E23213DDF0F000D3FE20 /* ScreenShot.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -199,7 +202,8 @@
 				D086372413D03D7900EA7D50 /* ical.icns in Resources */,
 				D086372813D03D9000EA7D50 /* License.txt in Resources */,
 				D06695AD13D04F9C008063F0 /* MainMenu.xib in Resources */,
-				D0DFF60413D3180E001F1E14 /* README in Resources */,
+				D018E23313DDF0F000D3FE20 /* README.md in Resources */,
+				D018E23413DDF0F000D3FE20 /* ScreenShot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
