@@ -63,13 +63,6 @@ static NSUserDefaults *prefs = nil;
 
 - (void)awakeFromNib
 {
-    if (! [[[NSCalendar currentCalendar]calendarIdentifier] isEqualToString:NSGregorianCalendar]) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"Calendar not supported" defaultButton:nil alternateButton:nil
-                                           otherButton:nil informativeTextWithFormat:@"Gregorian Calendar only!"];
-        [alert setAlertStyle:NSCriticalAlertStyle];
-        [alert runModal];
-        [NSApp terminate:nil];
-    }
     statusItem = [[[NSStatusBar systemStatusBar]statusItemWithLength:-1]retain];
     [statusItem setImage:[NSImage imageNamed:@"ical.png"]];
     [statusItem setTarget:self];

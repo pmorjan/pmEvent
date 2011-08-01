@@ -111,7 +111,8 @@
 	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:eventStart
                                                                          endDate:eventEnd  
                                                                        calendars:[store calendars]];
-    return [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];
+    NSArray *array = [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];
+    return array;
 }
 
 @end
