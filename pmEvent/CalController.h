@@ -21,7 +21,7 @@
 @property(copy)   NSString *eventUrl;
 @property(copy)   NSNumber *eventAllDay;
 @property(retain) CalCalendar *eventCalendar;
-@property(retain) NSDate   *alarmAbsoluteTrigger;
+@property(copy)   NSDate   *alarmAbsoluteTrigger;
 @property(copy)   NSNumber *alarmRelativeTrigger;
 
 + (void)deleteEvent:(CalEvent *)event;

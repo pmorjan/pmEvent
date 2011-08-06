@@ -67,7 +67,7 @@
 {
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar]
                                         components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
-                                        fromDate:alarmFromNow];
+                                        fromDate:self.alarmFromNow];
     self.alarmDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:[NSDate date] options:0];
 }
 

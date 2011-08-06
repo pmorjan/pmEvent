@@ -27,16 +27,16 @@
     Model       *model;
 }
 
-@property (copy)   NSNumber *alarmMinutes;
-@property (readonly, retain) NSDate *currentDate;
-@property (retain) NSDate *eventStartDate;
-@property (retain) NSDate *eventEndDate;
+@property (copy) NSNumber *alarmMinutes;
+@property (readonly, copy) NSDate *currentDate;
+@property (copy) NSDate *eventStartDate;
+@property (copy) NSDate *eventEndDate;
 @property (nonatomic, retain) Model *model;
 
 - (IBAction)alarmPopUpMinutesChanged:(id)sender;
 - (IBAction)eventEndTimeChanged:(id)sender;
 - (IBAction)createEvent:(id)sender;
 - (IBAction)deleteEvent:(id)sender;
-- (NSArray*) events;
+- (NSArray*)events;
 
 @end

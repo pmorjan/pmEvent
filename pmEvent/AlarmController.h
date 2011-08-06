@@ -15,8 +15,8 @@
     Model    *model;
 }
 
-@property (copy)   NSDate *alarmFromNow;
-@property (retain) NSDate *alarmDate;
+@property (copy) NSDate *alarmFromNow;
+@property (copy) NSDate *alarmDate;
 @property (nonatomic, retain) Model *model;
 
 - (IBAction)createAlarm:(id)sender;
