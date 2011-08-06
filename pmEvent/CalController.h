@@ -7,13 +7,11 @@
 
 @interface CalController : NSObject {
 
-    
     NSString    *eventTitle;
     NSString    *eventNotes;
     NSString    *eventUrl;
     NSNumber    *eventAllDay;
     CalCalendar *eventCalendar;
-    
     NSDate      *alarmAbsoluteTrigger;
     NSNumber    *alarmRelativeTrigger;
 }
@@ -23,7 +21,6 @@
 @property(copy)   NSString *eventUrl;
 @property(copy)   NSNumber *eventAllDay;
 @property(retain) CalCalendar *eventCalendar;
-
 @property(retain) NSDate   *alarmAbsoluteTrigger;
 @property(copy)   NSNumber *alarmRelativeTrigger;
 

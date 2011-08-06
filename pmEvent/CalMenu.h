@@ -6,7 +6,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface CalMenu : NSMenu 
+@interface CalMenu : NSMenu
 {
 }
 

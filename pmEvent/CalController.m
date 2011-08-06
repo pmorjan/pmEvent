@@ -59,9 +59,9 @@
     newEvent.isAllDay   = [eventAllDay boolValue];
 
     if (eventUrl != nil) {
-        newEvent.url = [[[NSURL URLWithString:eventUrl]retain]autorelease];        
+        newEvent.url = [[[NSURL URLWithString:eventUrl]retain]autorelease];
     }
-    
+
     /* remove default alarms */
     if ([newEvent hasAlarm]) {
         [newEvent removeAlarms:[newEvent alarms]];
@@ -109,7 +109,7 @@
     NSDate *eventEnd   = [eventStart dateByAddingOneDay];
 	CalCalendarStore *store = [CalCalendarStore defaultCalendarStore];
 	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:eventStart
-                                                                         endDate:eventEnd  
+                                                                         endDate:eventEnd
                                                                        calendars:[store calendars]];
     NSArray *array = [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];
     return array;

@@ -12,48 +12,48 @@
 
 @implementation CalMenu
 
-- (id) initWithTitle:(NSString *)title 
+- (id) initWithTitle:(NSString *)title
 {
     self = [super initWithTitle:title];
     if (self != nil) {
         [self p_updateMenuItems:nil];
 
-        [[NSNotificationCenter defaultCenter] addObserver:self 
-                                                 selector:@selector(p_updateMenuItems:) 
-                                                     name:CalCalendarsChangedExternallyNotification 
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(p_updateMenuItems:)
+                                                     name:CalCalendarsChangedExternallyNotification
                                                    object:nil];
-    } 
+    }
     return self;
 }
 
-+ (id)calMenuWithTitle:(NSString *)title 
++ (id)calMenuWithTitle:(NSString *)title
 {
     return [[[CalMenu alloc]initWithTitle:title]autorelease];
 }
 
-- (void)removeAllItems 
+- (void)removeAllItems
 {
     for (NSMenuItem *item in [self itemArray]) {
         [self removeItem:item];
     }
 }
 
-- (void)p_updateMenuItems:(NSNotification *)notification 
-{    
+- (void)p_updateMenuItems:(NSNotification *)notification
+{
     NSSize imgSize = NSMakeSize(12, 8);
-    
+
     [self setShowsStateColumn:YES];
     [self removeAllItems];
-    
+
 	NSMutableArray *calenders = [NSMutableArray arrayWithArray:[[CalCalendarStore defaultCalendarStore] calendars]];
-    
+
     for (CalCalendar *cal in calenders) {
         if ([cal isEditable] == NO) {
             continue;
         }
-        
+
         NSMenuItem *item = [[NSMenuItem allocWithZone:[NSMenu menuZone]]initWithTitle:cal.title action:nil keyEquivalent:@""];
-        
+
         // create an image
         NSImage *image = [[NSImage alloc] initWithSize:imgSize];
         [image lockFocus];
@@ -62,7 +62,7 @@
         [cal.color set];
         [NSBezierPath fillRect: NSMakeRect(1, 1, imgSize.width -2, imgSize.height -2)];
         [image unlockFocus];
-        
+
         // set item parameters
         [item setRepresentedObject:cal];
         [item setImage:image];
@@ -74,7 +74,7 @@
     }
 }
 
-- (void) dealloc 
+- (void) dealloc
 {
     for (NSMenuItem *item in [self itemArray]){
         item = NULL;
