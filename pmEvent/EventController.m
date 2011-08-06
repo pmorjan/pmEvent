@@ -44,7 +44,7 @@
 {
     CalController *cal = [[CalController alloc]init];
     cal.eventCalendar = model.calendar;
-    cal.eventTitle    = model.eventTitle == nil ? @"NoTitle" : model.eventTitle;
+    cal.eventTitle    = model.eventTitle == nil ? @"Event" : model.eventTitle;
     cal.eventNotes    = model.eventNotes;
     cal.eventUrl      = model.eventUrl;
 
