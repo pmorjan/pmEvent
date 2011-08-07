@@ -95,6 +95,20 @@
 - (IBAction)deleteEvent:(id)sender
 {
     CalEvent *calEvent = [[eventArrayController selectedObjects]objectAtIndex:0];
+    NSInteger dateDiff = [calEvent.endDate pastDaysSinceDate:calEvent.startDate];
+    if (dateDiff > 0) {
+        // Event covers multiple days
+        NSAlert *alert = [[NSAlert alloc]init];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert addButtonWithTitle:@"Delete"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert setMessageText:[NSString stringWithFormat:@"This event covers %ld days.",dateDiff +1]];
+        [alert setInformativeText:@"You can't undo this deletion."];
+        NSInteger i = [alert runModal];
+        [alert release];
+        if (i != NSAlertFirstButtonReturn) 
+            return;
+    }
     [CalController deleteEvent:calEvent];
 }
 

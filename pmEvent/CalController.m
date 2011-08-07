@@ -85,8 +85,8 @@
 
     NSError *err;
     if ([[CalCalendarStore defaultCalendarStore] saveEvent:newEvent span:CalSpanThisEvent error:&err] != YES){
-        NSAlert *alertPanel = [NSAlert alertWithError:err];
-        (void) [alertPanel runModal];
+        NSAlert *alert = [NSAlert alertWithError:err];
+        (void) [alert runModal];
         DLog(@"error:%@", [err localizedDescription]);
         return;
     }
@@ -96,8 +96,8 @@
 {
     NSError *err;
     if ([[CalCalendarStore defaultCalendarStore] removeEvent:evt span:CalSpanThisEvent error:&err] != YES) {
-        NSAlert *alertPanel = [NSAlert alertWithError:err];
-        (void) [alertPanel runModal];
+        NSAlert *alert = [NSAlert alertWithError:err];
+        [alert runModal];
         DLog(@"error:%@", [err localizedDescription]);
         return;
     }

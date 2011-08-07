@@ -10,4 +10,5 @@
 - (NSDate *)dateZeroSeconds;
 - (NSDate *)dateAtMidnight;
 - (NSDate *)dateByAddingOneDay;
+- (NSInteger)pastDaysSinceDate:(NSDate *)aDate;
 @end

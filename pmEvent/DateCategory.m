@@ -26,4 +26,10 @@
     return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
 }
 
+- (NSInteger)pastDaysSinceDate:(NSDate*)aDate
+{
+    return [[[NSCalendar currentCalendar] components:NSDayCalendarUnit 
+                                            fromDate:[aDate dateAtMidnight] 
+                                              toDate:[self dateAtMidnight] options:0]day];
+}
 @end
