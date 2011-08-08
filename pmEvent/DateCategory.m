@@ -28,8 +28,8 @@
 
 - (NSInteger)pastDaysSinceDate:(NSDate*)aDate
 {
-    return [[[NSCalendar currentCalendar] components:NSDayCalendarUnit 
-                                            fromDate:[aDate dateAtMidnight] 
+    return [[[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:[aDate dateAtMidnight]
                                               toDate:[self dateAtMidnight] options:0]day];
 }
+
 @end
