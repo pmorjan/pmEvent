@@ -26,17 +26,19 @@
 		D086372413D03D7900EA7D50 /* ical.icns in Resources */ = {isa = PBXBuildFile; fileRef = D086372213D03D7900EA7D50 /* ical.icns */; };
 		D086372813D03D9000EA7D50 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D086372613D03D9000EA7D50 /* License.txt */; };
 		D086372A13D03DC200EA7D50 /* CalendarStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D086372913D03DC200EA7D50 /* CalendarStore.framework */; };
+		D09C878813F46A8300F63717 /* TableViewEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = D09C878513F46A8300F63717 /* TableViewEvents.m */; };
+		D09C878913F46A8300F63717 /* TextFieldWithURL.m in Sources */ = {isa = PBXBuildFile; fileRef = D09C878713F46A8300F63717 /* TextFieldWithURL.m */; };
 		D0D67F8F13ED32C8004E5A09 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D67F8E13ED32C8004E5A09 /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D018E23113DDF0F000D3FE20 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D018E23213DDF0F000D3FE20 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScreenShot.png; path = ../ScreenShot.png; sourceTree = "<group>"; };
-		D05863A013EC95100083A8A1 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AlarmController.h; sourceTree = "<group>"; };
+		D05863A013EC95100083A8A1 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
 		D05863A113EC95100083A8A1 /* AlarmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmController.m; sourceTree = "<group>"; };
 		D05863A213EC95100083A8A1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D05863A313EC95100083A8A1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D05863A413EC95100083A8A1 /* EventController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = EventController.h; sourceTree = "<group>"; };
+		D05863A413EC95100083A8A1 /* EventController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventController.h; sourceTree = "<group>"; };
 		D05863A513EC95100083A8A1 /* EventController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventController.m; sourceTree = "<group>"; };
 		D06695A113D04475008063F0 /* TransformerNumberBoolValueToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformerNumberBoolValueToString.h; sourceTree = "<group>"; };
 		D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransformerNumberBoolValueToString.m; sourceTree = "<group>"; };
@@ -63,6 +65,10 @@
 		D086372213D03D7900EA7D50 /* ical.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ical.icns; sourceTree = "<group>"; };
 		D086372613D03D9000EA7D50 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		D086372913D03DC200EA7D50 /* CalendarStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CalendarStore.framework; path = System/Library/Frameworks/CalendarStore.framework; sourceTree = SDKROOT; };
+		D09C878413F46A8300F63717 /* TableViewEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewEvents.h; sourceTree = "<group>"; };
+		D09C878513F46A8300F63717 /* TableViewEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewEvents.m; sourceTree = "<group>"; };
+		D09C878613F46A8300F63717 /* TextFieldWithURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldWithURL.h; sourceTree = "<group>"; };
+		D09C878713F46A8300F63717 /* TextFieldWithURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldWithURL.m; sourceTree = "<group>"; };
 		D0D67F8D13ED32C8004E5A09 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		D0D67F8E13ED32C8004E5A09 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +144,10 @@
 				D086371913D03D4E00EA7D50 /* CalMenu.m */,
 				D06809A713D1E5140009E65A /* DateCategory.h */,
 				D06809A813D1E5150009E65A /* DateCategory.m */,
+				D09C878413F46A8300F63717 /* TableViewEvents.h */,
+				D09C878513F46A8300F63717 /* TableViewEvents.m */,
+				D09C878613F46A8300F63717 /* TextFieldWithURL.h */,
+				D09C878713F46A8300F63717 /* TextFieldWithURL.m */,
 				D06695AB13D04F9C008063F0 /* MainMenu.xib */,
 				D08636F613D03D1E00EA7D50 /* Supporting Files */,
 			);
@@ -239,6 +249,8 @@
 				D05863A713EC95100083A8A1 /* AppDelegate.m in Sources */,
 				D05863A813EC95100083A8A1 /* EventController.m in Sources */,
 				D0D67F8F13ED32C8004E5A09 /* Model.m in Sources */,
+				D09C878813F46A8300F63717 /* TableViewEvents.m in Sources */,
+				D09C878913F46A8300F63717 /* TextFieldWithURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
