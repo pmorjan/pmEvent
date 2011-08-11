@@ -7,6 +7,7 @@
 
 @interface TableViewEvents : NSTableView
 {
-    IBOutlet NSPopover          *popover;
+    IBOutlet NSPopover *popover;
 }
+
 @end
