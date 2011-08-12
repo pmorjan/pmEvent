@@ -3071,6 +3071,22 @@
 					</object>
 					<int key="connectionID">1289</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">eventController</string>
+						<reference key="source" ref="641132376"/>
+						<reference key="destination" ref="1023554155"/>
+					</object>
+					<int key="connectionID">1291</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">nextKeyView</string>
+						<reference key="source" ref="641132376"/>
+						<reference key="destination" ref="943581077"/>
+					</object>
+					<int key="connectionID">1292</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -4707,7 +4723,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">1289</int>
+			<int key="maxID">1292</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4861,10 +4877,15 @@
 					<string key="className">TableViewEvents</string>
 					<string key="superclassName">NSTableView</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="eventController">EventController</string>
 						<string key="popover">NSPopover</string>
 						<string key="window">NSWindow</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="eventController">
+							<string key="name">eventController</string>
+							<string key="candidateClassName">EventController</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="popover">
 							<string key="name">popover</string>
 							<string key="candidateClassName">NSPopover</string>

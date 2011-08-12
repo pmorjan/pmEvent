@@ -20,11 +20,25 @@
 
 -(void)keyDown:(NSEvent *)event 
 {
-    if ([[event characters] isEqualToString: @" "]){
-        [self togglePopover];
-    }  else {
-        [super keyDown:event];
-    }
+    NSInteger row = [self selectedRow];
+
+    if (row >= 0) {
+        NSString *str = [event charactersIgnoringModifiers];
+        if ([str isEqualToString: @" "]){
+            [self togglePopover];
+            return;
+        }
+        
+        unichar keyChar = [str characterAtIndex:0];
+        if (keyChar == NSDeleteCharacter || keyChar == NSDeleteFunctionKey) {
+            if ([self numberOfRows] < 1) {
+                [popover close];
+            }
+            [eventController deleteEvent:self];
+            return;
+        } 
+    } 
+    [super keyDown:event];
 }
 
 - (void)rightMouseDown:(NSEvent *)event
@@ -44,7 +58,6 @@
     [popover setAnimates:NO];
     [popover setAppearance:NSPopoverAppearanceMinimal];
     [popover setDelegate:self];
-    
 }
 
 #pragma mark -
