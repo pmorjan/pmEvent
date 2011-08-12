@@ -47,6 +47,7 @@
     cal.eventTitle    = model.eventTitle == nil ? @"Event" : model.eventTitle;
     cal.eventNotes    = model.eventNotes;
     cal.eventUrl      = model.eventUrl;
+    cal.eventAllDay   = [NSNumber numberWithBool:[buttonAllDayEvent state] == NSOnState ? YES : NO];
 
     NSNumber *obj = [[popUpButtonAlarm selectedItem]representedObject];
     if (obj == nil) {
@@ -95,20 +96,27 @@
 - (IBAction)deleteEvent:(id)sender
 {
     CalEvent *calEvent = [[eventArrayController selectedObjects]objectAtIndex:0];
-    NSInteger dateDiff = [calEvent.endDate pastDaysSinceDate:calEvent.startDate];
-    if (dateDiff > 0) {
+
+    // need to check if the event covers multiple days
+    NSInteger pastDays = [calEvent.endDate pastDaysSinceDate:calEvent.startDate];
+    if ([calEvent.endDate isEqualToDate:[calEvent.endDate dateAtMidnight]]) {
+        //  end day that ends at midnight does not count
+        pastDays--;
+    }
+    if (pastDays > 0) {
         // Event covers multiple days
         NSAlert *alert = [[NSAlert alloc]init];
         [alert setAlertStyle:NSWarningAlertStyle];
         [alert addButtonWithTitle:@"Delete"];
         [alert addButtonWithTitle:@"Cancel"];
-        [alert setMessageText:[NSString stringWithFormat:@"This event covers %ld days.",dateDiff +1]];
+        [alert setMessageText:[NSString stringWithFormat:@"This event covers %ld days.",pastDays +1]];
         [alert setInformativeText:@"You can't undo this deletion."];
         NSInteger i = [alert runModal];
         [alert release];
-        if (i != NSAlertFirstButtonReturn) 
+        if (i != NSAlertFirstButtonReturn)
             return;
     }
+
     [CalController deleteEvent:calEvent];
 }
 
