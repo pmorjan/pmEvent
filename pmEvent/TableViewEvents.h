@@ -5,9 +5,10 @@
 
 #import <AppKit/AppKit.h>
 
-@interface TableViewEvents : NSTableView
+@interface TableViewEvents : NSTableView <NSPopoverDelegate>
 {
     IBOutlet NSPopover *popover;
+    IBOutlet NSWindow  *window;
 }
 
 @end

@@ -34,6 +34,7 @@
 
 - (void)cancelOperation:(id)sender
 {
+    [popover close];
 }
 
 - (void)awakeFromNib
@@ -42,7 +43,17 @@
     [popover setBehavior:NSPopoverBehaviorSemitransient];
     [popover setAnimates:NO];
     [popover setAppearance:NSPopoverAppearanceMinimal];
+    [popover setDelegate:self];
     
+}
+
+#pragma mark -
+#pragma mark NSPopover delegate methods
+
+- (void)popoverDidShow:(NSNotification *)notification
+{
+    // is there a better way to avoid NSPopover beeing first responder?
+    [window makeFirstResponder:self];  
 }
 
 @end
