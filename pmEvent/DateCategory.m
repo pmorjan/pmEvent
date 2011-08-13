@@ -32,4 +32,10 @@
                                               toDate:[self dateAtMidnight] options:0]day];
 }
 
+- (NSString *)stringValue
+{
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc]init]autorelease];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss"; 
+    return [dateFormatter stringFromDate:self];
+}
 @end

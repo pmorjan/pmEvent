@@ -86,8 +86,8 @@
     NSError *err;
     if ([[CalCalendarStore defaultCalendarStore] saveEvent:newEvent span:CalSpanThisEvent error:&err] != YES){
         NSAlert *alert = [NSAlert alertWithError:err];
-        (void) [alert runModal];
         DLog(@"error:%@", [err localizedDescription]);
+        (void) [alert runModal];
         return;
     }
 }

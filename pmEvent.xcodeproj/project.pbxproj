@@ -72,7 +72,7 @@
 		D09C878713F46A8300F63717 /* TextFieldWithURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldWithURL.m; sourceTree = "<group>"; };
 		D0D67F8D13ED32C8004E5A09 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		D0D67F8E13ED32C8004E5A09 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		D0ED3B7D13F68D7D00A7219F /* PopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PopoverController.h; sourceTree = "<group>"; };
+		D0ED3B7D13F68D7D00A7219F /* PopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverController.h; sourceTree = "<group>"; };
 		D0ED3B7E13F68D7D00A7219F /* PopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
