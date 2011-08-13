@@ -5,12 +5,12 @@
 
 #import <AppKit/AppKit.h>
 #import "EventController.h"
+#import "PopoverController.h"
 
-@interface TableViewEvents : NSTableView <NSPopoverDelegate>
+@interface TableViewEvents : NSTableView
 {
-    IBOutlet NSWindow  *window;
-    IBOutlet NSPopover *popover;
-    IBOutlet EventController *eventController;
+    IBOutlet PopoverController *popoverController;
+    IBOutlet EventController   *eventController;
 }
 
 @end

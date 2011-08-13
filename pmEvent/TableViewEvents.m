@@ -7,17 +7,6 @@
 
 @implementation TableViewEvents
 
-- (void)togglePopover
-{
-    if ([popover isShown]) {
-        [popover close];
-    } else {
-        if ([self selectedRow] >= 0) {
-            [popover showRelativeToRect:[self bounds] ofView:self preferredEdge:NSMinXEdge];
-        }
-    }
-}
-
 -(void)keyDown:(NSEvent *)event 
 {
     NSInteger row = [self selectedRow];
@@ -25,7 +14,7 @@
     if (row >= 0) {
         NSString *str = [event charactersIgnoringModifiers];
         if ([str isEqualToString: @" "]){
-            [self togglePopover];
+            [popoverController togglePopover:self];
             return;
         }
         
@@ -33,7 +22,7 @@
         if (keyChar == NSDeleteCharacter || keyChar == NSDeleteFunctionKey) {
             [eventController deleteEvent:self];
             if ([self numberOfRows] < 1) {
-                [popover close];
+                [popoverController closePopover:self];
             }
             return;
         } 
@@ -43,30 +32,22 @@
 
 - (void)rightMouseDown:(NSEvent *)event
 {
-    [self togglePopover];
+    [popoverController togglePopover:self];
 }
 
 - (void)cancelOperation:(id)sender
 {
-    [popover close];
+    [popoverController closePopover:self];
+}
+
+- (void)doubleClickAction
+{
+    [popoverController togglePopover:self];
 }
 
 - (void)awakeFromNib
 {
-    [self setDoubleAction:@selector(togglePopover)];
-    [popover setBehavior:NSPopoverBehaviorSemitransient];
-    [popover setAnimates:NO];
-    [popover setAppearance:NSPopoverAppearanceMinimal];
-    [popover setDelegate:self];
-}
-
-#pragma mark -
-#pragma mark NSPopover delegate methods
-
-- (void)popoverDidShow:(NSNotification *)notification
-{
-    // is there a better way to avoid NSPopover beeing first responder?
-    [window makeFirstResponder:self];  
+    [self setDoubleAction:@selector(doubleClickAction)];
 }
 
 @end

@@ -29,6 +29,7 @@
 		D09C878813F46A8300F63717 /* TableViewEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = D09C878513F46A8300F63717 /* TableViewEvents.m */; };
 		D09C878913F46A8300F63717 /* TextFieldWithURL.m in Sources */ = {isa = PBXBuildFile; fileRef = D09C878713F46A8300F63717 /* TextFieldWithURL.m */; };
 		D0D67F8F13ED32C8004E5A09 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D67F8E13ED32C8004E5A09 /* Model.m */; };
+		D0ED3B8013F68D7D00A7219F /* PopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED3B7E13F68D7D00A7219F /* PopoverController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,8 @@
 		D09C878713F46A8300F63717 /* TextFieldWithURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldWithURL.m; sourceTree = "<group>"; };
 		D0D67F8D13ED32C8004E5A09 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		D0D67F8E13ED32C8004E5A09 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		D0ED3B7D13F68D7D00A7219F /* PopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = PopoverController.h; sourceTree = "<group>"; };
+		D0ED3B7E13F68D7D00A7219F /* PopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 				D06809A813D1E5150009E65A /* DateCategory.m */,
 				D09C878413F46A8300F63717 /* TableViewEvents.h */,
 				D09C878513F46A8300F63717 /* TableViewEvents.m */,
+				D0ED3B7D13F68D7D00A7219F /* PopoverController.h */,
+				D0ED3B7E13F68D7D00A7219F /* PopoverController.m */,
 				D09C878613F46A8300F63717 /* TextFieldWithURL.h */,
 				D09C878713F46A8300F63717 /* TextFieldWithURL.m */,
 				D06695AB13D04F9C008063F0 /* MainMenu.xib */,
@@ -251,6 +256,7 @@
 				D0D67F8F13ED32C8004E5A09 /* Model.m in Sources */,
 				D09C878813F46A8300F63717 /* TableViewEvents.m in Sources */,
 				D09C878913F46A8300F63717 /* TextFieldWithURL.m in Sources */,
+				D0ED3B8013F68D7D00A7219F /* PopoverController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
