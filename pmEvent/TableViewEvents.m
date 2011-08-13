@@ -31,10 +31,10 @@
         
         unichar keyChar = [str characterAtIndex:0];
         if (keyChar == NSDeleteCharacter || keyChar == NSDeleteFunctionKey) {
+            [eventController deleteEvent:self];
             if ([self numberOfRows] < 1) {
                 [popover close];
             }
-            [eventController deleteEvent:self];
             return;
         } 
     } 
