@@ -115,4 +115,33 @@
     return array;
 }
 
++ (NSArray *)alarmStringsOfEvent:(CalEvent *)event
+{
+    NSMutableArray *alarmArray = [[[NSMutableArray alloc]initWithCapacity:3]autorelease];
+    for(CalAlarm *alarm in [event alarms]) {
+        NSString *str = @"";
+        if ([alarm absoluteTrigger] != nil) {
+            if ([event.startDate isEqualToDate:alarm.absoluteTrigger]) {
+                str = @"on date";
+            } else {
+                str = [alarm.absoluteTrigger stringValue];
+            }
+        } else {
+            int i = [alarm relativeTrigger];
+            if (i != 0) {
+                NSString *beforeAfter = i > 0 ? @"after" : @"before";
+                int m = (int)abs(i/60.0);
+                if (m < 240) {
+                    str = [NSString stringWithFormat:@"%d minutes %@", m, beforeAfter];
+                } else if (m < 60 * 24) {
+                    str = [NSString stringWithFormat:@"%.0f hours %@", round(m/60.0), beforeAfter];                    
+                } else {
+                    str = [NSString stringWithFormat:@"%.0f days %@", round(m/(60*24.0)), beforeAfter];                    
+                } 
+            }
+        }
+        [alarmArray addObject:str];
+    }
+    return [NSArray arrayWithArray:alarmArray];
+}
 @end

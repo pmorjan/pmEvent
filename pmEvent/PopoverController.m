@@ -5,6 +5,7 @@
 
 #import "PopoverController.h"
 #import "DateCategory.h"
+#import "CalController.h"
 
 @implementation PopoverController
 
@@ -12,7 +13,7 @@
     self = [super init];
     if (self) {
         popover = [[NSPopover alloc]init];
-        alarmArray = [[NSMutableArray alloc]initWithCapacity:3];
+        alarmArray = [[NSArray alloc]init];
     }
     return self;
 }
@@ -49,48 +50,25 @@
     }
 }
 
-- (void)updateAlarmArray
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object 
+                        change:(NSDictionary *)change context:(void *)context
 {
-    if ([[eventArrayController selectedObjects] count] > 0) {
-        [alarmArray removeAllObjects];
-        CalEvent *event = [[eventArrayController selectedObjects]objectAtIndex:0];
-        for(CalAlarm *alarm in [event alarms]) {
-            NSString *str = @"";
-            if ([alarm absoluteTrigger] != nil) {
-                if ([event.startDate isEqualToDate:alarm.absoluteTrigger]) {
-                    str = @"on date";
-                } else {
-                    str = [alarm.absoluteTrigger stringValue];
-                }
-            } else {
-                int i = [alarm relativeTrigger];
-                if (i != 0) {
-                    NSString *beforeAfter = i > 0 ? @"after" : @"before";
-                    int m = (int)abs(i/60.0);
-                    if (m < 60) {
-                        str = [NSString stringWithFormat:@"%d minutes %@", m, beforeAfter];
-                    } else if (m < 60 * 24) {
-                        str = [NSString stringWithFormat:@"%.1f hours %@", m/60.0, beforeAfter];                    
-                    } else if (m < 60 * 24 * 365) {
-                        str = [NSString stringWithFormat:@"%.1f days %@",  m/(24 * 60.0), beforeAfter];                    
-                    }
-                }
+    if (object == eventArrayController) {
+        if ([keyPath isEqualTo:@"selectionIndexes"]) {
+            // selection in eventTableView has changed
+            if ([[eventArrayController selectedObjects] count] > 0) {
+                [alarmArray release];
+                alarmArray = [CalController alarmStringsOfEvent:[[eventArrayController selectedObjects]objectAtIndex:0]];
+                [alarmArray retain];
             }
-            [alarmArray addObject:str];
-        }
+            [popoverAlarmTableView reloadData];
+        } 
     }
 }
 
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if([keyPath isEqualTo:@"selectionIndexes"]) {
-        [self updateAlarmArray];
-        [popoverAlarmTableView reloadData];
-    } 
-}
-
 #pragma mark -
-#pragma mark table View
+#pragma mark Table View Data Source
+
 - (int)numberOfRowsInTableView:(NSTableView *)tv
 {
     return (int)[alarmArray count];
@@ -106,6 +84,8 @@
 - (void)tableViewSelectionDidChange:(NSNotification *)notification
 {
 }
+
+#pragma mark -
 
 - (void)dealloc 
 {

@@ -10,7 +10,7 @@
     NSPopover *popover;
     IBOutlet NSArrayController *eventArrayController;
     IBOutlet NSTableView       *popoverAlarmTableView;
-    NSMutableArray *alarmArray;
+    NSArray *alarmArray;
 }
 - (IBAction)togglePopover:(id)sender;
 - (IBAction)closePopover:(id)sender;

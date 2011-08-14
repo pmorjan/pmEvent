@@ -26,6 +26,7 @@
 
 + (void)deleteEvent:(CalEvent *)event;
 + (NSArray *)eventsOnDate:(NSDate*)date;
++ (NSArray *)alarmStringsOfEvent:(CalEvent *)event;
 
 - (void)createEventWithStart:(NSDate*)start end:(NSDate*)end;
 
