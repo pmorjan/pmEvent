@@ -69,14 +69,14 @@
 #pragma mark -
 #pragma mark Table View Data Source
 
-- (int)numberOfRowsInTableView:(NSTableView *)tv
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tv
 {
-    return (int)[alarmArray count];
+    return [alarmArray count];
 }
 
 - (id)tableView:(NSTableView *)tv 
         objectValueForTableColumn:(NSTableColumn *)tableColumn
-        row:(int)row
+        row:(NSInteger)row
 {
     return [alarmArray objectAtIndex:row];
 }

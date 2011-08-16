@@ -5,7 +5,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PopoverController : NSViewController <NSPopoverDelegate>
+@interface PopoverController : NSViewController <NSPopoverDelegate,NSTableViewDataSource>
 {
     NSPopover *popover;
     IBOutlet NSArrayController *eventArrayController;

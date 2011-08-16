@@ -969,7 +969,7 @@
 															<string key="NSFrameSize">{400, 70}</string>
 															<reference key="NSSuperview" ref="390270527"/>
 															<reference key="NSWindow"/>
-															<reference key="NSNextKeyView" ref="641981865"/>
+															<reference key="NSNextKeyView" ref="469017656"/>
 															<bool key="NSEnabled">YES</bool>
 															<object class="NSTableHeaderView" key="NSHeaderView" id="609318864">
 																<reference key="NSNextResponder" ref="469017656"/>
@@ -1191,7 +1191,7 @@
 											<string key="NSFrame">{{18, 54}, {402, 88}}</string>
 											<reference key="NSSuperview" ref="363806930"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="469017656"/>
+											<reference key="NSNextKeyView" ref="390270527"/>
 											<int key="NSsFlags">133682</int>
 											<reference key="NSVScroller" ref="641981865"/>
 											<reference key="NSHScroller" ref="74481325"/>
@@ -1227,7 +1227,6 @@
 											<string key="NSFrame">{{344, 14}, {76, 25}}</string>
 											<reference key="NSSuperview" ref="363806930"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSButtonCell" key="NSCell" id="896156804">
 												<int key="NSCellFlags">-2080244224</int>
@@ -1903,7 +1902,6 @@
 								<string key="NSFrame">{{1, 119}, {223, 15}}</string>
 								<reference key="NSSuperview" ref="164235399"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:1216</string>
 								<int key="NSsFlags">1</int>
 								<reference key="NSTarget" ref="164235399"/>
@@ -3185,14 +3183,6 @@
 						<reference key="destination" ref="585526922"/>
 					</object>
 					<int key="connectionID">1337</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="928533715"/>
-						<reference key="destination" ref="585526922"/>
-					</object>
-					<int key="connectionID">1338</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
