@@ -114,6 +114,7 @@ static NSUserDefaults *prefs;
     } else {
         [NSApp activateIgnoringOtherApps:YES];
         [window makeKeyAndOrderFront:self];
+        [window makeFirstResponder:[window initialFirstResponder]];
     }
 }
 
