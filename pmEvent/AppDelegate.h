@@ -14,6 +14,7 @@
     NSStatusItem *statusItem;
     Model        *model;
 
+    IBOutlet NSBox           *eventBox;    
     IBOutlet NSPopUpButton   *popUpButtonCalendars;
     IBOutlet EventController *eventController;
     IBOutlet AlarmController *alarmController;
@@ -22,6 +23,7 @@
 @property (assign) IBOutlet NSWindow *window;
 
 - (IBAction)calendarChanged:(id)sender;
+- (IBAction)toggleEventBox:(id)sender;
 - (IBAction)launchIcal:(id)sender;
 - (IBAction)quit:(id)sender;
 
