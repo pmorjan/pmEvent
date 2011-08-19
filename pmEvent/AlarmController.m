@@ -72,7 +72,6 @@
 - (void)p_startTimer
 {
     if (uptimeTimer == nil) {
-        DLog(@"starting alarmTimer");
         uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(p_updateAlarmDate:)
                                                      userInfo:nil repeats:YES];
         [uptimeTimer retain];
@@ -82,7 +81,6 @@
 - (void)p_stopTimer
 {
     if (uptimeTimer) {
-        DLog(@"stopping alarmTimer");
         [uptimeTimer invalidate];
         [uptimeTimer release];
         uptimeTimer = nil;

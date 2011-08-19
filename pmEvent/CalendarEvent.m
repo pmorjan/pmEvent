@@ -124,7 +124,7 @@
             if ([event.startDate isEqualToDate:alarm.absoluteTrigger]) {
                 str = @"on date";
             } else {
-                str = [alarm.absoluteTrigger stringValue];
+                str = [alarm.absoluteTrigger descriptionISO];
             }
         } else {
             int i = [alarm relativeTrigger];

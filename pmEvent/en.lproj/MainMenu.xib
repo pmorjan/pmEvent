@@ -2440,7 +2440,7 @@
 									<object class="NSTableView" id="128939357">
 										<reference key="NSNextResponder" ref="847665424"/>
 										<int key="NSvFlags">4352</int>
-										<string key="NSFrameSize">{158, 32}</string>
+										<string key="NSFrameSize">{201, 32}</string>
 										<reference key="NSSuperview" ref="847665424"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="821608282"/>
@@ -2455,7 +2455,7 @@
 										<object class="NSMutableArray" key="NSTableColumns">
 											<bool key="EncodedWithXMLCoder">YES</bool>
 											<object class="NSTableColumn" id="615858790">
-												<double key="NSWidth">155.35546875</double>
+												<double key="NSWidth">198.35546875</double>
 												<double key="NSMinWidth">40</double>
 												<double key="NSMaxWidth">1000</double>
 												<object class="NSTableHeaderCell" key="NSHeaderCell">
@@ -2504,7 +2504,7 @@
 										<int key="NSTableViewGroupRowStyle">1</int>
 									</object>
 								</object>
-								<string key="NSFrameSize">{158, 32}</string>
+								<string key="NSFrameSize">{201, 32}</string>
 								<reference key="NSSuperview" ref="578668394"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="128939357"/>
@@ -2539,7 +2539,7 @@
 								<double key="NSPercent">0.99363057324840764</double>
 							</object>
 						</object>
-						<string key="NSFrame">{{80, 10}, {158, 32}}</string>
+						<string key="NSFrame">{{80, 10}, {201, 32}}</string>
 						<reference key="NSSuperview" ref="133409353"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="847665424"/>

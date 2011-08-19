@@ -11,5 +11,6 @@
 - (NSDate *)dateAtMidnight;
 - (NSDate *)dateByAddingOneDay;
 - (NSInteger)pastDaysSinceDate:(NSDate *)aDate;
-- (NSString *)stringValue;
+- (NSString *)descriptionISO;
+- (NSString *)descriptionUserPreferences;
 @end
