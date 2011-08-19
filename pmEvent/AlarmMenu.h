@@ -5,9 +5,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-
-@interface AlarmMenu : NSMenu {
-
+@interface AlarmMenu : NSMenu 
+{
 }
+
 + (id)alarmMenuWithTitle:(NSString *)title;
 @end

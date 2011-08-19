@@ -20,8 +20,8 @@
 		D08636FD13D03D1E00EA7D50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D08636FC13D03D1E00EA7D50 /* main.m */; };
 		D086370013D03D1E00EA7D50 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D08636FE13D03D1E00EA7D50 /* Credits.rtf */; };
 		D086371C13D03D4E00EA7D50 /* AlarmMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371313D03D4E00EA7D50 /* AlarmMenu.m */; };
-		D086371E13D03D4E00EA7D50 /* CalController.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371713D03D4E00EA7D50 /* CalController.m */; };
-		D086371F13D03D4E00EA7D50 /* CalMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371913D03D4E00EA7D50 /* CalMenu.m */; };
+		D086371E13D03D4E00EA7D50 /* CalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371713D03D4E00EA7D50 /* CalendarEvent.m */; };
+		D086371F13D03D4E00EA7D50 /* CalendarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371913D03D4E00EA7D50 /* CalendarMenu.m */; };
 		D086372313D03D7900EA7D50 /* ical.png in Resources */ = {isa = PBXBuildFile; fileRef = D086372113D03D7900EA7D50 /* ical.png */; };
 		D086372413D03D7900EA7D50 /* ical.icns in Resources */ = {isa = PBXBuildFile; fileRef = D086372213D03D7900EA7D50 /* ical.icns */; };
 		D086372813D03D9000EA7D50 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D086372613D03D9000EA7D50 /* License.txt */; };
@@ -58,10 +58,10 @@
 		D08636FF13D03D1E00EA7D50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		D086371213D03D4E00EA7D50 /* AlarmMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmMenu.h; sourceTree = "<group>"; };
 		D086371313D03D4E00EA7D50 /* AlarmMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmMenu.m; sourceTree = "<group>"; };
-		D086371613D03D4E00EA7D50 /* CalController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalController.h; sourceTree = "<group>"; };
-		D086371713D03D4E00EA7D50 /* CalController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalController.m; sourceTree = "<group>"; };
-		D086371813D03D4E00EA7D50 /* CalMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalMenu.h; sourceTree = "<group>"; };
-		D086371913D03D4E00EA7D50 /* CalMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalMenu.m; sourceTree = "<group>"; };
+		D086371613D03D4E00EA7D50 /* CalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarEvent.h; sourceTree = "<group>"; };
+		D086371713D03D4E00EA7D50 /* CalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarEvent.m; sourceTree = "<group>"; };
+		D086371813D03D4E00EA7D50 /* CalendarMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarMenu.h; sourceTree = "<group>"; };
+		D086371913D03D4E00EA7D50 /* CalendarMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarMenu.m; sourceTree = "<group>"; };
 		D086372113D03D7900EA7D50 /* ical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ical.png; sourceTree = "<group>"; };
 		D086372213D03D7900EA7D50 /* ical.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ical.icns; sourceTree = "<group>"; };
 		D086372613D03D9000EA7D50 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
@@ -133,26 +133,26 @@
 				D0D67F8E13ED32C8004E5A09 /* Model.m */,
 				D05863A213EC95100083A8A1 /* AppDelegate.h */,
 				D05863A313EC95100083A8A1 /* AppDelegate.m */,
-				D05863A413EC95100083A8A1 /* EventController.h */,
-				D05863A513EC95100083A8A1 /* EventController.m */,
 				D05863A013EC95100083A8A1 /* AlarmController.h */,
 				D05863A113EC95100083A8A1 /* AlarmController.m */,
-				D06695A113D04475008063F0 /* TransformerNumberBoolValueToString.h */,
-				D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */,
-				D086371213D03D4E00EA7D50 /* AlarmMenu.h */,
-				D086371313D03D4E00EA7D50 /* AlarmMenu.m */,
-				D086371613D03D4E00EA7D50 /* CalController.h */,
-				D086371713D03D4E00EA7D50 /* CalController.m */,
-				D086371813D03D4E00EA7D50 /* CalMenu.h */,
-				D086371913D03D4E00EA7D50 /* CalMenu.m */,
-				D06809A713D1E5140009E65A /* DateCategory.h */,
-				D06809A813D1E5150009E65A /* DateCategory.m */,
-				D09C878413F46A8300F63717 /* TableViewEvents.h */,
-				D09C878513F46A8300F63717 /* TableViewEvents.m */,
+				D05863A413EC95100083A8A1 /* EventController.h */,
+				D05863A513EC95100083A8A1 /* EventController.m */,
 				D0ED3B7D13F68D7D00A7219F /* PopoverController.h */,
 				D0ED3B7E13F68D7D00A7219F /* PopoverController.m */,
+				D086371213D03D4E00EA7D50 /* AlarmMenu.h */,
+				D086371313D03D4E00EA7D50 /* AlarmMenu.m */,
+				D086371613D03D4E00EA7D50 /* CalendarEvent.h */,
+				D086371713D03D4E00EA7D50 /* CalendarEvent.m */,
+				D086371813D03D4E00EA7D50 /* CalendarMenu.h */,
+				D086371913D03D4E00EA7D50 /* CalendarMenu.m */,
+				D09C878413F46A8300F63717 /* TableViewEvents.h */,
+				D09C878513F46A8300F63717 /* TableViewEvents.m */,
 				D09C878613F46A8300F63717 /* TextFieldWithURL.h */,
 				D09C878713F46A8300F63717 /* TextFieldWithURL.m */,
+				D06809A713D1E5140009E65A /* DateCategory.h */,
+				D06809A813D1E5150009E65A /* DateCategory.m */,
+				D06695A113D04475008063F0 /* TransformerNumberBoolValueToString.h */,
+				D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */,
 				D06695AB13D04F9C008063F0 /* MainMenu.xib */,
 				D08636F613D03D1E00EA7D50 /* Supporting Files */,
 			);
@@ -246,8 +246,8 @@
 			files = (
 				D08636FD13D03D1E00EA7D50 /* main.m in Sources */,
 				D086371C13D03D4E00EA7D50 /* AlarmMenu.m in Sources */,
-				D086371E13D03D4E00EA7D50 /* CalController.m in Sources */,
-				D086371F13D03D4E00EA7D50 /* CalMenu.m in Sources */,
+				D086371E13D03D4E00EA7D50 /* CalendarEvent.m in Sources */,
+				D086371F13D03D4E00EA7D50 /* CalendarMenu.m in Sources */,
 				D06695A313D04475008063F0 /* TransformerNumberBoolValueToString.m in Sources */,
 				D06809A913D1E5150009E65A /* DateCategory.m in Sources */,
 				D05863A613EC95100083A8A1 /* AlarmController.m in Sources */,

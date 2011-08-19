@@ -5,7 +5,7 @@
 
 #import "AlarmMenu.h"
 
-@interface AlarmMenu (Private)
+@interface AlarmMenu ()
 - (void)p_addMenuItems;
 @end
 
@@ -50,7 +50,6 @@
     [item setRepresentedObject:nil];
     [self addItem:item];
     [item release];
-
 }
 
 - (void)dealloc

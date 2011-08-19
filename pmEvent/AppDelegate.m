@@ -4,20 +4,18 @@
 //
 
 #import "AppDelegate.h"
-#import "CalMenu.h"
-#import "AlarmMenu.h"
+#import "CalendarMenu.h"
 
-@implementation AppDelegate
-
-static NSUserDefaults *prefs;
-
-@interface AppDelegate (Private)
+@interface AppDelegate ()
 - (void)p_statusItemClick:(id)sender;
 - (void)p_setEventBoxHidden:(BOOL)hide;
 @end
 
+@implementation AppDelegate
+
 @synthesize window;
 
+static NSUserDefaults *prefs;
 
 + (void)initialize
 {
@@ -46,7 +44,7 @@ static NSUserDefaults *prefs;
 
     // popUpCalendars
     // item in preferences might be no longer available
-    [popUpButtonCalendars setMenu:[CalMenu calMenuWithTitle:@"Calendars"]];
+    [popUpButtonCalendars setMenu:[CalendarMenu calMenuWithTitle:@"Calendars"]];
     NSString *calMenuTitle = [prefs valueForKey:@"calMenuTitle"];
     if (calMenuTitle != nil) {
         if ([popUpButtonCalendars itemWithTitle:calMenuTitle] != nil) {

@@ -4,7 +4,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "CalController.h"
+#import "CalendarEvent.h"
 #import "Model.h"
 
 @interface AlarmController : NSObject

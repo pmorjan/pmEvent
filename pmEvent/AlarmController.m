@@ -2,17 +2,16 @@
 //  AlarmController.m
 //  pmEvent
 //
+
 #import "AlarmController.h"
-#import "CalMenu.h"
+#import "CalendarMenu.h"
 #import "DateCategory.h"
 
-@interface AlarmController (Private)
-- (void)p_updateAlarmDates:(id)userInfo;
+@interface AlarmController ()
+- (void)p_updateAlarmDate:(id)userInfo;
 - (void)p_startTimer;
 - (void)p_stopTimer;
 @end
-
-#pragma mark -
 
 @implementation AlarmController
 
@@ -41,17 +40,16 @@
 #pragma mark -
 #pragma mark IBActions
 
-
 - (IBAction)createAlarm:(id)sender
 {
-    CalController *cal = [[CalController alloc]init];
-    cal.eventCalendar = model.calendar;
-    cal.eventTitle    = model.eventTitle == nil ? @"Alarm" : model.eventTitle;
-    cal.eventNotes    = model.eventNotes;
-    cal.eventUrl      = model.eventUrl;
-    cal.alarmAbsoluteTrigger = alarmDate;
-    [cal createEventWithStart:alarmDate end:alarmDate];
-    [cal release];
+    CalendarEvent *evt = [[CalendarEvent alloc]init];
+    evt.eventCalendar = model.calendar;
+    evt.eventTitle    = model.eventTitle == nil ? @"Alarm" : model.eventTitle;
+    evt.eventNotes    = model.eventNotes;
+    evt.eventUrl      = model.eventUrl;
+    evt.alarmAbsoluteTrigger = alarmDate;
+    [evt createEventWithStart:alarmDate end:alarmDate];
+    [evt release];
 }
 
 #pragma mark -

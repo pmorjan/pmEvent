@@ -8,12 +8,11 @@
 #import "EventController.h"
 #import "AlarmController.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate> {
-
+@interface AppDelegate : NSObject <NSApplicationDelegate> 
+{
     NSWindow     *window;
     NSStatusItem *statusItem;
     Model        *model;
-
     IBOutlet NSBox           *eventBox;    
     IBOutlet NSPopUpButton   *popUpButtonCalendars;
     IBOutlet EventController *eventController;

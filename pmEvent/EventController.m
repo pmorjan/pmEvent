@@ -42,25 +42,25 @@
 
 - (IBAction)createEvent:(id)sender
 {
-    CalController *cal = [[CalController alloc]init];
-    cal.eventCalendar = model.calendar;
-    cal.eventTitle    = model.eventTitle == nil ? @"Event" : model.eventTitle;
-    cal.eventNotes    = model.eventNotes;
-    cal.eventUrl      = model.eventUrl;
-    cal.eventAllDay   = [NSNumber numberWithBool:[buttonAllDayEvent state] == NSOnState ? YES : NO];
+    CalendarEvent *evt = [[CalendarEvent alloc]init];
+    evt.eventCalendar = model.calendar;
+    evt.eventTitle    = model.eventTitle == nil ? @"Event" : model.eventTitle;
+    evt.eventNotes    = model.eventNotes;
+    evt.eventUrl      = model.eventUrl;
+    evt.eventAllDay   = [NSNumber numberWithBool:[buttonAllDayEvent state] == NSOnState ? YES : NO];
 
     NSNumber *obj = [[popUpButtonAlarm selectedItem]representedObject];
     if (obj == nil) {
         // no alarm
     } else if ([obj intValue] == 0) {
         // on date
-        cal.alarmAbsoluteTrigger = eventStartDate;
+        evt.alarmAbsoluteTrigger = eventStartDate;
     } else {
         // before
-        cal.alarmRelativeTrigger = [NSNumber numberWithInt:[alarmMinutes intValue] * [obj intValue]];
+        evt.alarmRelativeTrigger = [NSNumber numberWithInt:[alarmMinutes intValue] * [obj intValue]];
     }
-    [cal createEventWithStart:eventStartDate end:eventEndDate];
-    [cal release];
+    [evt createEventWithStart:eventStartDate end:eventEndDate];
+    [evt release];
 }
 
 - (IBAction)alarmPopUpMinutesChanged:(id)sender
@@ -117,7 +117,7 @@
             return;
     }
 
-    [CalController deleteEvent:calEvent];
+    [CalendarEvent deleteEvent:calEvent];
 }
 
 #pragma mark -
@@ -130,7 +130,7 @@
 
 - (NSArray*)events
 {
-	return [CalController eventsOnDate:eventStartDate];
+	return [CalendarEvent eventsOnDate:eventStartDate];
 }
 
 - (NSDate *)currentDate
