@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D018E23313DDF0F000D3FE20 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D018E23113DDF0F000D3FE20 /* README.md */; };
-		D018E23413DDF0F000D3FE20 /* ScreenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = D018E23213DDF0F000D3FE20 /* ScreenShot.png */; };
 		D05863A613EC95100083A8A1 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A113EC95100083A8A1 /* AlarmController.m */; };
 		D05863A713EC95100083A8A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A313EC95100083A8A1 /* AppDelegate.m */; };
 		D05863A813EC95100083A8A1 /* EventController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A513EC95100083A8A1 /* EventController.m */; };
@@ -30,6 +28,10 @@
 		D09C878913F46A8300F63717 /* TextFieldWithURL.m in Sources */ = {isa = PBXBuildFile; fileRef = D09C878713F46A8300F63717 /* TextFieldWithURL.m */; };
 		D0D67F8F13ED32C8004E5A09 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D67F8E13ED32C8004E5A09 /* Model.m */; };
 		D0ED3B8013F68D7D00A7219F /* PopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED3B7E13F68D7D00A7219F /* PopoverController.m */; };
+		D0F824B51400374800D2E365 /* logout.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0F824B41400374800D2E365 /* logout.applescript */; };
+		D0F824B71400378200D2E365 /* shutdown.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0F824B61400378200D2E365 /* shutdown.applescript */; };
+		D0F824B9140037C800D2E365 /* restart.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0F824B8140037C800D2E365 /* restart.applescript */; };
+		D0F824C41400FB2B00D2E365 /* ScriptMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F824C31400FB2B00D2E365 /* ScriptMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +51,6 @@
 		D08636EB13D03D1E00EA7D50 /* pmEvent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pmEvent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08636EF13D03D1E00EA7D50 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D08636F213D03D1E00EA7D50 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		D08636F313D03D1E00EA7D50 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D08636F413D03D1E00EA7D50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D08636F713D03D1E00EA7D50 /* pmEvent-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "pmEvent-Info.plist"; sourceTree = "<group>"; };
 		D08636F913D03D1E00EA7D50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -74,6 +75,11 @@
 		D0D67F8E13ED32C8004E5A09 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		D0ED3B7D13F68D7D00A7219F /* PopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverController.h; sourceTree = "<group>"; };
 		D0ED3B7E13F68D7D00A7219F /* PopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverController.m; sourceTree = "<group>"; };
+		D0F824B41400374800D2E365 /* logout.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = logout.applescript; sourceTree = "<group>"; };
+		D0F824B61400378200D2E365 /* shutdown.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = shutdown.applescript; sourceTree = "<group>"; };
+		D0F824B8140037C800D2E365 /* restart.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = restart.applescript; sourceTree = "<group>"; };
+		D0F824C21400FB2B00D2E365 /* ScriptMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptMenu.h; sourceTree = "<group>"; };
+		D0F824C31400FB2B00D2E365 /* ScriptMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScriptMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				D08636F213D03D1E00EA7D50 /* AppKit.framework */,
-				D08636F313D03D1E00EA7D50 /* CoreData.framework */,
 				D08636F413D03D1E00EA7D50 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
@@ -139,10 +144,12 @@
 				D05863A513EC95100083A8A1 /* EventController.m */,
 				D0ED3B7D13F68D7D00A7219F /* PopoverController.h */,
 				D0ED3B7E13F68D7D00A7219F /* PopoverController.m */,
-				D086371213D03D4E00EA7D50 /* AlarmMenu.h */,
-				D086371313D03D4E00EA7D50 /* AlarmMenu.m */,
 				D086371613D03D4E00EA7D50 /* CalendarEvent.h */,
 				D086371713D03D4E00EA7D50 /* CalendarEvent.m */,
+				D086371213D03D4E00EA7D50 /* AlarmMenu.h */,
+				D086371313D03D4E00EA7D50 /* AlarmMenu.m */,
+				D0F824C21400FB2B00D2E365 /* ScriptMenu.h */,
+				D0F824C31400FB2B00D2E365 /* ScriptMenu.m */,
 				D086371813D03D4E00EA7D50 /* CalendarMenu.h */,
 				D086371913D03D4E00EA7D50 /* CalendarMenu.m */,
 				D09C878413F46A8300F63717 /* TableViewEvents.h */,
@@ -162,6 +169,9 @@
 		D08636F613D03D1E00EA7D50 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D0F824B41400374800D2E365 /* logout.applescript */,
+				D0F824B61400378200D2E365 /* shutdown.applescript */,
+				D0F824B8140037C800D2E365 /* restart.applescript */,
 				D086372113D03D7900EA7D50 /* ical.png */,
 				D086372213D03D7900EA7D50 /* ical.icns */,
 				D086372613D03D9000EA7D50 /* License.txt */,
@@ -232,8 +242,6 @@
 				D086372413D03D7900EA7D50 /* ical.icns in Resources */,
 				D086372813D03D9000EA7D50 /* License.txt in Resources */,
 				D06695AD13D04F9C008063F0 /* MainMenu.xib in Resources */,
-				D018E23313DDF0F000D3FE20 /* README.md in Resources */,
-				D018E23413DDF0F000D3FE20 /* ScreenShot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +265,10 @@
 				D09C878813F46A8300F63717 /* TableViewEvents.m in Sources */,
 				D09C878913F46A8300F63717 /* TextFieldWithURL.m in Sources */,
 				D0ED3B8013F68D7D00A7219F /* PopoverController.m in Sources */,
+				D0F824B51400374800D2E365 /* logout.applescript in Sources */,
+				D0F824B71400378200D2E365 /* shutdown.applescript in Sources */,
+				D0F824B9140037C800D2E365 /* restart.applescript in Sources */,
+				D0F824C41400FB2B00D2E365 /* ScriptMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,9 +316,10 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -322,8 +335,9 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;

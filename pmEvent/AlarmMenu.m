@@ -52,13 +52,4 @@
     [item release];
 }
 
-- (void)dealloc
-{
-    for (NSMenuItem *item in [self itemArray]){
-        item = NULL;
-        [item release];
-    }
-    [super dealloc];
-}
-
 @end

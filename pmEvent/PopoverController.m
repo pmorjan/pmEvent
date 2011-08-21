@@ -9,7 +9,8 @@
 
 @implementation PopoverController
 
-- (id)init {
+- (id)init 
+{
     self = [super init];
     if (self) {
         popover = [[NSPopover alloc]init];
@@ -20,11 +21,11 @@
 
 - (void)awakeFromNib
 {
-    [popover setContentViewController:self];
-    [popover setBehavior:NSPopoverBehaviorSemitransient];
-    [popover setAnimates:NO];
-    [popover setAppearance:NSPopoverAppearanceMinimal];
-    [popover setDelegate:self];    
+    popover.contentViewController = self;
+    popover.behavior   = NSPopoverBehaviorSemitransient;
+    popover.animates   = NO;
+    popover.appearance = NSPopoverAppearanceMinimal;
+    popover.delegate   = self;    
     [eventArrayController addObserver:self 
                            forKeyPath:@"selectionIndexes" 
                               options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionInitial
@@ -58,7 +59,7 @@
             // selection in eventTableView has changed
             if ([[eventArrayController selectedObjects] count] > 0) {
                 [alarmArray release];
-                alarmArray = [CalendarEvent alarmStringsOfEvent:[[eventArrayController selectedObjects]objectAtIndex:0]];
+                alarmArray = [CalendarEvent descriptionOfAlarmsOfEvent:[[eventArrayController selectedObjects]objectAtIndex:0]];
                 [alarmArray retain];
             }
             [popoverAlarmTableView reloadData];

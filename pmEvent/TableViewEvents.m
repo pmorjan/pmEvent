@@ -23,6 +23,7 @@
             [eventController deleteEvent:self];
             if ([self numberOfRows] < 1) {
                 [popoverController closePopover:self];
+                [[self window] makeFirstResponder:[[self window] initialFirstResponder]];
             }
             return;
         } 

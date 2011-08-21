@@ -42,25 +42,53 @@
 
 - (IBAction)createEvent:(id)sender
 {
-    CalendarEvent *evt = [[CalendarEvent alloc]init];
-    evt.eventCalendar = model.calendar;
-    evt.eventTitle    = model.eventTitle == nil ? @"Event" : model.eventTitle;
-    evt.eventNotes    = model.eventNotes;
-    evt.eventUrl      = model.eventUrl;
-    evt.eventAllDay   = [NSNumber numberWithBool:[buttonAllDayEvent state] == NSOnState ? YES : NO];
+    CalEvent *evt = [CalEvent event];
+
+    BOOL isAllDayEvent = [buttonAllDayEvent state] == NSOnState ? YES : NO;    
+    if (isAllDayEvent) {
+        evt.startDate = [eventStartDate dateAtMidnight];
+        evt.endDate   = [[eventEndDate dateAtMidnight] dateByAddingOneDay];
+    } else {
+        evt.startDate  = eventStartDate;
+        evt.endDate    = eventEndDate;
+    }
+    evt.isAllDay = isAllDayEvent;
+    evt.calendar = model.calendar;
+    evt.title    = model.eventTitle == nil ? @"Event" : model.eventTitle;
+    evt.notes    = model.eventNotes;
+    if (model.eventUrl != nil) {
+        evt.url = [[[NSURL URLWithString:model.eventUrl]retain]autorelease];
+    }
+
+    if ([evt hasAlarm]) {
+        [evt removeAlarms:[evt alarms]];
+    }
 
     NSNumber *obj = [[popUpButtonAlarm selectedItem]representedObject];
     if (obj == nil) {
         // no alarm
     } else if ([obj intValue] == 0) {
         // on date
-        evt.alarmAbsoluteTrigger = eventStartDate;
+        CalAlarm *alarm = [CalAlarm alarm];
+        alarm.absoluteTrigger = eventStartDate;
+        alarm.action = CalAlarmActionSound;
+        alarm.sound = @"Basso";
+        [evt addAlarm:alarm];
     } else {
         // before
-        evt.alarmRelativeTrigger = [NSNumber numberWithInt:[alarmMinutes intValue] * [obj intValue]];
+        CalAlarm *alarm = [CalAlarm alarm];
+        alarm.relativeTrigger = (float)([alarmMinutes intValue] * [obj intValue]);
+        alarm.action = CalAlarmActionSound;
+        alarm.sound = @"Basso";
+        [evt addAlarm:alarm];
     }
-    [evt createEventWithStart:eventStartDate end:eventEndDate];
-    [evt release];
+    
+    NSError *err;
+    if ([[CalCalendarStore defaultCalendarStore] saveEvent:evt span:CalSpanThisEvent error:&err] != YES) {
+        NSAlert *alert = [NSAlert alertWithError:err];
+        (void) [alert runModal];
+        return;
+    }
 }
 
 - (IBAction)alarmPopUpMinutesChanged:(id)sender
@@ -118,6 +146,9 @@
     }
 
     [CalendarEvent deleteEvent:calEvent];
+    if ([[eventArrayController arrangedObjects]count] < 1) {
+        [[sender window] makeFirstResponder:[[sender window] initialFirstResponder]];
+    }
 }
 
 #pragma mark -

@@ -4,7 +4,7 @@
 //
 
 #import "AlarmController.h"
-#import "CalendarMenu.h"
+#import "ScriptMenu.h"
 #import "DateCategory.h"
 
 @interface AlarmController ()
@@ -34,6 +34,7 @@
 
 - (void)awakeFromNib
 {
+    [popUpButtonScripts setMenu:[ScriptMenu scriptMenuWithTitle:@""]];
     [self p_startTimer];
 }
 
@@ -42,14 +43,41 @@
 
 - (IBAction)createAlarm:(id)sender
 {
-    CalendarEvent *evt = [[CalendarEvent alloc]init];
-    evt.eventCalendar = model.calendar;
-    evt.eventTitle    = model.eventTitle == nil ? @"Alarm" : model.eventTitle;
-    evt.eventNotes    = model.eventNotes;
-    evt.eventUrl      = model.eventUrl;
-    evt.alarmAbsoluteTrigger = alarmDate;
-    [evt createEventWithStart:alarmDate end:alarmDate];
-    [evt release];
+    CalEvent *evt = [CalEvent event];
+    evt.startDate = alarmDate;
+    evt.endDate   = alarmDate;
+    evt.calendar  = model.calendar;
+    evt.title     = model.eventTitle == nil ? @"Alarm" : model.eventTitle;
+    evt.notes     = model.eventNotes;
+    if (model.eventUrl != nil) {
+        evt.url = [[[NSURL URLWithString:model.eventUrl]retain]autorelease];
+    }
+    
+    if ([evt hasAlarm]) {
+        [evt removeAlarms:[evt alarms]];
+    }
+
+    // always add alarm
+    CalAlarm *alarm = [CalAlarm alarm];
+    alarm.absoluteTrigger = alarmDate;
+    
+    NSURL *url = [[popUpButtonScripts selectedItem]representedObject];    
+    if (url == nil) {
+        alarm.action = CalAlarmActionSound;
+        alarm.sound = @"Basso";
+    } else {
+        alarm.action = CalAlarmActionProcedure;
+        alarm.url    = url;
+    }
+
+    [evt addAlarm:alarm];
+    
+    NSError *err;
+    if ([[CalCalendarStore defaultCalendarStore] saveEvent:evt span:CalSpanThisEvent error:&err] != YES) {
+        NSAlert *alert = [NSAlert alertWithError:err];
+        (void) [alert runModal];
+        return;
+    }
 }
 
 #pragma mark -
@@ -85,6 +113,16 @@
         [uptimeTimer release];
         uptimeTimer = nil;
     }
+}
+
+- (void)reboot 
+{
+/*    NSDictionary *error = [NSDictionary dictionary];
+    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"System Events\" to restart"];
+    [script executeAndReturnError:&error];
+ */ 
+    
+
 }
 
 #pragma mark -

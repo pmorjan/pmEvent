@@ -9,10 +9,11 @@
 
 @interface AlarmController : NSObject
 {
+    Model    *model;
 	NSDate   *alarmDate;
     NSDate   *alarmFromNow;
     NSTimer  *uptimeTimer;
-    Model    *model;
+    IBOutlet NSPopUpButton *popUpButtonScripts;
 }
 
 @property (copy) NSDate *alarmFromNow;
