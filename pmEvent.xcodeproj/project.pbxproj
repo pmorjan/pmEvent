@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D047F80A14015D6C00C44CBB /* sleep.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D047F80914015D6C00C44CBB /* sleep.applescript */; };
 		D05863A613EC95100083A8A1 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A113EC95100083A8A1 /* AlarmController.m */; };
 		D05863A713EC95100083A8A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A313EC95100083A8A1 /* AppDelegate.m */; };
 		D05863A813EC95100083A8A1 /* EventController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A513EC95100083A8A1 /* EventController.m */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		D018E23113DDF0F000D3FE20 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D018E23213DDF0F000D3FE20 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScreenShot.png; path = ../ScreenShot.png; sourceTree = "<group>"; };
+		D047F80914015D6C00C44CBB /* sleep.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = sleep.applescript; sourceTree = "<group>"; };
 		D05863A013EC95100083A8A1 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
 		D05863A113EC95100083A8A1 /* AlarmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmController.m; sourceTree = "<group>"; };
 		D05863A213EC95100083A8A1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				D0F824B41400374800D2E365 /* logout.applescript */,
 				D0F824B61400378200D2E365 /* shutdown.applescript */,
 				D0F824B8140037C800D2E365 /* restart.applescript */,
+				D047F80914015D6C00C44CBB /* sleep.applescript */,
 				D086372113D03D7900EA7D50 /* ical.png */,
 				D086372213D03D7900EA7D50 /* ical.icns */,
 				D086372613D03D9000EA7D50 /* License.txt */,
@@ -269,6 +272,7 @@
 				D0F824B71400378200D2E365 /* shutdown.applescript in Sources */,
 				D0F824B9140037C800D2E365 /* restart.applescript in Sources */,
 				D0F824C41400FB2B00D2E365 /* ScriptMenu.m in Sources */,
+				D047F80A14015D6C00C44CBB /* sleep.applescript in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

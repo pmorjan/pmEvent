@@ -3,4 +3,4 @@
 -- pmEvent
 --
 
-tell application "Finder" to shutdown
+tell application "Finder" to shut down
