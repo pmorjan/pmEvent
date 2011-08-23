@@ -27,8 +27,8 @@
 - (IBAction)toggleEventBox:(id)sender;
 
 - (IBAction)showPreferencesSheet:(id)sender;
-- (IBAction)endPreferencesSheet:(id)sender;
 - (void)didEndPreferencesSheet:(NSWindow *)sheet;
+- (IBAction)endAllSheets:(id)sender;
 
 - (void)savePreferences;
 

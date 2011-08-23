@@ -65,19 +65,19 @@ static NSUserDefaults *prefs;
     alarmController.model = model;
     eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *incomingEvent) {
         NSEvent *result = incomingEvent;
-        NSWindow *targetWindowForEvent = [incomingEvent window];
+        NSWindow *targetWindow = [incomingEvent window];
         
-        if (targetWindowForEvent == preferencesSheet) {
+        if ([targetWindow isSheet]) {
         
             if ([incomingEvent type] == NSKeyDown) {
                 if ([incomingEvent keyCode] == 53) {
                     // Escape
-                    [self endPreferencesSheet:nil];
-                    result = nil; // Don't process the event
+                    [self endAllSheets:nil];
+                    result = nil; // don't process this event
                 }
             }
         }
-        return result;
+        return result;  // process event
     }];
 }
 
@@ -125,10 +125,10 @@ static NSUserDefaults *prefs;
         if ([(NSWindow *)window isKeyWindow]) {
             [window performClose:self];
         } else {
-            //[NSApp activateIgnoringOtherApps:YES];
+            [NSApp activateIgnoringOtherApps:YES];
         }
     } else {
-        //[NSApp activateIgnoringOtherApps:YES];
+        [NSApp activateIgnoringOtherApps:YES];
         [window makeKeyAndOrderFront:self];
         [window makeFirstResponder:[window initialFirstResponder]];
     }
@@ -173,10 +173,14 @@ static NSUserDefaults *prefs;
     ];
 }
 
-- (IBAction)endPreferencesSheet:(id)sender 
+- (IBAction)endAllSheets:(id)sender 
 {    
-	[NSApp endSheet:preferencesSheet];
-    [preferencesSheet orderOut:sender];
+    for (NSWindow *w in [NSApp windows]) {
+        if ([w isSheet]) {
+            [NSApp endSheet:w];
+            [w orderOut:w];
+        }
+    }
 }
 
 #pragma mark -
