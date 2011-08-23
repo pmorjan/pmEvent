@@ -21,9 +21,9 @@
 {
     self = [super init];
     if (self != nil) {
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalEventsChangedExternallyNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalEventsChangedNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(p_eventsChanged:) name:CalCalendarsChangedExternallyNotification object:nil];
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventsChanged:) name:CalEventsChangedExternallyNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventsChanged:) name:CalEventsChangedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventsChanged:) name:CalCalendarsChangedExternallyNotification object:nil];
         alarmMinutes    = [[NSNumber numberWithInt:5]retain];
 		eventStartDate  = [[[[NSDate date]dateZeroSeconds]dateByAddingTimeInterval:60*10]retain];
         eventEndDate    = [eventStartDate copy];
@@ -89,6 +89,9 @@
         (void) [alert runModal];
         return;
     }
+    model.eventTitle = nil;
+    model.eventNotes = nil;
+    model.eventUrl   = nil;
 }
 
 - (IBAction)alarmPopUpMinutesChanged:(id)sender
@@ -153,7 +156,7 @@
 
 #pragma mark -
 
-- (void) p_eventsChanged:(NSNotification *)notification
+- (void)eventsChanged:(NSNotification *)notification
 {
     [self willChangeValueForKey:@"events"];
     [self didChangeValueForKey:@"events"];
@@ -188,7 +191,7 @@
 
         if ( ! [[newDate dateAtMidnight] isEqualToDate:[oldStartDate dateAtMidnight]] ){
 			// this is a new day, need to update events
-            [self p_eventsChanged:nil];
+            [self eventsChanged:nil];
 		}
 
 		if (shouldUpdateEventEndTime && [buttonAllDayEvent state] == NSOffState) {
@@ -200,7 +203,7 @@
 
 #pragma mark -
 
-- (void) dealloc
+- (void)dealloc
 {
     [alarmMinutes release];
     [eventStartDate release];

@@ -6,7 +6,7 @@
 #import "ScriptMenu.h"
 
 @interface ScriptMenu ()
-- (void)p_addMenuItems;
+- (void)addMenuItems;
 @end
 
 @implementation ScriptMenu
@@ -15,7 +15,7 @@
 {
     self = [super initWithTitle:title];
     if (self != nil) {
-        [self p_addMenuItems];
+        [self addMenuItems];
         [self setShowsStateColumn:YES];
     }
     return self;
@@ -26,7 +26,7 @@
     return [[[ScriptMenu alloc]initWithTitle:title]autorelease];
 }
 
--(void)p_addMenuItems
+-(void)addMenuItems
 {
     NSMenuItem *item = [[NSMenuItem allocWithZone:[NSMenu menuZone]]initWithTitle:@"None" action:nil keyEquivalent:@""];
     [item setRepresentedObject:nil];

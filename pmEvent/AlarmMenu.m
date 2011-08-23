@@ -6,7 +6,7 @@
 #import "AlarmMenu.h"
 
 @interface AlarmMenu ()
-- (void)p_addMenuItems;
+- (void)addMenuItems;
 @end
 
 @implementation AlarmMenu
@@ -15,7 +15,7 @@
 {
     self = [super initWithTitle:title];
     if (self != nil) {
-        [self p_addMenuItems];
+        [self addMenuItems];
         [self setShowsStateColumn:YES];
     }
     return self;
@@ -26,7 +26,7 @@
     return [[[AlarmMenu alloc]initWithTitle:title]autorelease];
 }
 
--(void)p_addMenuItems
+-(void)addMenuItems
 {
     NSMenuItem *item;
     item = [[NSMenuItem allocWithZone:[NSMenu menuZone]]initWithTitle:@"on date" action:nil keyEquivalent:@""];

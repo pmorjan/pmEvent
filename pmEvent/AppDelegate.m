@@ -7,8 +7,8 @@
 #import "CalendarMenu.h"
 
 @interface AppDelegate ()
-- (void)p_statusItemClick:(id)sender;
-- (void)p_setEventBoxHidden:(BOOL)hide;
+- (void)statusItemClick:(id)sender;
+- (void)setEventBoxHidden:(BOOL)hide;
 @end
 
 @implementation AppDelegate
@@ -39,7 +39,7 @@ static NSUserDefaults *prefs;
     statusItem = [[[NSStatusBar systemStatusBar]statusItemWithLength:-1]retain];
     [statusItem setImage:[NSImage imageNamed:@"ical.png"]];
     [statusItem setTarget:self];
-    [statusItem setAction:@selector(p_statusItemClick:)];
+    [statusItem setAction:@selector(statusItemClick:)];
     [statusItem setHighlightMode:YES];
 
     // popUpCalendars
@@ -53,7 +53,7 @@ static NSUserDefaults *prefs;
     }
     [self calendarChanged:nil];
 
-    [self p_setEventBoxHidden:[prefs boolForKey:@"hideEventBox"]];
+    [self setEventBoxHidden:[prefs boolForKey:@"hideEventBox"]];
     
     [NSApp activateIgnoringOtherApps:YES];
     [window makeKeyAndOrderFront:self];
@@ -63,24 +63,42 @@ static NSUserDefaults *prefs;
 {
     eventController.model = model;
     alarmController.model = model;
+    eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *incomingEvent) {
+        NSEvent *result = incomingEvent;
+        NSWindow *targetWindowForEvent = [incomingEvent window];
+        
+        if (targetWindowForEvent == preferencesSheet) {
+        
+            if ([incomingEvent type] == NSKeyDown) {
+                if ([incomingEvent keyCode] == 53) {
+                    // Escape
+                    [self endPreferencesSheet:nil];
+                    result = nil; // Don't process the event
+                }
+            }
+        }
+        return result;
+    }];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
 {
-#ifdef DEBUG
-	return YES;
-#endif
-	return NO;
+    return NO;
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification
+{
+    [self savePreferences];
+}
+
+- (void)savePreferences
 {
     [prefs setObject:model.calendar.title forKey:@"calMenuTitle"];
     [prefs setBool:[eventBox isHidden] forKey:@"hideEventBox"];
     [prefs synchronize];
 }
 
-- (void)p_setEventBoxHidden:(BOOL)hide
+- (void)setEventBoxHidden:(BOOL)hide
 {
     if (eventBox.isHidden == hide)
         return;
@@ -101,19 +119,24 @@ static NSUserDefaults *prefs;
     }    
 }
 
-- (void)p_statusItemClick:(id)sender
+- (void)statusItemClick:(id)sender
 {
     if ([window isVisible]) {
         if ([(NSWindow *)window isKeyWindow]) {
             [window performClose:self];
         } else {
-            [NSApp activateIgnoringOtherApps:YES];
+            //[NSApp activateIgnoringOtherApps:YES];
         }
     } else {
-        [NSApp activateIgnoringOtherApps:YES];
+        //[NSApp activateIgnoringOtherApps:YES];
         [window makeKeyAndOrderFront:self];
         [window makeFirstResponder:[window initialFirstResponder]];
     }
+}
+
+- (void)didEndPreferencesSheet:(NSWindow *)sheet 
+{
+    [self savePreferences];
 }
 
 #pragma mark -
@@ -137,12 +160,28 @@ static NSUserDefaults *prefs;
 
 - (IBAction)toggleEventBox:(id)sender
 {
-    [self p_setEventBoxHidden:![eventBox isHidden]];
+    [self setEventBoxHidden:![eventBox isHidden]];
+}
+
+- (IBAction)showPreferencesSheet:(id)sender 
+{
+   [NSApp beginSheet:preferencesSheet
+      modalForWindow:window
+       modalDelegate:self
+      didEndSelector:@selector(didEndPreferencesSheet:)
+         contextInfo:nil
+    ];
+}
+
+- (IBAction)endPreferencesSheet:(id)sender 
+{    
+	[NSApp endSheet:preferencesSheet];
+    [preferencesSheet orderOut:sender];
 }
 
 #pragma mark -
 
--(void) dealloc
+- (void)dealloc
 {
     [model release];
     [super dealloc];

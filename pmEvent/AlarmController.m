@@ -8,9 +8,7 @@
 #import "DateCategory.h"
 
 @interface AlarmController ()
-- (void)p_updateAlarmDate:(id)userInfo;
-- (void)p_startTimer;
-- (void)p_stopTimer;
+- (void)updateAlarmDate:(id)userInfo;
 @end
 
 @implementation AlarmController
@@ -35,7 +33,11 @@
 - (void)awakeFromNib
 {
     [popUpButtonScripts setMenu:[ScriptMenu scriptMenuWithTitle:@""]];
-    [self p_startTimer];
+    if (uptimeTimer == nil) {
+        uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateAlarmDate:)
+                                                     userInfo:nil repeats:YES];
+        [uptimeTimer retain];
+    }
 }
 
 #pragma mark -
@@ -80,18 +82,21 @@
         (void) [alert runModal];
         return;
     }
+    model.eventTitle = nil;
+    model.eventNotes = nil;
+    model.eventUrl   = nil;
 }
 
 #pragma mark -
 #pragma mark private methods
 
-- (void) p_eventsChanged:(NSNotification *)notification
+- (void) eventsChanged:(NSNotification *)notification
 {
     [self willChangeValueForKey:@"events"];
     [self didChangeValueForKey:@"events"];
 }
 
-- (void)p_updateAlarmDate:(id)userInfo
+- (void)updateAlarmDate:(id)userInfo
 {
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar]
                                         components:(NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit)
@@ -99,37 +104,11 @@
     self.alarmDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents toDate:[NSDate date] options:0];
 }
 
-- (void)p_startTimer
-{
-    if (uptimeTimer == nil) {
-        uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(p_updateAlarmDate:)
-                                                     userInfo:nil repeats:YES];
-        [uptimeTimer retain];
-    }
-}
-
-- (void)p_stopTimer
-{
-    if (uptimeTimer) {
-        [uptimeTimer invalidate];
-        [uptimeTimer release];
-        uptimeTimer = nil;
-    }
-}
-
-- (void)reboot 
-{
-/*    NSDictionary *error = [NSDictionary dictionary];
-    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:@"tell application \"System Events\" to restart"];
-    [script executeAndReturnError:&error];
- */ 
-    
-
-}
-
 #pragma mark -
 - (void) dealloc
 {
+    [uptimeTimer invalidate];
+    [uptimeTimer release];
     [alarmFromNow release];
     [alarmDate release];
     [super dealloc];

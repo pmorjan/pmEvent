@@ -7,7 +7,7 @@
 #import <CalendarStore/CalendarStore.h>
 
 @interface CalendarMenu ()
-- (void)p_updateMenuItems:(NSNotification *)notification;
+- (void)updateMenuItems:(NSNotification *)notification;
 @end
 
 @implementation CalendarMenu
@@ -16,10 +16,10 @@
 {
     self = [super initWithTitle:title];
     if (self != nil) {
-        [self p_updateMenuItems:nil];
+        [self updateMenuItems:nil];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(p_updateMenuItems:)
+                                                 selector:@selector(updateMenuItems:)
                                                      name:CalCalendarsChangedExternallyNotification
                                                    object:nil];
     }
@@ -38,7 +38,7 @@
     }
 }
 
-- (void)p_updateMenuItems:(NSNotification *)notification
+- (void)updateMenuItems:(NSNotification *)notification
 {
     NSSize imgSize = NSMakeSize(12, 8);
 
