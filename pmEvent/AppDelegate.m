@@ -66,9 +66,7 @@ static NSUserDefaults *prefs;
     eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *incomingEvent) {
         NSEvent *result = incomingEvent;
         NSWindow *targetWindow = [incomingEvent window];
-        
         if ([targetWindow isSheet]) {
-        
             if ([incomingEvent type] == NSKeyDown) {
                 if ([incomingEvent keyCode] == 53) {
                     // Escape
@@ -180,6 +178,14 @@ static NSUserDefaults *prefs;
             [NSApp endSheet:w];
             [w orderOut:w];
         }
+    }
+}
+
+- (IBAction)resetPreferences:(id)sender
+{
+    NSDictionary *defaultsDict = [[NSUserDefaults standardUserDefaults] dictionaryRepresentation];
+    for (NSString *key in [defaultsDict allKeys]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
     }
 }
 

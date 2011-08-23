@@ -64,14 +64,14 @@
         
         // append action
         if ([alarm.action isEqualToString:CalAlarmActionDisplay]) {
-            str = [str stringByAppendingString:@" : Display Message"];
+            str = [str stringByAppendingString:@": Display Message"];
         } else if ([alarm.action isEqualTo:CalAlarmActionEmail]) {
-            str = [str stringByAppendingString:@" : Send Email"];
+            str = [str stringByAppendingString:@": Send Email"];
         } else if ([alarm.action isEqualTo:CalAlarmActionProcedure]) {
             NSString *script = [[alarm.url lastPathComponent]stringByDeletingPathExtension];
-            str = [NSString stringWithFormat:@"%@ : %@", str, script];
+            str = [NSString stringWithFormat:@"%@: %@", str, script];
         } else if ([alarm.action isEqualTo:CalAlarmActionSound]) {
-            str = [str stringByAppendingString:@" : Play Sound"];
+            str = [str stringByAppendingString:@": Play Sound"];
         }    
         
         [alarmArray addObject:str];

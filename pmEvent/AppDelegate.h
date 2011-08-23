@@ -25,14 +25,12 @@
 
 - (IBAction)calendarChanged:(id)sender;
 - (IBAction)toggleEventBox:(id)sender;
-
 - (IBAction)showPreferencesSheet:(id)sender;
-- (void)didEndPreferencesSheet:(NSWindow *)sheet;
 - (IBAction)endAllSheets:(id)sender;
-
-- (void)savePreferences;
-
+- (IBAction)resetPreferences:(id)sender;
 - (IBAction)launchIcal:(id)sender;
 - (IBAction)quit:(id)sender;
+- (void)savePreferences;
+- (void)didEndPreferencesSheet:(NSWindow *)sheet;
 
 @end
