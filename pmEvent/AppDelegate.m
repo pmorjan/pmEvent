@@ -101,6 +101,7 @@ static NSUserDefaults *prefs;
     self = [super init];
     if (self != nil) {
         model = [[Model alloc]init];
+        gitDescription = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     }
     return self;
 }

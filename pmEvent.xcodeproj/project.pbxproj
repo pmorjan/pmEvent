@@ -208,6 +208,7 @@
 				D08636E713D03D1E00EA7D50 /* Sources */,
 				D08636E813D03D1E00EA7D50 /* Frameworks */,
 				D08636E913D03D1E00EA7D50 /* Resources */,
+				D08745401407032F0004F0BD /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -261,6 +262,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D08745401407032F0004F0BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GIT_DESCRIPTION=$(git describe --tags)\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${GIT_DESCRIPTION#*v}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D08636E713D03D1E00EA7D50 /* Sources */ = {

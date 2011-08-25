@@ -17,6 +17,7 @@ extern NSString *PMDisplayEventBoxKey;
     NSWindow     *window;
     NSStatusItem *statusItem;
     Model        *model;
+    NSString     *gitDescription;
     IBOutlet NSBox           *eventBox;
     IBOutlet NSPopUpButton   *popUpButtonCalendars;
     IBOutlet EventController *eventController;
