@@ -8,6 +8,10 @@
 #import "EventController.h"
 #import "AlarmController.h"
 
+extern NSString *PMCalendarKey;
+extern NSString *PMDisplayStatusIconKey;
+extern NSString *PMDisplayEventBoxKey;
+
 @interface AppDelegate : NSObject <NSApplicationDelegate> 
 {
     NSWindow     *window;
@@ -23,14 +27,12 @@
 
 @property (assign) IBOutlet NSWindow *window;
 
-- (IBAction)calendarChanged:(id)sender;
-- (IBAction)toggleEventBox:(id)sender;
+- (IBAction)cbDisplayEventBox:(id)sender;
 - (IBAction)showPreferencesSheet:(id)sender;
 - (IBAction)endAllSheets:(id)sender;
 - (IBAction)resetPreferences:(id)sender;
+- (IBAction)cbDisplayStatusItem:(id)sender;
 - (IBAction)launchIcal:(id)sender;
 - (IBAction)quit:(id)sender;
-- (void)savePreferences;
-- (void)didEndPreferencesSheet:(NSWindow *)sheet;
 
 @end
