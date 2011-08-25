@@ -10,18 +10,82 @@ NSString *PMDisplayStatusIconKey = @"displayStatusIcon";
 NSString *PMDisplayEventBoxKey   = @"displayEventBox";
 NSString *PMCalendarKey          = @"calendar";
 
-@interface AppDelegate ()
-+ (void)initDefaults;
-- (void)statusItemClick:(id)sender;
-- (void)displayEventBox:(BOOL)show;
-- (void)displayStatusIcon:(BOOL)show;
-@end
-
 @implementation AppDelegate
 
 @synthesize window;
 
 static NSUserDefaults *prefs;
+
+#pragma mark -
+#pragma mark Private
+
++ (void)_initializeSharedUserDefaults
+{
+    NSMutableDictionary *initialValues = [NSMutableDictionary dictionary]; 
+    [initialValues setObject:[NSNumber numberWithBool:YES] forKey:PMDisplayStatusIconKey];
+    [initialValues setObject:[NSNumber numberWithBool:YES] forKey:PMDisplayEventBoxKey];
+    
+    NSUserDefaultsController *defaults = [NSUserDefaultsController sharedUserDefaultsController];
+    [defaults setInitialValues:initialValues];
+    [defaults setAppliesImmediately:YES];
+}
+
+- (void)_displayEventBox:(BOOL)show
+{
+    if (eventBox.isHidden != show)
+        return;
+    
+    NSSize boxSize = [eventBox frame].size;
+    NSRect windowRect = [window frame];
+    
+    if (show) {
+        windowRect.size.height += boxSize.height;
+        windowRect.origin.y    -= boxSize.height;
+        [window setFrame:windowRect display:YES animate:YES];
+        [eventBox setHidden:NO];
+    } else {
+        [eventBox setHidden:YES];
+        windowRect.size.height -= boxSize.height;
+        windowRect.origin.y    += boxSize.height;
+        [window setFrame:windowRect display:YES animate:YES];        
+    }    
+}
+
+- (void)_displayStatusIcon:(BOOL)show
+{
+    if (show) {
+        if (statusItem)
+            return;
+        
+        statusItem = [[[NSStatusBar systemStatusBar]statusItemWithLength:-1]retain];
+        [statusItem setImage:[NSImage imageNamed:@"ical.png"]];
+        [statusItem setTarget:self];
+        [statusItem setAction:@selector(_toggleMainWindow)];
+        [statusItem setHighlightMode:YES];
+    } else {
+        [statusItem release];
+        statusItem = nil;
+    }
+}
+
+- (void)_toggleMainWindow
+{
+    if ([window isMiniaturized]) {
+        [window deminiaturize:nil];
+        [window makeFirstResponder:[window initialFirstResponder]];
+    } else {
+        if ([(NSWindow *)window isKeyWindow]) {
+            [window miniaturize:nil];
+        } else {
+            [NSApp activateIgnoringOtherApps:YES];
+            [window makeKeyAndOrderFront:self];
+            [window makeFirstResponder:[window initialFirstResponder]];
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Init
 
 + (void)initialize
 {
@@ -29,8 +93,7 @@ static NSUserDefaults *prefs;
         return;
 
     prefs = [NSUserDefaults standardUserDefaults];
-    [self initDefaults];
-    
+    [self _initializeSharedUserDefaults];
 }
 
 - (id)init
@@ -42,21 +105,10 @@ static NSUserDefaults *prefs;
     return self;
 }
 
-+ (void)initDefaults
-{
-    NSMutableDictionary *initialValues = [NSMutableDictionary dictionary]; 
-    [initialValues setObject:[NSNumber numberWithBool:YES] forKey:PMDisplayStatusIconKey];
-    [initialValues setObject:[NSNumber numberWithBool:YES] forKey:PMDisplayEventBoxKey];
-
-    NSUserDefaultsController *defaults = [NSUserDefaultsController sharedUserDefaultsController];
-    [defaults setInitialValues:initialValues];
-    [defaults setAppliesImmediately:YES];
-}
-
 - (void)awakeFromNib
 {
     // popUpCalendars
-    // item in preferences might be no longer available
+    // try to pre select Calendar from preferences
     [popUpButtonCalendars setMenu:[CalendarMenu calMenuWithTitle:@"Calendars"]];
     NSString *calMenuTitle = [prefs valueForKey:PMCalendarKey];
     if (calMenuTitle != nil) {
@@ -64,16 +116,13 @@ static NSUserDefaults *prefs;
             [popUpButtonCalendars selectItemWithTitle:calMenuTitle];
         }
     }
-    [self displayStatusIcon:[[[[NSUserDefaultsController sharedUserDefaultsController]values]valueForKey:PMDisplayStatusIconKey]boolValue]];
-    [self displayEventBox:[[[[NSUserDefaultsController sharedUserDefaultsController]values]valueForKey:PMDisplayEventBoxKey]boolValue]];
-     
+    model.calendar = [[popUpButtonCalendars selectedItem]representedObject];
+    [self _displayStatusIcon:[[[[NSUserDefaultsController sharedUserDefaultsController]values]valueForKey:PMDisplayStatusIconKey]boolValue]];
+    [self _displayEventBox:  [[[[NSUserDefaultsController sharedUserDefaultsController]values]valueForKey:PMDisplayEventBoxKey]boolValue]];
 }
 
-- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag 
-{
-    [self statusItemClick:nil];
-    return YES;
-}
+#pragma mark -
+#pragma mark NSApplicationDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
@@ -100,71 +149,24 @@ static NSUserDefaults *prefs;
     return NO;
 }
 
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag 
+{
+    if (flag == NO) {
+        [NSApp activateIgnoringOtherApps:YES];
+        [window makeKeyAndOrderFront:self];
+        [window makeFirstResponder:[window initialFirstResponder]];
+    }
+    return YES;
+}
+
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
     [prefs setObject:model.calendar.title forKey:PMCalendarKey];
     [prefs synchronize];
 }
 
-- (void)displayEventBox:(BOOL)show
-{
-    if (eventBox.isHidden != show)
-        return;
-    
-    NSSize boxSize = [eventBox frame].size;
-    NSRect windowRect = [window frame];
-    
-    if (show) {
-        windowRect.size.height += boxSize.height;
-        windowRect.origin.y    -= boxSize.height;
-        [window setFrame:windowRect display:YES animate:YES];
-        [eventBox setHidden:NO];
-    } else {
-        [eventBox setHidden:YES];
-        windowRect.size.height -= boxSize.height;
-        windowRect.origin.y    += boxSize.height;
-        [window setFrame:windowRect display:YES animate:YES];        
-    }    
-}
-
-- (void)displayStatusIcon:(BOOL)show
-{
-    if (show) {
-        if (statusItem)
-            return;
-        
-        statusItem = [[[NSStatusBar systemStatusBar]statusItemWithLength:-1]retain];
-        [statusItem setImage:[NSImage imageNamed:@"ical.png"]];
-        [statusItem setTarget:self];
-        [statusItem setAction:@selector(statusItemClick:)];
-        [statusItem setHighlightMode:YES];
-    } else {
-        [statusItem release];
-        statusItem =nil;
-    }
-}
-
-- (void)statusItemClick:(id)sender
-{
-    if ([window isVisible]) {
-        if ([(NSWindow *)window isKeyWindow]) {
-            [window performClose:self];
-        } else {
-            [NSApp activateIgnoringOtherApps:YES];
-        }
-    } else {
-        [NSApp activateIgnoringOtherApps:YES];
-        [window makeKeyAndOrderFront:self];
-        [window makeFirstResponder:[window initialFirstResponder]];
-    }
-}
-
-- (void)didEndPreferencesSheet:(NSWindow *)sheet 
-{
-}
-
 #pragma mark -
-#pragma mark IBActions
+#pragma mark IBAction
 
 - (IBAction)launchIcal:(id)sender
 {
@@ -177,21 +179,31 @@ static NSUserDefaults *prefs;
     [NSApp terminate:sender];
 }
 
-- (IBAction)cbDisplayEventBox:(id)sender
+- (IBAction)displayEventBox:(id)sender
 {
     if ([sender state] == NSOnState) {
-        [self displayEventBox:YES];
+        [self _displayEventBox:YES];
     } else {
-        [self displayEventBox:NO];
+        [self _displayEventBox:NO];
     }
 }
 
-- (IBAction)showPreferencesSheet:(id)sender 
+- (IBAction)displayAboutSheet:(id)sender 
+{
+    [NSApp beginSheet:aboutSheet
+       modalForWindow:window
+        modalDelegate:self
+       didEndSelector:nil
+          contextInfo:nil
+     ];
+}
+
+- (IBAction)displayPreferencesSheet:(id)sender 
 {
    [NSApp beginSheet:preferencesSheet
       modalForWindow:window
        modalDelegate:self
-      didEndSelector:@selector(didEndPreferencesSheet:)
+      didEndSelector:nil
          contextInfo:nil
     ];
 }
@@ -202,7 +214,7 @@ static NSUserDefaults *prefs;
         if ([w isSheet]) {
             [NSApp endSheet:w];
             [w orderOut:w];
-        }
+         }
     }
 }
 
@@ -212,18 +224,23 @@ static NSUserDefaults *prefs;
     for (NSString *key in [defaultsDict allKeys]) {
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:key];
     }
-    [[self class]initDefaults];
-    [self displayStatusIcon:[[[[NSUserDefaultsController sharedUserDefaultsController]values]valueForKey:PMDisplayStatusIconKey]boolValue]];
-    [self displayEventBox:[[[[NSUserDefaultsController sharedUserDefaultsController]values]valueForKey:PMDisplayEventBoxKey]boolValue]];
+    [[self class]_initializeSharedUserDefaults];
+    [self _displayStatusIcon:[[[[NSUserDefaultsController sharedUserDefaultsController]values]valueForKey:PMDisplayStatusIconKey]boolValue]];
+    [self _displayEventBox:[[[[NSUserDefaultsController sharedUserDefaultsController]values]valueForKey:PMDisplayEventBoxKey]boolValue]];
 }
 
-- (IBAction)cbDisplayStatusItem:(id)sender 
+- (IBAction)displayStatusIcon:(id)sender 
 {
     if ([sender state] == NSOnState) {
-        [self displayStatusIcon:YES];
+        [self _displayStatusIcon:YES];
     } else {
-        [self displayStatusIcon:NO];
+        [self _displayStatusIcon:NO];
     }
+}
+
+- (IBAction)openUrl:(id)sender
+{
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:[sender title]]];
 }
 
 #pragma mark -
