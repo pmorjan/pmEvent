@@ -23,11 +23,11 @@
 		D086371F13D03D4E00EA7D50 /* CalendarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D086371913D03D4E00EA7D50 /* CalendarMenu.m */; };
 		D086372313D03D7900EA7D50 /* ical.png in Resources */ = {isa = PBXBuildFile; fileRef = D086372113D03D7900EA7D50 /* ical.png */; };
 		D086372413D03D7900EA7D50 /* ical.icns in Resources */ = {isa = PBXBuildFile; fileRef = D086372213D03D7900EA7D50 /* ical.icns */; };
-		D086372813D03D9000EA7D50 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D086372613D03D9000EA7D50 /* License.txt */; };
 		D086372A13D03DC200EA7D50 /* CalendarStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D086372913D03DC200EA7D50 /* CalendarStore.framework */; };
 		D08ACB0E1406931300C030A0 /* ical_big.png in Resources */ = {isa = PBXBuildFile; fileRef = D08ACB0D1406931300C030A0 /* ical_big.png */; };
 		D09C878813F46A8300F63717 /* TableViewEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = D09C878513F46A8300F63717 /* TableViewEvents.m */; };
 		D09C878913F46A8300F63717 /* TextFieldWithURL.m in Sources */ = {isa = PBXBuildFile; fileRef = D09C878713F46A8300F63717 /* TextFieldWithURL.m */; };
+		D0A682A51406D51000C79CC9 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0A682A41406D51000C79CC9 /* License.txt */; };
 		D0B133CE14042A0C004263A7 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B133CD14042A0C004263A7 /* Settings.png */; };
 		D0D67F8F13ED32C8004E5A09 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D67F8E13ED32C8004E5A09 /* Model.m */; };
 		D0ED3B8013F68D7D00A7219F /* PopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED3B7E13F68D7D00A7219F /* PopoverController.m */; };
@@ -70,13 +70,13 @@
 		D086371913D03D4E00EA7D50 /* CalendarMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarMenu.m; sourceTree = "<group>"; };
 		D086372113D03D7900EA7D50 /* ical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ical.png; sourceTree = "<group>"; };
 		D086372213D03D7900EA7D50 /* ical.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ical.icns; sourceTree = "<group>"; };
-		D086372613D03D9000EA7D50 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License.txt; sourceTree = "<group>"; };
 		D086372913D03DC200EA7D50 /* CalendarStore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CalendarStore.framework; path = System/Library/Frameworks/CalendarStore.framework; sourceTree = SDKROOT; };
 		D08ACB0D1406931300C030A0 /* ical_big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ical_big.png; sourceTree = "<group>"; };
 		D09C878413F46A8300F63717 /* TableViewEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewEvents.h; sourceTree = "<group>"; };
 		D09C878513F46A8300F63717 /* TableViewEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewEvents.m; sourceTree = "<group>"; };
 		D09C878613F46A8300F63717 /* TextFieldWithURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldWithURL.h; sourceTree = "<group>"; };
 		D09C878713F46A8300F63717 /* TextFieldWithURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldWithURL.m; sourceTree = "<group>"; };
+		D0A682A41406D51000C79CC9 /* License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = License.txt; path = ../License.txt; sourceTree = "<group>"; };
 		D0B133CD14042A0C004263A7 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		D0D67F8D13ED32C8004E5A09 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		D0D67F8E13ED32C8004E5A09 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				D086372113D03D7900EA7D50 /* ical.png */,
 				D08ACB0D1406931300C030A0 /* ical_big.png */,
 				D086372213D03D7900EA7D50 /* ical.icns */,
-				D086372613D03D9000EA7D50 /* License.txt */,
+				D0A682A41406D51000C79CC9 /* License.txt */,
 				D08636F713D03D1E00EA7D50 /* pmEvent-Info.plist */,
 				D08636F813D03D1E00EA7D50 /* InfoPlist.strings */,
 				D08636FB13D03D1E00EA7D50 /* pmEvent-Prefix.pch */,
@@ -252,11 +252,11 @@
 				D086370013D03D1E00EA7D50 /* Credits.rtf in Resources */,
 				D086372313D03D7900EA7D50 /* ical.png in Resources */,
 				D086372413D03D7900EA7D50 /* ical.icns in Resources */,
-				D086372813D03D9000EA7D50 /* License.txt in Resources */,
 				D06695AD13D04F9C008063F0 /* MainMenu.xib in Resources */,
 				D0F7F4841402FB2200686869 /* preferences.png in Resources */,
 				D0B133CE14042A0C004263A7 /* Settings.png in Resources */,
 				D08ACB0E1406931300C030A0 /* ical_big.png in Resources */,
+				D0A682A51406D51000C79CC9 /* License.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
