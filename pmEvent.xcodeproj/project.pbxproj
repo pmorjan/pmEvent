@@ -275,7 +275,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "GIT_DESCRIPTION=$(git describe --tags)\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${GIT_DESCRIPTION#*v}\"";
+			shellScript = "GIT_DESCRIPTION=$(git describe --tags --dirty)\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${GIT_DESCRIPTION#*v}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
