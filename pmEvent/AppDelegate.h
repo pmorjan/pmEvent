@@ -28,6 +28,8 @@ extern NSString *PMDisplayEventBoxKey;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (retain) Model    *model;
+@property (copy)   NSString *gitDescription;
 
 - (IBAction)displayEventBox:(id)sender;
 - (IBAction)displayStatusIcon:(id)sender;
@@ -36,7 +38,6 @@ extern NSString *PMDisplayEventBoxKey;
 - (IBAction)endAllSheets:(id)sender;
 - (IBAction)resetPreferences:(id)sender;
 - (IBAction)openUrl:(id)sender;
-- (IBAction)launchIcal:(id)sender;
 - (IBAction)quit:(id)sender;
 
 @end

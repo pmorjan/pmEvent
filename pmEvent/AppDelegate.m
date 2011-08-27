@@ -13,6 +13,8 @@ NSString *PMCalendarKey          = @"calendar";
 @implementation AppDelegate
 
 @synthesize window;
+@synthesize model;
+@synthesize gitDescription;
 
 static NSUserDefaults *prefs;
 
@@ -168,12 +170,6 @@ static NSUserDefaults *prefs;
 
 #pragma mark -
 #pragma mark IBAction
-
-- (IBAction)launchIcal:(id)sender
-{
-    NSWorkspace *ws = [[[NSWorkspace alloc]init]autorelease];
-    [ws launchApplication:@"iCal"];
-}
 
 - (IBAction)quit:(id)sender
 {

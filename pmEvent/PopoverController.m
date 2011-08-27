@@ -8,6 +8,7 @@
 #import "CalendarEvent.h"
 
 @implementation PopoverController
+@synthesize alarmArray;
 
 - (id)init 
 {
@@ -58,9 +59,7 @@
         if ([keyPath isEqualTo:@"selectionIndexes"]) {
             // selection in eventTableView has changed
             if ([[eventArrayController selectedObjects] count] > 0) {
-                [alarmArray release];
-                alarmArray = [CalendarEvent descriptionOfAlarmsOfEvent:[[eventArrayController selectedObjects]objectAtIndex:0]];
-                [alarmArray retain];
+                self.alarmArray = [CalendarEvent descriptionOfAlarmsOfEvent:[[eventArrayController selectedObjects]objectAtIndex:0]];
             }
             [popoverAlarmTableView reloadData];
         } 

@@ -9,10 +9,11 @@
 
 @implementation EventController
 
-@synthesize alarmMinutes;
-@synthesize eventEndDate;
-@synthesize eventStartDate;
 @synthesize model;
+@synthesize eventStartDate;
+@synthesize eventEndDate;
+@synthesize alarmMinutes;
+@synthesize shouldUpdateEventEndTime;
 
 #pragma mark -
 #pragma mark init
@@ -151,6 +152,27 @@
     [CalendarEvent deleteEvent:calEvent];
     if ([[eventArrayController arrangedObjects]count] < 1) {
         [[sender window] makeFirstResponder:[[sender window] initialFirstResponder]];
+    }
+}
+
+- (IBAction)launchIcal:(id)sender
+{    
+    if ([eventArrayController selectedObjects].count > 0) {
+        CalEvent *calEvent = [[eventArrayController selectedObjects]objectAtIndex:0];
+        
+        NSString *source = [NSString stringWithFormat:@"tell application \"iCal\" \n activate\n" 
+                        "tell calendar \"%@\" \n set MyEvent to first event whose uid=\"%@\" \n end tell\n"
+                        "if MyEvent is not null then \n show MyEvent\n end if\n"
+                        "end tell", calEvent.calendar.title, calEvent.uid];
+
+        NSDictionary *errorInfo = [NSDictionary dictionary];
+        NSAppleScript *script = [[NSAppleScript alloc] initWithSource:source];
+        [script executeAndReturnError:&errorInfo];
+        // TODO: error handling, all day events
+
+    } else {
+        NSWorkspace *ws = [[[NSWorkspace alloc]init]autorelease];
+        [ws launchApplication:@"iCal"];
     }
 }
 

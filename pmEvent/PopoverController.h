@@ -7,11 +7,14 @@
 
 @interface PopoverController : NSViewController <NSPopoverDelegate,NSTableViewDataSource>
 {
-    NSPopover *popover;
     IBOutlet NSArrayController *eventArrayController;
     IBOutlet NSTableView       *popoverAlarmTableView;
+    NSPopover *popover;
     NSArray *alarmArray;
 }
+
+@property (retain) NSArray *alarmArray;
+
 - (IBAction)togglePopover:(id)sender;
 - (IBAction)closePopover:(id)sender;
 
