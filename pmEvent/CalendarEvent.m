@@ -8,9 +8,16 @@
 
 @implementation CalendarEvent
 
-#pragma mark -
-#pragma mark init
-
++ (void)addEvent:(CalEvent *)evt
+{
+    NSError *err;
+    if ([[CalCalendarStore defaultCalendarStore] saveEvent:evt span:CalSpanThisEvent error:&err] != YES) {
+        NSAlert *alert = [NSAlert alertWithError:err];
+        [alert runModal];
+        DLog(@"error:%@", [err localizedDescription]);
+        return;
+    }
+}
 
 + (void)deleteEvent:(CalEvent *)evt
 {
@@ -35,15 +42,15 @@
     return array;
 }
 
-+ (NSArray *)descriptionOfAlarmsOfEvent:(CalEvent *)event
++ (NSArray *)descriptionOfAlarmsOfEvent:(CalEvent *)evt
 {
     NSMutableArray *alarmArray = [[[NSMutableArray alloc]initWithCapacity:3]autorelease];
-    for(CalAlarm *alarm in [event alarms]) {
+    for(CalAlarm *alarm in [evt alarms]) {
       
         NSString *str = @"";
         if ([alarm absoluteTrigger] != nil) {
             // absolute alarm
-            if ([event.startDate isEqualToDate:alarm.absoluteTrigger]) {
+            if ([evt.startDate isEqualToDate:alarm.absoluteTrigger]) {
                 str = @"on date";
             } else {
                 str = [alarm.absoluteTrigger descriptionISO];

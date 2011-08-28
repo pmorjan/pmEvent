@@ -75,13 +75,7 @@
     [evt addAlarm:alarm];
     
     [popUpButtonScripts selectItemAtIndex:0];
-    
-    NSError *err;
-    if ([[CalCalendarStore defaultCalendarStore] saveEvent:evt span:CalSpanThisEvent error:&err] != YES) {
-        NSAlert *alert = [NSAlert alertWithError:err];
-        (void) [alert runModal];
-        return;
-    }
+    [CalendarEvent addEvent:evt];
     model.eventTitle = nil;
     model.eventNotes = nil;
     model.eventUrl   = nil;

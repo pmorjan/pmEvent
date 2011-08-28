@@ -84,12 +84,7 @@
         [evt addAlarm:alarm];
     }
     
-    NSError *err;
-    if ([[CalCalendarStore defaultCalendarStore] saveEvent:evt span:CalSpanThisEvent error:&err] != YES) {
-        NSAlert *alert = [NSAlert alertWithError:err];
-        (void) [alert runModal];
-        return;
-    }
+    [CalendarEvent addEvent:evt];
     model.eventTitle = nil;
     model.eventNotes = nil;
     model.eventUrl   = nil;
@@ -127,11 +122,11 @@
 
 - (IBAction)deleteEvent:(id)sender
 {
-    CalEvent *calEvent = [[eventArrayController selectedObjects]objectAtIndex:0];
+    CalEvent *evt = [[eventArrayController selectedObjects]objectAtIndex:0];
 
     // need to check if the event covers multiple days
-    NSInteger pastDays = [calEvent.endDate pastDaysSinceDate:calEvent.startDate];
-    if ([calEvent.endDate isEqualToDate:[calEvent.endDate dateAtMidnight]]) {
+    NSInteger pastDays = [evt.endDate pastDaysSinceDate:evt.startDate];
+    if ([evt.endDate isEqualToDate:[evt.endDate dateAtMidnight]]) {
         //  end day that ends at midnight does not count
         pastDays--;
     }
@@ -142,14 +137,25 @@
         [alert addButtonWithTitle:@"Delete"];
         [alert addButtonWithTitle:@"Cancel"];
         [alert setMessageText:[NSString stringWithFormat:@"This event covers %ld days.",pastDays +1]];
-        [alert setInformativeText:@"You can't undo this deletion."];
         NSInteger i = [alert runModal];
         [alert release];
         if (i != NSAlertFirstButtonReturn)
             return;
     }
 
-    [CalendarEvent deleteEvent:calEvent];
+    /*
+        ToDo: How to check for multiple occurrences ?
+        // Event has multiple occurrences
+    */
+    
+    NSUndoManager *undoManager = [[sender window] undoManager];
+    [undoManager registerUndoWithTarget:[CalendarEvent class]
+                        selector:@selector(addEvent:)
+                          object:evt];
+    [undoManager setActionName:@"Remove Event"];
+    
+    [CalendarEvent deleteEvent:evt];
+
     if ([[eventArrayController arrangedObjects]count] < 1) {
         [[sender window] makeFirstResponder:[[sender window] initialFirstResponder]];
     }

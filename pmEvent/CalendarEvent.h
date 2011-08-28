@@ -8,9 +8,9 @@
 
 @interface CalendarEvent : NSObject {
 }
-
-+ (void)deleteEvent:(CalEvent *)event;
++ (void)addEvent:(CalEvent *)evt;
++ (void)deleteEvent:(CalEvent *)evt;
 + (NSArray *)eventsOnDate:(NSDate*)date;
-+ (NSArray *)descriptionOfAlarmsOfEvent:(CalEvent *)event;
++ (NSArray *)descriptionOfAlarmsOfEvent:(CalEvent *)evt;
 
 @end
