@@ -84,7 +84,7 @@
         [evt addAlarm:alarm];
     }
     
-    [CalendarEvent addEvent:evt];
+    [CalendarEvent saveEvent:evt span:CalSpanThisEvent];
     model.eventTitle = nil;
     model.eventNotes = nil;
     model.eventUrl   = nil;
@@ -120,10 +120,46 @@
     shouldUpdateEventEndTime = NO;
 }
 
+
 - (IBAction)deleteEvent:(id)sender
 {
     CalEvent *evt = [[eventArrayController selectedObjects]objectAtIndex:0];
 
+    NSArray *futureEvents = [CalendarEvent futureEventsWithUID:[evt uid] date:evt.startDate];
+    NSArray *pastEvents   = [CalendarEvent pastEventsWithUID:[evt uid] date:evt.startDate];
+DLog(@"past:%ld  future:%ld",[pastEvents count], [futureEvents count]);
+    return;
+    CalSpan span = CalSpanThisEvent;
+    
+    if ([futureEvents count] > 0) {
+        NSAlert *alert = [[NSAlert alloc]init];
+        [alert setAlertStyle:NSWarningAlertStyle];      
+        [alert addButtonWithTitle:@"Delete only this Event"];           // NSAlertFirstButtonReturn
+
+        if ([pastEvents count] > 0) {
+            [alert addButtonWithTitle:@"Delete all Future Events"];     // NSAlertSecondButtonReturn
+            span  = CalSpanFutureEvents;
+        } else {
+            [alert addButtonWithTitle:@"Delete all Events"];            // NSAlertSecondButtonReturn
+            span  = CalSpanAllEvents;            
+        }
+        [alert addButtonWithTitle:@"Cancel"];                           // NSAlertThirdButtonReturn
+        [alert setMessageText:@"This is a multi-occurrence Event."];
+        NSInteger i = [alert runModal];
+        [alert release];
+        
+        switch (i) {
+            case NSAlertFirstButtonReturn:
+                span = CalSpanThisEvent; 
+                break;
+            case NSAlertSecondButtonReturn:
+                break;
+            default:
+                return;
+                break;
+        }
+    }
+    
     // need to check if the event covers multiple days
     NSInteger pastDays = [evt.endDate pastDaysSinceDate:evt.startDate];
     if ([evt.endDate isEqualToDate:[evt.endDate dateAtMidnight]]) {
@@ -143,19 +179,11 @@
             return;
     }
 
-    /*
-        ToDo: How to check for multiple occurrences ?
-        // Event has multiple occurrences
-    */
-    
     NSUndoManager *undoManager = [[sender window] undoManager];
-    [undoManager registerUndoWithTarget:[CalendarEvent class]
-                        selector:@selector(addEvent:)
-                          object:evt];
+    [[undoManager prepareWithInvocationTarget:[CalendarEvent class]] saveEvent:evt span:span];
     [undoManager setActionName:@"Remove Event"];
+    [CalendarEvent removeEvent:evt span:span];
     
-    [CalendarEvent deleteEvent:evt];
-
     if ([[eventArrayController arrangedObjects]count] < 1) {
         [[sender window] makeFirstResponder:[[sender window] initialFirstResponder]];
     }

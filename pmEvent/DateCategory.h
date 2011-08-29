@@ -10,6 +10,7 @@
 - (NSDate *)dateZeroSeconds;
 - (NSDate *)dateAtMidnight;
 - (NSDate *)dateByAddingOneDay;
+- (NSDate *)dateFourYearsAgo;
 - (NSInteger)pastDaysSinceDate:(NSDate *)aDate;
 - (NSString *)descriptionISO;
 - (NSString *)descriptionUserPreferences;

@@ -73,9 +73,8 @@
     }
 
     [evt addAlarm:alarm];
-    
+    [CalendarEvent saveEvent:evt span:CalSpanThisEvent];
     [popUpButtonScripts selectItemAtIndex:0];
-    [CalendarEvent addEvent:evt];
     model.eventTitle = nil;
     model.eventNotes = nil;
     model.eventUrl   = nil;

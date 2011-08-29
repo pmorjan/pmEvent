@@ -26,6 +26,14 @@
     return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
 }
 
+- (NSDate *)dateFourYearsAgo
+{
+    NSDateComponents *components = [[[NSDateComponents alloc] init]autorelease];
+    [components setYear:-4];
+    [components setDay:+1];
+    return [[NSCalendar currentCalendar] dateByAddingComponents:components toDate:self options:0];
+}
+
 - (NSInteger)pastDaysSinceDate:(NSDate*)aDate
 {
     return [[[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:[aDate dateAtMidnight]

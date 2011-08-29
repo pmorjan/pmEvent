@@ -8,25 +8,21 @@
 
 @implementation CalendarEvent
 
-+ (void)addEvent:(CalEvent *)evt
++ (void)saveEvent:(CalEvent *)evt span:(CalSpan)span
 {
     NSError *err;
-    if ([[CalCalendarStore defaultCalendarStore] saveEvent:evt span:CalSpanThisEvent error:&err] != YES) {
+    if ([[CalCalendarStore defaultCalendarStore] saveEvent:evt span:span error:&err] != YES) {
         NSAlert *alert = [NSAlert alertWithError:err];
         [alert runModal];
-        DLog(@"error:%@", [err localizedDescription]);
-        return;
     }
 }
 
-+ (void)deleteEvent:(CalEvent *)evt
++ (void)removeEvent:(CalEvent *)evt span:(CalSpan)span
 {
     NSError *err;
-    if ([[CalCalendarStore defaultCalendarStore] removeEvent:evt span:CalSpanThisEvent error:&err] != YES) {
+    if ([[CalCalendarStore defaultCalendarStore] removeEvent:evt span:span error:&err] != YES) {
         NSAlert *alert = [NSAlert alertWithError:err];
         [alert runModal];
-        DLog(@"error:%@", [err localizedDescription]);
-        return;
     }
 }
 
@@ -40,6 +36,28 @@
                                                                        calendars:[store calendars]];
     NSArray *array = [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];
     return array;
+}
+
++ (NSArray *)futureEventsWithUID:(NSString *)uid date:(NSDate *)date
+{
+    CalCalendarStore *store = [CalCalendarStore defaultCalendarStore];
+	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:date
+                                                                         endDate:[NSDate distantFuture]
+                                                                             UID:uid
+                                                                       calendars:[store calendars]];
+    NSArray *array = [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];
+    return array;    
+}
+
++ (NSArray *)pastEventsWithUID:(NSString *)uid date:(NSDate *)date
+{
+    CalCalendarStore *store = [CalCalendarStore defaultCalendarStore];
+	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:[date dateFourYearsAgo]
+                                                                         endDate:date
+                                                                             UID:uid
+                                                                       calendars:[store calendars]];
+    NSArray *array = [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];
+    return array;    
 }
 
 + (NSArray *)descriptionOfAlarmsOfEvent:(CalEvent *)evt
