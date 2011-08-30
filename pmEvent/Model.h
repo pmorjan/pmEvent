@@ -6,6 +6,8 @@
 #import <Foundation/Foundation.h>
 #import <CalendarStore/CalendarStore.h>
 
+extern NSString * const PMDateChangedNotification;
+
 @interface Model : NSObject
 {
     NSString        *eventTitle;

@@ -11,6 +11,8 @@
 @synthesize calendar;
 @synthesize debug;
 
+NSString * const PMDateChangedNotification = @"PMDateChanged";
+
 - (id)init {
     self = [super init];
     if (self) {

@@ -31,6 +31,7 @@
 		D0B133CE14042A0C004263A7 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B133CD14042A0C004263A7 /* Settings.png */; };
 		D0D67F8F13ED32C8004E5A09 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D67F8E13ED32C8004E5A09 /* Model.m */; };
 		D0ED3B8013F68D7D00A7219F /* PopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED3B7E13F68D7D00A7219F /* PopoverController.m */; };
+		D0F572A4140CE33F0001F515 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F572A3140CE33F0001F515 /* TableViewController.m */; };
 		D0F7F4841402FB2200686869 /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = D0F7F4831402FB2200686869 /* preferences.png */; };
 		D0F824B51400374800D2E365 /* logout.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0F824B41400374800D2E365 /* logout.applescript */; };
 		D0F824B71400378200D2E365 /* shutdown.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0F824B61400378200D2E365 /* shutdown.applescript */; };
@@ -82,6 +83,8 @@
 		D0D67F8E13ED32C8004E5A09 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 		D0ED3B7D13F68D7D00A7219F /* PopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverController.h; sourceTree = "<group>"; };
 		D0ED3B7E13F68D7D00A7219F /* PopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverController.m; sourceTree = "<group>"; };
+		D0F572A2140CE33F0001F515 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		D0F572A3140CE33F0001F515 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		D0F7F4831402FB2200686869 /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
 		D0F824B41400374800D2E365 /* logout.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = logout.applescript; sourceTree = "<group>"; };
 		D0F824B61400378200D2E365 /* shutdown.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; path = shutdown.applescript; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				D05863A113EC95100083A8A1 /* AlarmController.m */,
 				D05863A413EC95100083A8A1 /* EventController.h */,
 				D05863A513EC95100083A8A1 /* EventController.m */,
+				D0F572A2140CE33F0001F515 /* TableViewController.h */,
+				D0F572A3140CE33F0001F515 /* TableViewController.m */,
 				D0ED3B7D13F68D7D00A7219F /* PopoverController.h */,
 				D0ED3B7E13F68D7D00A7219F /* PopoverController.m */,
 				D086371613D03D4E00EA7D50 /* CalendarEvent.h */,
@@ -302,6 +307,7 @@
 				D0F824B9140037C800D2E365 /* restart.applescript in Sources */,
 				D0F824C41400FB2B00D2E365 /* ScriptMenu.m in Sources */,
 				D047F80A14015D6C00C44CBB /* sleep.applescript in Sources */,
+				D0F572A4140CE33F0001F515 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

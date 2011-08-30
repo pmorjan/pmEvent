@@ -78,6 +78,8 @@
     model.eventTitle = nil;
     model.eventNotes = nil;
     model.eventUrl   = nil;
+    NSDictionary *d = [NSDictionary dictionaryWithObject:alarmDate forKey:@"startDate"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:PMDateChangedNotification object:self userInfo:d];
 }
 
 #pragma mark -

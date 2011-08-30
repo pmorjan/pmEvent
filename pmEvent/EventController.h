@@ -36,6 +36,5 @@
 - (IBAction)createEvent:(id)sender;
 - (IBAction)deleteEvent:(id)sender;
 - (IBAction)launchIcal:(id)sender;
-- (NSArray*)events;
 
 @end

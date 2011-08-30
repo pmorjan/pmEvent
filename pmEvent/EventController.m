@@ -22,9 +22,6 @@
 {
     self = [super init];
     if (self != nil) {
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventsChanged:) name:CalEventsChangedExternallyNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventsChanged:) name:CalEventsChangedNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(eventsChanged:) name:CalCalendarsChangedExternallyNotification object:nil];
         alarmMinutes    = [[NSNumber numberWithInt:5]retain];
 		eventStartDate  = [[[[NSDate date]dateZeroSeconds]dateByAddingTimeInterval:60*10]retain];
         eventEndDate    = [eventStartDate copy];
@@ -150,7 +147,7 @@
     NSArray *pastEvents   = [CalendarEvent eventsWithUID:[evt uid] startDate:[evt.startDate dateFourYearsAgo] endDate:evt.startDate];
     NSArray *futureEvents = [CalendarEvent eventsWithUID:[evt uid] startDate:evt.endDate endDate:[NSDate distantFuture]];
     
-    DLog(@"past:%ld  future:%ld",[pastEvents count], [futureEvents count]);
+    //DLog(@"past:%ld  future:%ld",[pastEvents count], [futureEvents count]);
     
     CalSpan span = CalSpanThisEvent;
     
@@ -205,17 +202,6 @@
 
 #pragma mark -
 
-- (void)eventsChanged:(NSNotification *)notification
-{
-    [self willChangeValueForKey:@"events"];
-    [self didChangeValueForKey:@"events"];
-}
-
-- (NSArray*)events
-{
-	return [CalendarEvent eventsOnDate:eventStartDate];
-}
-
 - (NSDate *)currentDate
 {
     return [NSDate date];
@@ -240,7 +226,8 @@
 
         if ( ! [[newDate dateAtMidnight] isEqualToDate:[oldStartDate dateAtMidnight]] ){
 			// this is a new day, need to update events
-            [self eventsChanged:nil];
+            NSDictionary *d = [NSDictionary dictionaryWithObject:eventStartDate forKey:@"startDate"];
+            [[NSNotificationCenter defaultCenter]postNotificationName:PMDateChangedNotification object:self userInfo:d];
 		}
 
 		if (shouldUpdateEventEndTime && [buttonAllDayEvent state] == NSOffState) {
