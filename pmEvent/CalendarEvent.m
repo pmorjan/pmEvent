@@ -38,22 +38,11 @@
     return array;
 }
 
-+ (NSArray *)futureEventsWithUID:(NSString *)uid date:(NSDate *)date
++ (NSArray *)eventsWithUID:(NSString *)uid startDate:(NSDate *)startDate endDate:(NSDate *)endDate
 {
     CalCalendarStore *store = [CalCalendarStore defaultCalendarStore];
-	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:date
-                                                                         endDate:[NSDate distantFuture]
-                                                                             UID:uid
-                                                                       calendars:[store calendars]];
-    NSArray *array = [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];
-    return array;    
-}
-
-+ (NSArray *)pastEventsWithUID:(NSString *)uid date:(NSDate *)date
-{
-    CalCalendarStore *store = [CalCalendarStore defaultCalendarStore];
-	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:[date dateFourYearsAgo]
-                                                                         endDate:date
+	NSPredicate *eventsPredicate = [CalCalendarStore eventPredicateWithStartDate:startDate
+                                                                         endDate:endDate
                                                                              UID:uid
                                                                        calendars:[store calendars]];
     NSArray *array = [NSArray arrayWithArray:[store eventsWithPredicate:eventsPredicate]];

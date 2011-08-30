@@ -120,47 +120,11 @@
     shouldUpdateEventEndTime = NO;
 }
 
-
 - (IBAction)deleteEvent:(id)sender
 {
     CalEvent *evt = [[eventArrayController selectedObjects]objectAtIndex:0];
-
-    NSArray *futureEvents = [CalendarEvent futureEventsWithUID:[evt uid] date:evt.startDate];
-    NSArray *pastEvents   = [CalendarEvent pastEventsWithUID:[evt uid] date:evt.startDate];
-DLog(@"past:%ld  future:%ld",[pastEvents count], [futureEvents count]);
-    return;
-    CalSpan span = CalSpanThisEvent;
     
-    if ([futureEvents count] > 0) {
-        NSAlert *alert = [[NSAlert alloc]init];
-        [alert setAlertStyle:NSWarningAlertStyle];      
-        [alert addButtonWithTitle:@"Delete only this Event"];           // NSAlertFirstButtonReturn
-
-        if ([pastEvents count] > 0) {
-            [alert addButtonWithTitle:@"Delete all Future Events"];     // NSAlertSecondButtonReturn
-            span  = CalSpanFutureEvents;
-        } else {
-            [alert addButtonWithTitle:@"Delete all Events"];            // NSAlertSecondButtonReturn
-            span  = CalSpanAllEvents;            
-        }
-        [alert addButtonWithTitle:@"Cancel"];                           // NSAlertThirdButtonReturn
-        [alert setMessageText:@"This is a multi-occurrence Event."];
-        NSInteger i = [alert runModal];
-        [alert release];
-        
-        switch (i) {
-            case NSAlertFirstButtonReturn:
-                span = CalSpanThisEvent; 
-                break;
-            case NSAlertSecondButtonReturn:
-                break;
-            default:
-                return;
-                break;
-        }
-    }
-    
-    // need to check if the event covers multiple days
+    // check if the event covers multiple days
     NSInteger pastDays = [evt.endDate pastDaysSinceDate:evt.startDate];
     if ([evt.endDate isEqualToDate:[evt.endDate dateAtMidnight]]) {
         //  end day that ends at midnight does not count
@@ -178,10 +142,39 @@ DLog(@"past:%ld  future:%ld",[pastEvents count], [futureEvents count]);
         if (i != NSAlertFirstButtonReturn)
             return;
     }
-
+    
+    /* ToDo: enhance deleting a multi-occurence event 
+     *
+     *      4y ago ------------------>| start ------------------ end |<-------------------------- distant future 
+     */
+    NSArray *pastEvents   = [CalendarEvent eventsWithUID:[evt uid] startDate:[evt.startDate dateFourYearsAgo] endDate:evt.startDate];
+    NSArray *futureEvents = [CalendarEvent eventsWithUID:[evt uid] startDate:evt.endDate endDate:[NSDate distantFuture]];
+    
+    DLog(@"past:%ld  future:%ld",[pastEvents count], [futureEvents count]);
+    
+    CalSpan span = CalSpanThisEvent;
+    
+    
+    if ([pastEvents count] + [futureEvents count] > 0) {
+        NSAlert *alert = [[NSAlert alloc]init];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert setMessageText:@"This is a multi-occurrence Event."];
+        [alert setInformativeText:@"Do you want to delete all occurrences of this event ?"];
+        [alert addButtonWithTitle:@"Cancel"];                  // NSAlertFirstButtonReturn
+        [alert addButtonWithTitle:@"Delete all Occurences"];   // NSAlertSecondButtonReturn
+        
+        NSInteger i = [alert runModal];
+        [alert release];
+        if (i == NSAlertSecondButtonReturn) {
+            DLog();
+            span = CalSpanAllEvents; 
+        } else {
+            return;
+        }
+    }
     NSUndoManager *undoManager = [[sender window] undoManager];
+    [undoManager setActionName:@"Remove Event"];        
     [[undoManager prepareWithInvocationTarget:[CalendarEvent class]] saveEvent:evt span:span];
-    [undoManager setActionName:@"Remove Event"];
     [CalendarEvent removeEvent:evt span:span];
     
     if ([[eventArrayController arrangedObjects]count] < 1) {

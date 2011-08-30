@@ -83,12 +83,6 @@
 #pragma mark -
 #pragma mark private methods
 
-- (void) eventsChanged:(NSNotification *)notification
-{
-    [self willChangeValueForKey:@"events"];
-    [self didChangeValueForKey:@"events"];
-}
-
 - (void)updateAlarmDate:(id)userInfo
 {
     NSDateComponents *dateComponents = [[NSCalendar currentCalendar]
