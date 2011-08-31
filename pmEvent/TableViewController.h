@@ -8,12 +8,14 @@
 
 @interface TableViewController : NSViewController
 {
-    NSDate *dateOfEvents;
+    NSWindow    *window;
+    NSDate      *dateOfEvents;
     IBOutlet NSTableView       *tableView;
     IBOutlet PopoverController *popoverController;
     IBOutlet NSArrayController *eventArrayController;
 }
 
+@property (assign) IBOutlet NSWindow *window;
 @property (copy) NSDate *dateOfEvents;
 
 - (NSArray*)events;

@@ -11,6 +11,7 @@
 @implementation TableViewController
 
 @synthesize dateOfEvents;
+@synthesize window;
 
 - (id)init
 {
@@ -31,6 +32,7 @@
 
 - (void)awakeFromNib
 {
+    [self setNextResponder:[window contentView]];
     [tableView setNextResponder:self];
     [tableView setDoubleAction:@selector(doubleClickAction)];
 }
@@ -72,7 +74,7 @@
             [self deleteEvent:tableView];
             if ([tableView numberOfRows] < 1) {
                 [popoverController closePopover:tableView];
-                [[self.view window] makeFirstResponder:[[tableView window] initialFirstResponder]];
+                [window makeFirstResponder:[window initialFirstResponder]];
             }
             return;
         } 
@@ -153,11 +155,10 @@
             return;
         }
     }
-    NSUndoManager *undoManager = [[sender window] undoManager];
+    NSUndoManager *undoManager = [sender undoManager];
     [undoManager setActionName:@"Remove Event"];        
     [[undoManager prepareWithInvocationTarget:[CalendarEvent class]] saveEvent:evt span:span];
     [CalendarEvent removeEvent:evt span:span];
-    
     if ([[eventArrayController arrangedObjects]count] < 1) {
         [[sender window] makeFirstResponder:[[sender window] initialFirstResponder]];
     }
