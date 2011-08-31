@@ -4,7 +4,9 @@
 //
 
 #import "TableViewController.h"
+#import "CalendarEvent.h"
 #import "Model.h"
+#import "DateCategory.h"
 
 @implementation TableViewController
 
@@ -33,45 +35,6 @@
     [tableView setDoubleAction:@selector(doubleClickAction)];
 }
 
--(void)keyDown:(NSEvent *)event 
-{
-    NSInteger row = [tableView selectedRow];
-    
-    if (row >= 0) {
-        NSString *str = [event charactersIgnoringModifiers];
-        if ([str isEqualToString: @" "]){
-            [popoverController togglePopover:tableView];
-            return;
-        }
-        
-        unichar keyChar = [str characterAtIndex:0];
-        if (keyChar == NSDeleteCharacter || keyChar == NSDeleteFunctionKey) {
-            [eventController deleteEvent:tableView];
-            if ([tableView numberOfRows] < 1) {
-                [popoverController closePopover:tableView];
-                [[self.view window] makeFirstResponder:[[tableView window] initialFirstResponder]];
-            }
-            return;
-        } 
-    } 
-    [super keyDown:event];
-}
-
-- (void)rightMouseDown:(NSEvent *)event
-{
-    [popoverController togglePopover:tableView];
-}
-
-- (void)cancelOperation:(id)sender
-{
-    [popoverController closePopover:tableView];
-}
-
-- (void)doubleClickAction
-{
-    [popoverController togglePopover:tableView];
-}
-
 - (void)eventsChanged:(NSNotification *)notification
 {
     [self willChangeValueForKey:@"events"];
@@ -89,6 +52,155 @@
 {
 	return [CalendarEvent eventsOnDate:self.dateOfEvents];
 }
+
+#pragma mark -
+#pragma mark Key Events
+
+-(void)keyDown:(NSEvent *)event 
+{
+    NSInteger row = [tableView selectedRow];
+    
+    if (row >= 0) {
+        NSString *str = [event charactersIgnoringModifiers];
+        if ([str isEqualToString: @" "]){
+            [popoverController togglePopover:tableView];
+            return;
+        }
+        
+        unichar keyChar = [str characterAtIndex:0];
+        if (keyChar == NSDeleteCharacter || keyChar == NSDeleteFunctionKey) {
+            [self deleteEvent:tableView];
+            if ([tableView numberOfRows] < 1) {
+                [popoverController closePopover:tableView];
+                [[self.view window] makeFirstResponder:[[tableView window] initialFirstResponder]];
+            }
+            return;
+        } 
+    } 
+    [super keyDown:event];
+}
+
+- (void)cancelOperation:(id)sender
+{
+    [popoverController closePopover:tableView];
+}
+
+#pragma mark -
+#pragma mark Mouse Events
+
+- (void)doubleClickAction
+{
+    [popoverController togglePopover:tableView];
+}
+
+- (void)rightMouseDown:(NSEvent *)event
+{
+    [popoverController togglePopover:tableView];
+}
+
+#pragma mark -
+#pragma mark IBActions
+
+- (IBAction)deleteEvent:(id)sender
+{
+    CalEvent *evt = [[eventArrayController selectedObjects]objectAtIndex:0];
+    
+    // check if the event covers multiple days
+    NSInteger pastDays = [evt.endDate pastDaysSinceDate:evt.startDate];
+    if ([evt.endDate isEqualToDate:[evt.endDate dateAtMidnight]]) {
+        //  end day that ends at midnight does not count
+        pastDays--;
+    }
+    if (pastDays > 0) {
+        // Event covers multiple days
+        NSAlert *alert = [[NSAlert alloc]init];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert addButtonWithTitle:@"Delete"];
+        [alert addButtonWithTitle:@"Cancel"];
+        [alert setMessageText:[NSString stringWithFormat:@"This event covers %ld days.",pastDays +1]];
+        NSInteger i = [alert runModal];
+        [alert release];
+        if (i != NSAlertFirstButtonReturn)
+            return;
+    }
+    
+    /* ToDo: enhance deleting a multi-occurence event 
+     *
+     *      4y ago ------------------>| start ------------------ end |<-------------------------- distant future 
+     */
+    NSArray *pastEvents   = [CalendarEvent eventsWithUID:[evt uid] startDate:[evt.startDate dateFourYearsAgo] endDate:evt.startDate];
+    NSArray *futureEvents = [CalendarEvent eventsWithUID:[evt uid] startDate:evt.endDate endDate:[NSDate distantFuture]];
+    
+    //DLog(@"past:%ld  future:%ld",[pastEvents count], [futureEvents count]);
+    
+    CalSpan span = CalSpanThisEvent;
+    
+    
+    if ([pastEvents count] + [futureEvents count] > 0) {
+        NSAlert *alert = [[NSAlert alloc]init];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        [alert setMessageText:@"This is a multi-occurrence Event."];
+        [alert setInformativeText:@"Do you want to delete all occurrences of this event ?"];
+        [alert addButtonWithTitle:@"Cancel"];                  // NSAlertFirstButtonReturn
+        [alert addButtonWithTitle:@"Delete all Occurences"];   // NSAlertSecondButtonReturn
+        
+        NSInteger i = [alert runModal];
+        [alert release];
+        if (i == NSAlertSecondButtonReturn) {
+            DLog();
+            span = CalSpanAllEvents; 
+        } else {
+            return;
+        }
+    }
+    NSUndoManager *undoManager = [[sender window] undoManager];
+    [undoManager setActionName:@"Remove Event"];        
+    [[undoManager prepareWithInvocationTarget:[CalendarEvent class]] saveEvent:evt span:span];
+    [CalendarEvent removeEvent:evt span:span];
+    
+    if ([[eventArrayController arrangedObjects]count] < 1) {
+        [[sender window] makeFirstResponder:[[sender window] initialFirstResponder]];
+    }
+}
+
+- (IBAction)launchIcal:(id)sender
+{    
+    NSString *source;
+    if ([eventArrayController selectedObjects].count > 0) {
+        // open iCal, show existing event
+        CalEvent *calEvent = [[eventArrayController selectedObjects]objectAtIndex:0];
+        
+        source = [NSString stringWithFormat:@"tell application \"iCal\" \n activate\n" 
+                            "tell calendar \"%@\" \n set MyEvent to first event whose uid=\"%@\" \n end tell\n"
+                            "if MyEvent is not null then \n show MyEvent\n end if\n"
+                            "end tell", calEvent.calendar.title, calEvent.uid];
+        
+        
+    } else {
+        // open iCal on date
+        source = [NSString stringWithFormat:@"tell application \"iCal\"\n" 
+                            "view calendar at date \"%@\" \n activate\n end tell", [dateOfEvents descriptionIcalDate]];
+    }
+    
+    NSDictionary *errorInfo = [NSDictionary dictionary];
+    NSAppleScript *script = [[NSAppleScript alloc] initWithSource:source];
+    
+    if ([script executeAndReturnError:&errorInfo] == nil) {
+    
+        NSString *msg  = [NSString stringWithFormat:@"%@ (Error %@)",
+                            [errorInfo objectForKey:@"NSAppleScriptErrorMessage"],
+                            [errorInfo objectForKey:@"NSAppleScriptErrorNumber"]];
+        NSAlert *alert = [NSAlert alertWithMessageText:msg
+                                         defaultButton:@"OK"
+                                       alternateButton:nil
+                                           otherButton:nil
+                             informativeTextWithFormat:@""];
+        [alert setAlertStyle:NSCriticalAlertStyle];
+        [alert runModal];
+    }
+}
+
+#pragma mark -
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter]removeObserver:self]; 

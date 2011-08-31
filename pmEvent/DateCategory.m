@@ -47,6 +47,13 @@
     return [dateFormatter stringFromDate:self];
 }
 
+- (NSString *)descriptionIcalDate
+{
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc]init]autorelease];
+    dateFormatter.dateFormat = @"MM/dd/yyyy"; 
+    return [dateFormatter stringFromDate:self];
+}
+
 - (NSString *)descriptionUserPreferences
 {
     NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];

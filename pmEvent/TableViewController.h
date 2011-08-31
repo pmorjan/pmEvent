@@ -4,7 +4,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EventController.h"
 #import "PopoverController.h"
 
 @interface TableViewController : NSViewController
@@ -12,11 +11,13 @@
     NSDate *dateOfEvents;
     IBOutlet NSTableView       *tableView;
     IBOutlet PopoverController *popoverController;
-    IBOutlet EventController   *eventController;
+    IBOutlet NSArrayController *eventArrayController;
 }
 
 @property (copy) NSDate *dateOfEvents;
 
 - (NSArray*)events;
+- (IBAction)deleteEvent:(id)sender;
+- (IBAction)launchIcal:(id)sender;
 
 @end

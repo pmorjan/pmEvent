@@ -4,19 +4,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "CalendarEvent.h"
 #import "Model.h"
 
 @interface EventController : NSObject
 {
     IBOutlet NSButton           *buttonAllDayEvent;
-    IBOutlet NSButton           *buttonDeleteEvent;
     IBOutlet NSPopUpButton      *popUpButtonAlarm;
     IBOutlet NSDatePicker       *datePickerEventStart;
     IBOutlet NSDatePicker       *datePickerEventStart2;
     IBOutlet NSDatePicker       *datePickerEventEnd;
     IBOutlet NSTextField        *alarmMinutesField;
-    IBOutlet NSArrayController  *eventArrayController;
     Model       *model;
 	NSDate		*eventStartDate;
     NSDate		*eventEndDate;
@@ -34,7 +31,4 @@
 - (IBAction)alarmPopUpMinutesChanged:(id)sender;
 - (IBAction)eventEndTimeChanged:(id)sender;
 - (IBAction)createEvent:(id)sender;
-- (IBAction)deleteEvent:(id)sender;
-- (IBAction)launchIcal:(id)sender;
-
 @end

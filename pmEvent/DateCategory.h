@@ -13,5 +13,6 @@
 - (NSDate *)dateFourYearsAgo;
 - (NSInteger)pastDaysSinceDate:(NSDate *)aDate;
 - (NSString *)descriptionISO;
+- (NSString *)descriptionIcalDate;
 - (NSString *)descriptionUserPreferences;
 @end
