@@ -4,7 +4,6 @@
 //
 
 #import "TableViewController.h"
-#import "CalendarEvent.h"
 #import "Model.h"
 
 @implementation TableViewController
@@ -26,6 +25,51 @@
     }
     
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [tableView setNextResponder:self];
+    [tableView setDoubleAction:@selector(doubleClickAction)];
+}
+
+-(void)keyDown:(NSEvent *)event 
+{
+    NSInteger row = [tableView selectedRow];
+    
+    if (row >= 0) {
+        NSString *str = [event charactersIgnoringModifiers];
+        if ([str isEqualToString: @" "]){
+            [popoverController togglePopover:tableView];
+            return;
+        }
+        
+        unichar keyChar = [str characterAtIndex:0];
+        if (keyChar == NSDeleteCharacter || keyChar == NSDeleteFunctionKey) {
+            [eventController deleteEvent:tableView];
+            if ([tableView numberOfRows] < 1) {
+                [popoverController closePopover:tableView];
+                [[self.view window] makeFirstResponder:[[tableView window] initialFirstResponder]];
+            }
+            return;
+        } 
+    } 
+    [super keyDown:event];
+}
+
+- (void)rightMouseDown:(NSEvent *)event
+{
+    [popoverController togglePopover:tableView];
+}
+
+- (void)cancelOperation:(id)sender
+{
+    [popoverController closePopover:tableView];
+}
+
+- (void)doubleClickAction
+{
+    [popoverController togglePopover:tableView];
 }
 
 - (void)eventsChanged:(NSNotification *)notification

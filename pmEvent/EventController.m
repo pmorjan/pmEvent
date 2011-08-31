@@ -195,8 +195,7 @@
         // TODO: error handling, all day events
 
     } else {
-        NSWorkspace *ws = [[[NSWorkspace alloc]init]autorelease];
-        [ws launchApplication:@"iCal"];
+        [[[NSWorkspace alloc]init]launchApplication:@"iCal"];
     }
 }
 
