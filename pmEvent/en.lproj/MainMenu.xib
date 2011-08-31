@@ -375,7 +375,6 @@
 								</object>
 								<object class="NSMenuItem" id="296257095">
 									<reference key="NSMenu" ref="789758025"/>
-									<bool key="NSIsHidden">YES</bool>
 									<string key="NSTitle">Cut</string>
 									<string key="NSKeyEquiv">x</string>
 									<int key="NSKeyEquivModMask">1048576</int>
@@ -385,7 +384,6 @@
 								</object>
 								<object class="NSMenuItem" id="860595796">
 									<reference key="NSMenu" ref="789758025"/>
-									<bool key="NSIsHidden">YES</bool>
 									<string key="NSTitle">Copy</string>
 									<string key="NSKeyEquiv">c</string>
 									<int key="NSKeyEquivModMask">1048576</int>
@@ -395,7 +393,6 @@
 								</object>
 								<object class="NSMenuItem" id="29853731">
 									<reference key="NSMenu" ref="789758025"/>
-									<bool key="NSIsHidden">YES</bool>
 									<string key="NSTitle">Paste</string>
 									<string key="NSKeyEquiv">v</string>
 									<int key="NSKeyEquivModMask">1048576</int>
