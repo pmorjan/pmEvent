@@ -115,15 +115,14 @@
     }
     if (pastDays > 0) {
         // Event covers multiple days
-        NSAlert *alert = [[NSAlert alloc]init];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert addButtonWithTitle:@"Delete"];
-        [alert addButtonWithTitle:@"Cancel"];
-        [alert setMessageText:[NSString stringWithFormat:@"This event covers %ld days.",pastDays +1]];
-        NSInteger i = [alert runModal];
-        [alert release];
-        if (i != NSAlertFirstButtonReturn)
+        NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"This event covers %ld days.", pastDays +1]
+                                         defaultButton:@"Delete" 
+                                       alternateButton:@"Cancel" 
+                                           otherButton:nil
+                             informativeTextWithFormat:@"Do you really want to delete this event ?"];
+        if ([alert runModal] != NSAlertDefaultReturn) {
             return;
+        }
     }
     
     /* ToDo: enhance deleting a multi-occurence event 
@@ -136,25 +135,20 @@
     //DLog(@"past:%ld  future:%ld",[pastEvents count], [futureEvents count]);
     
     CalSpan span = CalSpanThisEvent;
-    
-    
+
     if ([pastEvents count] + [futureEvents count] > 0) {
-        NSAlert *alert = [[NSAlert alloc]init];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        [alert setMessageText:@"This is a multi-occurrence Event."];
-        [alert setInformativeText:@"Do you want to delete all occurrences of this event ?"];
-        [alert addButtonWithTitle:@"Cancel"];                  // NSAlertFirstButtonReturn
-        [alert addButtonWithTitle:@"Delete all Occurences"];   // NSAlertSecondButtonReturn
-        
-        NSInteger i = [alert runModal];
-        [alert release];
-        if (i == NSAlertSecondButtonReturn) {
-            DLog();
+        NSAlert *alert = [NSAlert alertWithMessageText:@"This is a multi-occurrence Event." 
+                                         defaultButton:@"Delete" 
+                                       alternateButton:@"Cancel" 
+                                           otherButton:nil
+                             informativeTextWithFormat:@"Do you really want to delete all occurrences of this event ?"];
+        if ([alert runModal] == NSAlertDefaultReturn) {
             span = CalSpanAllEvents; 
         } else {
             return;
         }
     }
+    
     NSUndoManager *undoManager = [sender undoManager];
     [undoManager setActionName:@"Remove Event"];        
     [[undoManager prepareWithInvocationTarget:[CalendarEvent class]] saveEvent:evt span:span];
