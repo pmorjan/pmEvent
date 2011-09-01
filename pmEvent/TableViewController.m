@@ -79,6 +79,13 @@
             return;
         } 
     } 
+    if ([event type] == NSKeyDown) {
+        if ([event keyCode] == 53) {
+            // Escape
+            [popoverController closePopover:tableView];
+            return;
+        }
+    }
     [super keyDown:event];
 }
 

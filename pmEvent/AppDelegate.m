@@ -133,12 +133,13 @@ static NSUserDefaults *prefs;
     alarmController.model = model;
     eventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSKeyDownMask handler:^(NSEvent *incomingEvent) {
         NSEvent *result = incomingEvent;
-        NSWindow *targetWindow = [incomingEvent window];
-        if ([targetWindow isSheet]) {
+        NSWindow *w = [incomingEvent window];
+        if (w == aboutSheet || w == preferencesSheet) {
             if ([incomingEvent type] == NSKeyDown) {
                 if ([incomingEvent keyCode] == 53) {
                     // Escape
-                    [self endAllSheets:nil];
+                    [NSApp endSheet:w];
+                    [w orderOut:w];
                     result = nil; // don't process this event
                 }
             }
@@ -205,14 +206,11 @@ static NSUserDefaults *prefs;
     ];
 }
 
-- (IBAction)endAllSheets:(id)sender 
+- (IBAction)endSheet:(id)sender 
 {    
-    for (NSWindow *w in [NSApp windows]) {
-        if ([w isSheet]) {
-            [NSApp endSheet:w];
-            [w orderOut:w];
-         }
-    }
+    NSWindow *w = [sender window];
+    [NSApp endSheet:w];
+    [w orderOut:w];
 }
 
 - (IBAction)resetPreferences:(id)sender

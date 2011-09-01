@@ -35,7 +35,7 @@ extern NSString *PMDisplayEventBoxKey;
 - (IBAction)displayStatusIcon:(id)sender;
 - (IBAction)displayPreferencesSheet:(id)sender;
 - (IBAction)displayAboutSheet:(id)sender;
-- (IBAction)endAllSheets:(id)sender;
+- (IBAction)endSheet:(id)sender;
 - (IBAction)resetPreferences:(id)sender;
 - (IBAction)openUrl:(id)sender;
 - (IBAction)quit:(id)sender;
