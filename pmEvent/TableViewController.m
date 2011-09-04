@@ -7,6 +7,7 @@
 #import "CalendarEvent.h"
 #import "Model.h"
 #import "DateCategory.h"
+#import "CustomSheet.h"
 
 @implementation TableViewController
 
@@ -122,12 +123,11 @@
     }
     if (pastDays > 0) {
         // Event covers multiple days
-        NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"This event covers %ld days.", pastDays +1]
-                                         defaultButton:@"Delete" 
-                                       alternateButton:@"Cancel" 
-                                           otherButton:nil
-                             informativeTextWithFormat:@"Do you really want to delete this event ?"];
-        if ([alert runModal] != NSAlertDefaultReturn) {
+        CustomSheet *sheet = [CustomSheet sheetWithTitle:[NSString stringWithFormat:@"Event covers %ld days.", pastDays +1] 
+                                         informativeText:@"Do you really want to delete this event?" 
+                                           defaultButton:@"Delete" 
+                                         alternateButton:@"Cancel"];
+        if ([sheet runModalForWindow:[sender window]] != CSDefaultReturn) {
             return;
         }
     }
@@ -144,12 +144,11 @@
     CalSpan span = CalSpanThisEvent;
 
     if ([pastEvents count] + [futureEvents count] > 0) {
-        NSAlert *alert = [NSAlert alertWithMessageText:@"This is a multi-occurrence Event." 
-                                         defaultButton:@"Delete" 
-                                       alternateButton:@"Cancel" 
-                                           otherButton:nil
-                             informativeTextWithFormat:@"Do you really want to delete all occurrences of this event ?"];
-        if ([alert runModal] == NSAlertDefaultReturn) {
+        CustomSheet *sheet = [CustomSheet sheetWithTitle:@"This is a multi-occurrence event." 
+                                         informativeText:@"Delete all occurrences of this event?" 
+                                           defaultButton:@"Delete" 
+                                         alternateButton:@"Cancel"];
+        if ([sheet runModalForWindow:[sender window]] == CSDefaultReturn) {
             span = CalSpanAllEvents; 
         } else {
             return;
@@ -200,6 +199,7 @@
         [alert setAlertStyle:NSCriticalAlertStyle];
         [alert runModal];
     }
+    [script release];
 }
 
 #pragma mark -

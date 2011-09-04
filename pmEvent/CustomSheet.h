@@ -12,20 +12,27 @@ typedef enum {
 
 @interface CustomSheet : NSWindowController
 {
-    NSString     *messageText;
-    NSString     *informativeText;
-    NSString     *defaultButtonLabel;
-    NSString     *alternateButtonLabel;
-    CSReturnCode returnCode;
+    IBOutlet NSButton   *defaultButton;
+    IBOutlet NSButton   *alternateButton;
+    NSString            *title;
+    NSString            *informativeText;
+    NSString            *defaultButtonTitle;
+    NSString            *alternateButtonTitle;
+    CSReturnCode        returnCode;
 }
 
-@property (copy) NSString *messageText;
+@property (copy) NSString *title;
 @property (copy) NSString *informativeText;
-@property (copy) NSString *defaultButtonLabel;
-@property (copy) NSString *alternateButtonLabel;
+@property (copy) NSString *defaultButtonTitle;
+@property (copy) NSString *alternateButtonTitle;
+
++ (id)sheetWithTitle:(NSString *)aTitle
+     informativeText:(NSString *)aText 
+       defaultButton:(NSString *)aDefaultButtonTitle
+     alternateButton:(NSString *)aAlternateButtonTitle;
 
 - (IBAction)pushDefaultButton:(id)sender;
 - (IBAction)pushAlternateButton:(id)sender;
-- (NSInteger)runModalForWindow:(NSWindow *)window;
+- (NSInteger)runModalForWindow:(NSWindow *)aWindow;
 
 @end

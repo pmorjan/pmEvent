@@ -29,6 +29,8 @@
 		D0A682A51406D51000C79CC9 /* License.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0A682A41406D51000C79CC9 /* License.txt */; };
 		D0B133CE14042A0C004263A7 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = D0B133CD14042A0C004263A7 /* Settings.png */; };
 		D0D67F8F13ED32C8004E5A09 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D67F8E13ED32C8004E5A09 /* Model.m */; };
+		D0D83CA914134A2200497B77 /* CustomSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D83CA714134A2200497B77 /* CustomSheet.m */; };
+		D0D83CAA14134A2200497B77 /* CustomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D83CA814134A2200497B77 /* CustomSheet.xib */; };
 		D0ED3B8013F68D7D00A7219F /* PopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED3B7E13F68D7D00A7219F /* PopoverController.m */; };
 		D0F572A4140CE33F0001F515 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F572A3140CE33F0001F515 /* TableViewController.m */; };
 		D0F7F4841402FB2200686869 /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = D0F7F4831402FB2200686869 /* preferences.png */; };
@@ -78,6 +80,9 @@
 		D0B133CD14042A0C004263A7 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		D0D67F8D13ED32C8004E5A09 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 		D0D67F8E13ED32C8004E5A09 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
+		D0D83CA614134A2200497B77 /* CustomSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSheet.h; sourceTree = "<group>"; };
+		D0D83CA714134A2200497B77 /* CustomSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSheet.m; sourceTree = "<group>"; };
+		D0D83CA814134A2200497B77 /* CustomSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSheet.xib; sourceTree = "<group>"; };
 		D0ED3B7D13F68D7D00A7219F /* PopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverController.h; sourceTree = "<group>"; };
 		D0ED3B7E13F68D7D00A7219F /* PopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverController.m; sourceTree = "<group>"; };
 		D0F572A2140CE33F0001F515 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
@@ -169,6 +174,9 @@
 				D06695A113D04475008063F0 /* TransformerNumberBoolValueToString.h */,
 				D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */,
 				D06695AB13D04F9C008063F0 /* MainMenu.xib */,
+				D0D83CA614134A2200497B77 /* CustomSheet.h */,
+				D0D83CA714134A2200497B77 /* CustomSheet.m */,
+				D0D83CA814134A2200497B77 /* CustomSheet.xib */,
 				D08636F613D03D1E00EA7D50 /* Supporting Files */,
 			);
 			path = pmEvent;
@@ -258,6 +266,7 @@
 				D0B133CE14042A0C004263A7 /* Settings.png in Resources */,
 				D08ACB0E1406931300C030A0 /* ical_big.png in Resources */,
 				D0A682A51406D51000C79CC9 /* License.txt in Resources */,
+				D0D83CAA14134A2200497B77 /* CustomSheet.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +311,7 @@
 				D0F824C41400FB2B00D2E365 /* ScriptMenu.m in Sources */,
 				D047F80A14015D6C00C44CBB /* sleep.applescript in Sources */,
 				D0F572A4140CE33F0001F515 /* TableViewController.m in Sources */,
+				D0D83CA914134A2200497B77 /* CustomSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

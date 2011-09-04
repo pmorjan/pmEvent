@@ -7,22 +7,41 @@
 
 @implementation CustomSheet
 
-@synthesize messageText;
+@synthesize title;
 @synthesize informativeText;
-@synthesize defaultButtonLabel;
-@synthesize alternateButtonLabel;
+@synthesize defaultButtonTitle;
+@synthesize alternateButtonTitle;
 
 - (id)init
 {
     if (![super initWithWindowNibName:@"CustomSheet"])
         return nil;
     
-    defaultButtonLabel = @"Ok";
+    defaultButtonTitle = @"Ok";
     return self;
 }
 
 - (void)windowDidLoad 
 {
+    [defaultButton setKeyEquivalent:@"\r"];
+    if ([alternateButton.title isCaseInsensitiveLike:@"cancel"]) {
+        [alternateButton setKeyEquivalent:@"\e"];
+    } else if ([defaultButton.title isCaseInsensitiveLike:@"cancel"]) {
+        [defaultButton setKeyEquivalent:@"\e"];
+    }
+}
+
++ (id)sheetWithTitle:(NSString *)aTitle
+     informativeText:(NSString *)aText 
+       defaultButton:(NSString *)aDefaultButtonTitle
+     alternateButton:(NSString *)aAlternateButtonTitle
+{
+    CustomSheet *sheet = [[CustomSheet alloc]init];
+    sheet.title                 = aTitle;
+    sheet.informativeText       = aText;
+    sheet.defaultButtonTitle    = aDefaultButtonTitle;
+    sheet.alternateButtonTitle  = aAlternateButtonTitle;
+    return [sheet autorelease];
 }
 
 - (NSInteger)runModalForWindow:(NSWindow *)aWindow
@@ -33,13 +52,12 @@
        didEndSelector:NULL
           contextInfo:nil
      ];
-    // wait until window has been closed by clicking a button
+    // wait until window has been closed by clicking a button    
     [NSApp runModalForWindow:[self window]];
     // end modal session
     [NSApp endSheet:[self window]];
     // close panel
     [[self window] orderOut:self];
-    
     return returnCode;
 }
 
