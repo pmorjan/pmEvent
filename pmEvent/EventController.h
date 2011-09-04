@@ -22,7 +22,6 @@
 }
 
 @property (nonatomic, retain) Model *model;
-@property (readonly, copy) NSDate *currentDate;
 @property (copy) NSDate *eventStartDate;
 @property (copy) NSDate *eventEndDate;
 @property (copy) NSNumber *alarmMinutes;

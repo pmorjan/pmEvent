@@ -7,6 +7,7 @@
 #import "AlarmMenu.h"
 #import "DateCategory.h"
 #import "CalendarEvent.h"
+#import "CustomSheet.h"
 
 @implementation EventController
 
@@ -41,6 +42,16 @@
 
 - (IBAction)createEvent:(id)sender
 {
+    if ([eventEndDate compare:[NSDate date]] == NSOrderedAscending) {
+        CustomSheet *sheet = [CustomSheet sheetWithTitle:@"Event start date is in the past"
+                                         informativeText:@"Do you really want to create this event?" 
+                                           defaultButton:@"Create" 
+                                         alternateButton:@"Cancel"];
+        if ([sheet runModalForWindow:[sender window]] != CSDefaultReturn) {
+            return;
+        }
+    }
+    
     CalEvent *evt = [CalEvent event];
 
     BOOL isAllDayEvent = [buttonAllDayEvent state] == NSOnState ? YES : NO;    
@@ -116,13 +127,6 @@
 - (IBAction)eventEndTimeChanged:(id)sender
 {
     shouldUpdateEventEndTime = NO;
-}
-
-#pragma mark -
-
-- (NSDate *)currentDate
-{
-    return [NSDate date];
 }
 
 #pragma mark -
