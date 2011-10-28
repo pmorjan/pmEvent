@@ -233,6 +233,7 @@
 		D08636E213D03D1E00EA7D50 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = NoWhere;
 			};
 			buildConfigurationList = D08636E513D03D1E00EA7D50 /* Build configuration list for PBXProject "pmEvent" */;

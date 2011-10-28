@@ -143,7 +143,7 @@
     
     CalSpan span = CalSpanThisEvent;
 
-    if ([pastEvents count] + [futureEvents count] > 0) {
+    if ([pastEvents lastObject] || [futureEvents lastObject]) {
         CustomSheet *sheet = [CustomSheet sheetWithTitle:@"This is a multi-occurrence event." 
                                          informativeText:@"Delete all occurrences of this event?" 
                                            defaultButton:@"Delete" 
@@ -159,7 +159,7 @@
     [undoManager setActionName:@"Remove Event"];        
     [[undoManager prepareWithInvocationTarget:[CalendarEvent class]] saveEvent:evt span:span];
     [CalendarEvent removeEvent:evt span:span];
-    if ([[eventArrayController arrangedObjects]count] < 1) {
+    if ([[eventArrayController arrangedObjects]lastObject] == nil) {
         [[sender window] makeFirstResponder:[[sender window] initialFirstResponder]];
     }
 }
@@ -167,7 +167,7 @@
 - (IBAction)launchIcal:(id)sender
 {    
     NSString *source;
-    if ([eventArrayController selectedObjects].count > 0) {
+    if ([[eventArrayController selectedObjects]lastObject]) {
         // open iCal, show existing event
         CalEvent *calEvent = [[eventArrayController selectedObjects]objectAtIndex:0];
         

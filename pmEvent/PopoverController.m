@@ -58,7 +58,7 @@
     if (object == eventArrayController) {
         if ([keyPath isEqualTo:@"selectionIndexes"]) {
             // selection in eventTableView has changed
-            if ([[eventArrayController selectedObjects] count] > 0) {
+            if ([[eventArrayController selectedObjects]lastObject]) {
                 self.alarmArray = [CalendarEvent descriptionOfAlarmsOfEvent:[[eventArrayController selectedObjects]objectAtIndex:0]];
             }
             [popoverAlarmTableView reloadData];

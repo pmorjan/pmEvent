@@ -15,7 +15,7 @@
     }
 }
 
-- (void)updateMenuItems:(NSNotification *)notification
+- (void)updateMenuItems
 {
     NSSize imgSize = NSMakeSize(12, 8);
     
@@ -25,7 +25,9 @@
 	NSMutableArray *calenders = [NSMutableArray arrayWithArray:[[CalCalendarStore defaultCalendarStore] calendars]];
     
     for (CalCalendar *cal in calenders) {
+        
         if ([cal isEditable] == NO) {
+            // don't add read-only calendars such as 'Birthdays'
             continue;
         }
         
@@ -55,10 +57,10 @@
 {
     self = [super initWithTitle:title];
     if (self != nil) {
-        [self updateMenuItems:nil];
+        [self updateMenuItems];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(updateMenuItems:)
+                                                 selector:@selector(updateMenuItems)
                                                      name:CalCalendarsChangedExternallyNotification
                                                    object:nil];
     }
