@@ -14,6 +14,7 @@
     NSDate   *alarmFromNow;
     NSTimer  *uptimeTimer;
     IBOutlet NSPopUpButton *popUpButtonScripts;
+    IBOutlet NSDatePicker  *datePickerAlarmDate;
 }
 
 @property (copy) NSDate *alarmFromNow;

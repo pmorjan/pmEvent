@@ -33,6 +33,7 @@
 - (void)awakeFromNib
 {
     [popUpButtonScripts setMenu:[ScriptMenu scriptMenuWithTitle:@""]];
+    [datePickerAlarmDate setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"de_DE"] autorelease]];
     if (uptimeTimer == nil) {
         uptimeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateAlarmDate:)
                                                      userInfo:nil repeats:YES];
