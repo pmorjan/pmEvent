@@ -21,6 +21,7 @@
     
     for (NSString *filename in scripts) {
         NSString *title = [filename stringByDeletingPathExtension];
+        title = [title stringByReplacingOccurrencesOfString:@"_" withString:@" "];
         NSURL *url = [[NSBundle mainBundle]URLForResource:filename withExtension:nil];
         NSMenuItem *item = [[NSMenuItem allocWithZone:[NSMenu menuZone]]initWithTitle:title action:nil keyEquivalent:@""];
         [item setRepresentedObject:url];
