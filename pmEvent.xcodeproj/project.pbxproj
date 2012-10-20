@@ -30,11 +30,6 @@
 		D0D67F8F13ED32C8004E5A09 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D67F8E13ED32C8004E5A09 /* Model.m */; };
 		D0D83CA914134A2200497B77 /* CustomSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D0D83CA714134A2200497B77 /* CustomSheet.m */; };
 		D0D83CAA14134A2200497B77 /* CustomSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0D83CA814134A2200497B77 /* CustomSheet.xib */; };
-		D0E6C82714B9CAAC003957C4 /* iTunes_play.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0E6C82214B9CAAC003957C4 /* iTunes_play.applescript */; };
-		D0E6C82814B9CAAC003957C4 /* logout.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0E6C82314B9CAAC003957C4 /* logout.applescript */; };
-		D0E6C82914B9CAAC003957C4 /* restart.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0E6C82414B9CAAC003957C4 /* restart.applescript */; };
-		D0E6C82A14B9CAAC003957C4 /* shutdown.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0E6C82514B9CAAC003957C4 /* shutdown.applescript */; };
-		D0E6C82B14B9CAAC003957C4 /* sleep.applescript in Sources */ = {isa = PBXBuildFile; fileRef = D0E6C82614B9CAAC003957C4 /* sleep.applescript */; };
 		D0ED3B8013F68D7D00A7219F /* PopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0ED3B7E13F68D7D00A7219F /* PopoverController.m */; };
 		D0F572A4140CE33F0001F515 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F572A3140CE33F0001F515 /* TableViewController.m */; };
 		D0F7F4841402FB2200686869 /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = D0F7F4831402FB2200686869 /* preferences.png */; };
@@ -320,11 +315,6 @@
 				D0F824C41400FB2B00D2E365 /* ScriptMenu.m in Sources */,
 				D0F572A4140CE33F0001F515 /* TableViewController.m in Sources */,
 				D0D83CA914134A2200497B77 /* CustomSheet.m in Sources */,
-				D0E6C82714B9CAAC003957C4 /* iTunes_play.applescript in Sources */,
-				D0E6C82814B9CAAC003957C4 /* logout.applescript in Sources */,
-				D0E6C82914B9CAAC003957C4 /* restart.applescript in Sources */,
-				D0E6C82A14B9CAAC003957C4 /* shutdown.applescript in Sources */,
-				D0E6C82B14B9CAAC003957C4 /* sleep.applescript in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
