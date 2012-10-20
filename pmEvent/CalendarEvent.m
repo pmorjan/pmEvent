@@ -57,6 +57,12 @@
         NSString *str = @"";
         if ([alarm absoluteTrigger] != nil) {
             // absolute alarm
+            // TODO: ignore mysterious alarm at 1976-04-01 00:55:45 +0000
+            NSDate *mystDate = [NSDate dateWithTimeIntervalSince1970:197251200];
+            if ([[alarm absoluteTrigger]compare:mystDate] == NSOrderedAscending ) {
+                DLog(@"mystDate %@", alarm);
+                continue;
+            }
             if ([evt.startDate isEqualToDate:alarm.absoluteTrigger]) {
                 str = @"on date";
             } else {

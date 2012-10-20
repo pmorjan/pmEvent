@@ -123,7 +123,7 @@
     }
     if (pastDays > 0) {
         // Event covers multiple days
-        CustomSheet *sheet = [CustomSheet sheetWithTitle:[NSString stringWithFormat:@"Event covers %ld days.", pastDays +1] 
+        CustomSheet *sheet = [CustomSheet sheetWithTitle:[NSString stringWithFormat:@"Event covers %d days.", (int)pastDays +1]
                                          informativeText:@"Do you really want to delete this event?" 
                                            defaultButton:@"Delete" 
                                          alternateButton:@"Cancel"];

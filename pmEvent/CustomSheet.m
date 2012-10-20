@@ -14,10 +14,11 @@
 
 - (id)init
 {
-    if (![super initWithWindowNibName:@"CustomSheet"])
+    self = [super initWithWindowNibName:@"CustomSheet"];
+    if (!self) {
         return nil;
-    
-    defaultButtonTitle = @"Ok";
+    }
+    [self setDefaultButtonTitle:@"Ok"];
     return self;
 }
 
