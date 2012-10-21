@@ -16,6 +16,10 @@
 		D0091C5616343F53009D0734 /* iTunesPlay.app in Resources */ = {isa = PBXBuildFile; fileRef = D0091BEC163431C8009D0734 /* iTunesPlay.app */; };
 		D0091C5716343F53009D0734 /* Sleep.app in Resources */ = {isa = PBXBuildFile; fileRef = D0091C10163438E5009D0734 /* Sleep.app */; };
 		D0091C5816343F53009D0734 /* Shutdown.app in Resources */ = {isa = PBXBuildFile; fileRef = D0091C2F16343ABB009D0734 /* Shutdown.app */; };
+		D0552EA916347306003B4B0B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
+		D0552EAA16347306003B4B0B /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */; };
+		D0552EC216347499003B4B0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0552EC016347499003B4B0B /* main.m */; };
+		D0552EC516347555003B4B0B /* Logout.app in Resources */ = {isa = PBXBuildFile; fileRef = D0552EA716347306003B4B0B /* Logout.app */; };
 		D05863A613EC95100083A8A1 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A113EC95100083A8A1 /* AlarmController.m */; };
 		D05863A713EC95100083A8A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A313EC95100083A8A1 /* AppDelegate.m */; };
 		D05863A813EC95100083A8A1 /* EventController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A513EC95100083A8A1 /* EventController.m */; };
@@ -23,10 +27,7 @@
 		D06695AD13D04F9C008063F0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06695AB13D04F9C008063F0 /* MainMenu.xib */; };
 		D06809A913D1E5150009E65A /* DateCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D06809A813D1E5150009E65A /* DateCategory.m */; };
 		D0728ACB1634524300FD0FA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0728AC91634524300FD0FA3 /* main.m */; };
-		D0728ACC1634524300FD0FA3 /* Sleep-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0728ACA1634524300FD0FA3 /* Sleep-Info.plist */; };
 		D0728ACF1634529100FD0FA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0728ACD1634529000FD0FA3 /* main.m */; };
-		D0728AD01634529100FD0FA3 /* Shutdown-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0728ACE1634529000FD0FA3 /* Shutdown-Info.plist */; };
-		D0728AD3163452D800FD0FA3 /* iTunesPlay-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0728AD1163452D800FD0FA3 /* iTunesPlay-Info.plist */; };
 		D0728AD4163452D800FD0FA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0728AD2163452D800FD0FA3 /* main.m */; };
 		D08636F013D03D1E00EA7D50 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
 		D08636FA13D03D1E00EA7D50 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D08636F813D03D1E00EA7D50 /* InfoPlist.strings */; };
@@ -73,6 +74,13 @@
 			remoteGlobalIDString = D0091C2E16343ABB009D0734;
 			remoteInfo = Shutdown;
 		};
+		D0552EC3163474DA003B4B0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D08636E213D03D1E00EA7D50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0552EA616347306003B4B0B;
+			remoteInfo = Logout;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +91,9 @@
 		D0091C2F16343ABB009D0734 /* Shutdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shutdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D018E23113DDF0F000D3FE20 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D018E23213DDF0F000D3FE20 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScreenShot.png; path = ../ScreenShot.png; sourceTree = "<group>"; };
+		D0552EA716347306003B4B0B /* Logout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logout.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0552EBF16347499003B4B0B /* Logout-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Logout-Info.plist"; path = "AlarmActions/Logout/Logout-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D0552EC016347499003B4B0B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AlarmActions/Logout/main.m; sourceTree = SOURCE_ROOT; };
 		D05863A013EC95100083A8A1 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
 		D05863A113EC95100083A8A1 /* AlarmController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlarmController.m; sourceTree = "<group>"; };
 		D05863A213EC95100083A8A1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -165,6 +176,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D0552EA416347306003B4B0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0552EA916347306003B4B0B /* Cocoa.framework in Frameworks */,
+				D0552EAA16347306003B4B0B /* AppleScriptObjC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D08636E813D03D1E00EA7D50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,6 +210,7 @@
 		D0091C0716343211009D0734 /* AlarmActions */ = {
 			isa = PBXGroup;
 			children = (
+				D0552EAB16347306003B4B0B /* Logout */,
 				D0091C3316343ABB009D0734 /* Shutdown */,
 				D0091C14163438E5009D0734 /* Sleep */,
 				D0091BF2163431C8009D0734 /* iTunesPlay */,
@@ -215,6 +236,15 @@
 			path = Shutdown;
 			sourceTree = "<group>";
 		};
+		D0552EAB16347306003B4B0B /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				D0552EBF16347499003B4B0B /* Logout-Info.plist */,
+				D0552EC016347499003B4B0B /* main.m */,
+			);
+			path = Logout;
+			sourceTree = "<group>";
+		};
 		D08636E013D03D1E00EA7D50 = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +262,7 @@
 				D0091BEC163431C8009D0734 /* iTunesPlay.app */,
 				D0091C10163438E5009D0734 /* Sleep.app */,
 				D0091C2F16343ABB009D0734 /* Shutdown.app */,
+				D0552EA716347306003B4B0B /* Logout.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -369,6 +400,23 @@
 			productReference = D0091C2F16343ABB009D0734 /* Shutdown.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D0552EA616347306003B4B0B /* Logout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0552EBC16347306003B4B0B /* Build configuration list for PBXNativeTarget "Logout" */;
+			buildPhases = (
+				D0552EA316347306003B4B0B /* Sources */,
+				D0552EA416347306003B4B0B /* Frameworks */,
+				D0552EA516347306003B4B0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Logout;
+			productName = Logout;
+			productReference = D0552EA716347306003B4B0B /* Logout.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D08636EA13D03D1E00EA7D50 /* pmEvent */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D086370913D03D1F00EA7D50 /* Build configuration list for PBXNativeTarget "pmEvent" */;
@@ -381,6 +429,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D0552EC4163474DA003B4B0B /* PBXTargetDependency */,
 				D0091C5B1634404F009D0734 /* PBXTargetDependency */,
 				D0091C5D1634404F009D0734 /* PBXTargetDependency */,
 				D0091C5F1634404F009D0734 /* PBXTargetDependency */,
@@ -415,6 +464,7 @@
 				D0091BEB163431C8009D0734 /* iTunesPlay */,
 				D0091C0F163438E5009D0734 /* Sleep */,
 				D0091C2E16343ABB009D0734 /* Shutdown */,
+				D0552EA616347306003B4B0B /* Logout */,
 			);
 		};
 /* End PBXProject section */
@@ -424,7 +474,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0728AD3163452D800FD0FA3 /* iTunesPlay-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,7 +481,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0728ACC1634524300FD0FA3 /* Sleep-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +488,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0728AD01634529100FD0FA3 /* Shutdown-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0552EA516347306003B4B0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +502,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0552EC516347555003B4B0B /* Logout.app in Resources */,
 				D0091C5616343F53009D0734 /* iTunesPlay.app in Resources */,
 				D0091C5716343F53009D0734 /* Sleep.app in Resources */,
 				D0091C5816343F53009D0734 /* Shutdown.app in Resources */,
@@ -507,6 +562,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D0552EA316347306003B4B0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0552EC216347499003B4B0B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D08636E713D03D1E00EA7D50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -546,6 +609,11 @@
 			isa = PBXTargetDependency;
 			target = D0091C2E16343ABB009D0734 /* Shutdown */;
 			targetProxy = D0091C5E1634404F009D0734 /* PBXContainerItemProxy */;
+		};
+		D0552EC4163474DA003B4B0B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0552EA616347306003B4B0B /* Logout */;
+			targetProxy = D0552EC3163474DA003B4B0B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -727,6 +795,56 @@
 			};
 			name = Release;
 		};
+		D0552EBD16347306003B4B0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "AlarmActions/Logout/Logout-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D0552EBE16347306003B4B0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "AlarmActions/Logout/Logout-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		D086370713D03D1F00EA7D50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -832,6 +950,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D0552EBC16347306003B4B0B /* Build configuration list for PBXNativeTarget "Logout" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0552EBD16347306003B4B0B /* Debug */,
+				D0552EBE16347306003B4B0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		D08636E513D03D1E00EA7D50 /* Build configuration list for PBXProject "pmEvent" */ = {
 			isa = XCConfigurationList;

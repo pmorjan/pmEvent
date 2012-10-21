@@ -1,6 +1,6 @@
 //
 //  main.m
-//  Shutdown
+//  Logout
 //
 
 #import <Cocoa/Cocoa.h>
@@ -8,7 +8,7 @@
 
 int main(int argc, char *argv[])
 {
-    NSString *scriptText = [NSString stringWithFormat:@"tell application \"Finder\" to shut down"];
+    NSString *scriptText = [NSString stringWithFormat:@"tell application \"System Events\" to log out"];
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptText];
     [script executeAndReturnError:nil];
     [script release];

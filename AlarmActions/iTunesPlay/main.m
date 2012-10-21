@@ -15,5 +15,6 @@ int main(int argc, char *argv[])
                             @"end tell"];
     NSAppleScript *script = [[NSAppleScript alloc] initWithSource:scriptText];
     [script executeAndReturnError:nil];
+    [script release];
     return 0;
 }
