@@ -2,8 +2,6 @@
 //  ScriptMenu.m
 //  pmEvent
 //
-//  See https://discussions.apple.com/docs/DOC-4082 for
-//  how to save scripts to "~/Library/Workflows/Applications/Calendar/"
 
 #import "ScriptMenu.h"
 
@@ -17,15 +15,14 @@
     [item release];
     [self addItem:[NSMenuItem separatorItem]];
     
-    NSArray *domains = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
-	NSString *path = [[domains objectAtIndex:0] stringByAppendingPathComponent:@"Workflows/Applications/Calendar"];
-
+    NSString *path = [[NSBundle mainBundle] resourcePath];
     NSArray *allFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:nil];
     NSArray *scripts = [allFiles filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self ENDSWITH '.app'"]];
-        
+    
     for (NSString *filename in scripts) {
-        NSURL *url = [NSURL fileURLWithPathComponents:[NSArray arrayWithObjects:path, filename, nil]];
-        NSMenuItem *item = [[NSMenuItem allocWithZone:[NSMenu menuZone]]initWithTitle:filename action:nil keyEquivalent:@""];
+        NSString *title = [filename stringByDeletingPathExtension];
+        NSURL *url = [[NSBundle mainBundle]URLForResource:filename withExtension:nil];
+        NSMenuItem *item = [[NSMenuItem allocWithZone:[NSMenu menuZone]]initWithTitle:title action:nil keyEquivalent:@""];
         [item setRepresentedObject:url];
         [self addItem:item];
         [item release];

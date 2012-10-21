@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0091BEE163431C8009D0734 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
+		D0091BF0163431C8009D0734 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */; };
+		D0091BF9163431C8009D0734 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0091BF8163431C8009D0734 /* main.m */; };
+		D0091C12163438E5009D0734 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
+		D0091C13163438E5009D0734 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */; };
+		D0091C1B163438E5009D0734 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0091C1A163438E5009D0734 /* main.m */; };
+		D0091C3116343ABB009D0734 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
+		D0091C3216343ABB009D0734 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */; };
+		D0091C3A16343ABB009D0734 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0091C3916343ABB009D0734 /* main.m */; };
+		D0091C5616343F53009D0734 /* iTunesPlay.app in Resources */ = {isa = PBXBuildFile; fileRef = D0091BEC163431C8009D0734 /* iTunesPlay.app */; };
+		D0091C5716343F53009D0734 /* Sleep.app in Resources */ = {isa = PBXBuildFile; fileRef = D0091C10163438E5009D0734 /* Sleep.app */; };
+		D0091C5816343F53009D0734 /* Shutdown.app in Resources */ = {isa = PBXBuildFile; fileRef = D0091C2F16343ABB009D0734 /* Shutdown.app */; };
 		D05863A613EC95100083A8A1 /* AlarmController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A113EC95100083A8A1 /* AlarmController.m */; };
 		D05863A713EC95100083A8A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A313EC95100083A8A1 /* AppDelegate.m */; };
 		D05863A813EC95100083A8A1 /* EventController.m in Sources */ = {isa = PBXBuildFile; fileRef = D05863A513EC95100083A8A1 /* EventController.m */; };
@@ -36,7 +48,42 @@
 		D0F824C41400FB2B00D2E365 /* ScriptMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F824C31400FB2B00D2E365 /* ScriptMenu.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D0091C5A1634404F009D0734 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D08636E213D03D1E00EA7D50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0091BEB163431C8009D0734;
+			remoteInfo = iTunesPlay;
+		};
+		D0091C5C1634404F009D0734 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D08636E213D03D1E00EA7D50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0091C0F163438E5009D0734;
+			remoteInfo = Sleep;
+		};
+		D0091C5E1634404F009D0734 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D08636E213D03D1E00EA7D50 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0091C2E16343ABB009D0734;
+			remoteInfo = Shutdown;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		D0091BEC163431C8009D0734 /* iTunesPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
+		D0091BF1163431C8009D0734 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D0091BF4163431C8009D0734 /* iTunesPlay-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iTunesPlay-Info.plist"; sourceTree = "<group>"; };
+		D0091BF8163431C8009D0734 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D0091C10163438E5009D0734 /* Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sleep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0091C16163438E5009D0734 /* Sleep-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sleep-Info.plist"; sourceTree = "<group>"; };
+		D0091C1A163438E5009D0734 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D0091C2F16343ABB009D0734 /* Shutdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shutdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0091C3516343ABB009D0734 /* Shutdown-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shutdown-Info.plist"; sourceTree = "<group>"; };
+		D0091C3916343ABB009D0734 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D018E23113DDF0F000D3FE20 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D018E23213DDF0F000D3FE20 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScreenShot.png; path = ../ScreenShot.png; sourceTree = "<group>"; };
 		D05863A013EC95100083A8A1 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
@@ -78,11 +125,6 @@
 		D0D83CA614134A2200497B77 /* CustomSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSheet.h; sourceTree = "<group>"; };
 		D0D83CA714134A2200497B77 /* CustomSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSheet.m; sourceTree = "<group>"; };
 		D0D83CA814134A2200497B77 /* CustomSheet.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSheet.xib; sourceTree = "<group>"; };
-		D0E6C82214B9CAAC003957C4 /* iTunes_play.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = iTunes_play.applescript; path = AlarmAction/iTunes_play.applescript; sourceTree = "<group>"; };
-		D0E6C82314B9CAAC003957C4 /* logout.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = logout.applescript; path = AlarmAction/logout.applescript; sourceTree = "<group>"; };
-		D0E6C82414B9CAAC003957C4 /* restart.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = restart.applescript; path = AlarmAction/restart.applescript; sourceTree = "<group>"; };
-		D0E6C82514B9CAAC003957C4 /* shutdown.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = shutdown.applescript; path = AlarmAction/shutdown.applescript; sourceTree = "<group>"; };
-		D0E6C82614B9CAAC003957C4 /* sleep.applescript */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.applescript; name = sleep.applescript; path = AlarmAction/sleep.applescript; sourceTree = "<group>"; };
 		D0ED3B7D13F68D7D00A7219F /* PopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverController.h; sourceTree = "<group>"; };
 		D0ED3B7E13F68D7D00A7219F /* PopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverController.m; sourceTree = "<group>"; };
 		D0F572A2140CE33F0001F515 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
@@ -93,6 +135,33 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D0091BE9163431C8009D0734 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0091BEE163431C8009D0734 /* Cocoa.framework in Frameworks */,
+				D0091BF0163431C8009D0734 /* AppleScriptObjC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0091C0D163438E5009D0734 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0091C12163438E5009D0734 /* Cocoa.framework in Frameworks */,
+				D0091C13163438E5009D0734 /* AppleScriptObjC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0091C2C16343ABB009D0734 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0091C3116343ABB009D0734 /* Cocoa.framework in Frameworks */,
+				D0091C3216343ABB009D0734 /* AppleScriptObjC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D08636E813D03D1E00EA7D50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,10 +174,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0091BF2163431C8009D0734 /* iTunesPlay */ = {
+			isa = PBXGroup;
+			children = (
+				D0091BF4163431C8009D0734 /* iTunesPlay-Info.plist */,
+				D0091BF8163431C8009D0734 /* main.m */,
+			);
+			name = iTunesPlay;
+			path = iTunesSleep;
+			sourceTree = "<group>";
+		};
+		D0091C0716343211009D0734 /* AlarmActions */ = {
+			isa = PBXGroup;
+			children = (
+				D0091C3316343ABB009D0734 /* Shutdown */,
+				D0091C14163438E5009D0734 /* Sleep */,
+				D0091BF2163431C8009D0734 /* iTunesPlay */,
+			);
+			name = AlarmActions;
+			sourceTree = "<group>";
+		};
+		D0091C14163438E5009D0734 /* Sleep */ = {
+			isa = PBXGroup;
+			children = (
+				D0091C16163438E5009D0734 /* Sleep-Info.plist */,
+				D0091C1A163438E5009D0734 /* main.m */,
+			);
+			path = Sleep;
+			sourceTree = "<group>";
+		};
+		D0091C3316343ABB009D0734 /* Shutdown */ = {
+			isa = PBXGroup;
+			children = (
+				D0091C3516343ABB009D0734 /* Shutdown-Info.plist */,
+				D0091C3916343ABB009D0734 /* main.m */,
+			);
+			path = Shutdown;
+			sourceTree = "<group>";
+		};
 		D08636E013D03D1E00EA7D50 = {
 			isa = PBXGroup;
 			children = (
 				D08636F513D03D1E00EA7D50 /* pmEvent */,
+				D0091C0716343211009D0734 /* AlarmActions */,
 				D08636EE13D03D1E00EA7D50 /* Frameworks */,
 				D08636EC13D03D1E00EA7D50 /* Products */,
 			);
@@ -118,6 +226,9 @@
 			isa = PBXGroup;
 			children = (
 				D08636EB13D03D1E00EA7D50 /* pmEvent.app */,
+				D0091BEC163431C8009D0734 /* iTunesPlay.app */,
+				D0091C10163438E5009D0734 /* Sleep.app */,
+				D0091C2F16343ABB009D0734 /* Shutdown.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -127,6 +238,7 @@
 			children = (
 				D08636EF13D03D1E00EA7D50 /* Cocoa.framework */,
 				D086372913D03DC200EA7D50 /* CalendarStore.framework */,
+				D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */,
 				D08636F113D03D1E00EA7D50 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -137,6 +249,7 @@
 			children = (
 				D08636F213D03D1E00EA7D50 /* AppKit.framework */,
 				D08636F413D03D1E00EA7D50 /* Foundation.framework */,
+				D0091BF1163431C8009D0734 /* CoreData.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -182,7 +295,6 @@
 		D08636F613D03D1E00EA7D50 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D0E6C81714B9BDBF003957C4 /* AlarmAction */,
 				D086372113D03D7900EA7D50 /* ical.png */,
 				D08ACB0D1406931300C030A0 /* ical_big.png */,
 				D086372213D03D7900EA7D50 /* ical.icns */,
@@ -200,21 +312,60 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D0E6C81714B9BDBF003957C4 /* AlarmAction */ = {
-			isa = PBXGroup;
-			children = (
-				D0E6C82214B9CAAC003957C4 /* iTunes_play.applescript */,
-				D0E6C82314B9CAAC003957C4 /* logout.applescript */,
-				D0E6C82414B9CAAC003957C4 /* restart.applescript */,
-				D0E6C82514B9CAAC003957C4 /* shutdown.applescript */,
-				D0E6C82614B9CAAC003957C4 /* sleep.applescript */,
-			);
-			name = AlarmAction;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D0091BEB163431C8009D0734 /* iTunesPlay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0091C05163431C8009D0734 /* Build configuration list for PBXNativeTarget "iTunesPlay" */;
+			buildPhases = (
+				D0091BE8163431C8009D0734 /* Sources */,
+				D0091BE9163431C8009D0734 /* Frameworks */,
+				D0091BEA163431C8009D0734 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iTunesPlay;
+			productName = iTunesSleep;
+			productReference = D0091BEC163431C8009D0734 /* iTunesPlay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0091C0F163438E5009D0734 /* Sleep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0091C25163438E5009D0734 /* Build configuration list for PBXNativeTarget "Sleep" */;
+			buildPhases = (
+				D0091C0C163438E5009D0734 /* Sources */,
+				D0091C0D163438E5009D0734 /* Frameworks */,
+				D0091C0E163438E5009D0734 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sleep;
+			productName = Sleep;
+			productReference = D0091C10163438E5009D0734 /* Sleep.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D0091C2E16343ABB009D0734 /* Shutdown */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0091C4416343ABB009D0734 /* Build configuration list for PBXNativeTarget "Shutdown" */;
+			buildPhases = (
+				D0091C2B16343ABB009D0734 /* Sources */,
+				D0091C2C16343ABB009D0734 /* Frameworks */,
+				D0091C2D16343ABB009D0734 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shutdown;
+			productName = Shutdown;
+			productReference = D0091C2F16343ABB009D0734 /* Shutdown.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D08636EA13D03D1E00EA7D50 /* pmEvent */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D086370913D03D1F00EA7D50 /* Build configuration list for PBXNativeTarget "pmEvent" */;
@@ -227,6 +378,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				D0091C5B1634404F009D0734 /* PBXTargetDependency */,
+				D0091C5D1634404F009D0734 /* PBXTargetDependency */,
+				D0091C5F1634404F009D0734 /* PBXTargetDependency */,
 			);
 			name = pmEvent;
 			productName = pmEvent;
@@ -255,15 +409,42 @@
 			projectRoot = "";
 			targets = (
 				D08636EA13D03D1E00EA7D50 /* pmEvent */,
+				D0091BEB163431C8009D0734 /* iTunesPlay */,
+				D0091C0F163438E5009D0734 /* Sleep */,
+				D0091C2E16343ABB009D0734 /* Shutdown */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D0091BEA163431C8009D0734 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0091C0E163438E5009D0734 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0091C2D16343ABB009D0734 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D08636E913D03D1E00EA7D50 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0091C5616343F53009D0734 /* iTunesPlay.app in Resources */,
+				D0091C5716343F53009D0734 /* Sleep.app in Resources */,
+				D0091C5816343F53009D0734 /* Shutdown.app in Resources */,
 				D08636FA13D03D1E00EA7D50 /* InfoPlist.strings in Resources */,
 				D086370013D03D1E00EA7D50 /* Credits.rtf in Resources */,
 				D086372313D03D7900EA7D50 /* ical.png in Resources */,
@@ -296,6 +477,30 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D0091BE8163431C8009D0734 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0091BF9163431C8009D0734 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0091C0C163438E5009D0734 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0091C1B163438E5009D0734 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0091C2B16343ABB009D0734 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0091C3A16343ABB009D0734 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D08636E713D03D1E00EA7D50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -319,6 +524,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D0091C5B1634404F009D0734 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0091BEB163431C8009D0734 /* iTunesPlay */;
+			targetProxy = D0091C5A1634404F009D0734 /* PBXContainerItemProxy */;
+		};
+		D0091C5D1634404F009D0734 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0091C0F163438E5009D0734 /* Sleep */;
+			targetProxy = D0091C5C1634404F009D0734 /* PBXContainerItemProxy */;
+		};
+		D0091C5F1634404F009D0734 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0091C2E16343ABB009D0734 /* Shutdown */;
+			targetProxy = D0091C5E1634404F009D0734 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D06695AB13D04F9C008063F0 /* MainMenu.xib */ = {
@@ -348,6 +571,156 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		D0091C03163431C8009D0734 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "iTunesSleep/iTunesPlay-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D0091C04163431C8009D0734 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "iTunesSleep/iTunesPlay-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D0091C26163438E5009D0734 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Sleep/Sleep-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D0091C27163438E5009D0734 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Sleep/Sleep-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D0091C4516343ABB009D0734 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Shutdown/Shutdown-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D0091C4616343ABB009D0734 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "Shutdown/Shutdown-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx10.7;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		D086370713D03D1F00EA7D50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -427,6 +800,30 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D0091C05163431C8009D0734 /* Build configuration list for PBXNativeTarget "iTunesPlay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0091C03163431C8009D0734 /* Debug */,
+				D0091C04163431C8009D0734 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D0091C25163438E5009D0734 /* Build configuration list for PBXNativeTarget "Sleep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0091C26163438E5009D0734 /* Debug */,
+				D0091C27163438E5009D0734 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D0091C4416343ABB009D0734 /* Build configuration list for PBXNativeTarget "Shutdown" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0091C4516343ABB009D0734 /* Debug */,
+				D0091C4616343ABB009D0734 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D08636E513D03D1E00EA7D50 /* Build configuration list for PBXProject "pmEvent" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
