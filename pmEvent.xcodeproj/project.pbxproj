@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D0091BEE163431C8009D0734 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
 		D0091BF0163431C8009D0734 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */; };
-		D0091BF9163431C8009D0734 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0091BF8163431C8009D0734 /* main.m */; };
 		D0091C12163438E5009D0734 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
 		D0091C13163438E5009D0734 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */; };
 		D0091C1B163438E5009D0734 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0091C1A163438E5009D0734 /* main.m */; };
@@ -25,6 +24,8 @@
 		D06695A313D04475008063F0 /* TransformerNumberBoolValueToString.m in Sources */ = {isa = PBXBuildFile; fileRef = D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */; };
 		D06695AD13D04F9C008063F0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06695AB13D04F9C008063F0 /* MainMenu.xib */; };
 		D06809A913D1E5150009E65A /* DateCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D06809A813D1E5150009E65A /* DateCategory.m */; };
+		D0728AB816344CFB00FD0FA3 /* iTunesPlay-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0728AB616344CFB00FD0FA3 /* iTunesPlay-Info.plist */; };
+		D0728AB916344CFB00FD0FA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0728AB716344CFB00FD0FA3 /* main.m */; };
 		D08636F013D03D1E00EA7D50 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
 		D08636FA13D03D1E00EA7D50 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D08636F813D03D1E00EA7D50 /* InfoPlist.strings */; };
 		D08636FD13D03D1E00EA7D50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D08636FC13D03D1E00EA7D50 /* main.m */; };
@@ -76,8 +77,6 @@
 		D0091BEC163431C8009D0734 /* iTunesPlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesPlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		D0091BF1163431C8009D0734 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		D0091BF4163431C8009D0734 /* iTunesPlay-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iTunesPlay-Info.plist"; sourceTree = "<group>"; };
-		D0091BF8163431C8009D0734 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0091C10163438E5009D0734 /* Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sleep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0091C16163438E5009D0734 /* Sleep-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sleep-Info.plist"; sourceTree = "<group>"; };
 		D0091C1A163438E5009D0734 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +96,8 @@
 		D06695AC13D04F9C008063F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D06809A713D1E5140009E65A /* DateCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCategory.h; sourceTree = "<group>"; };
 		D06809A813D1E5150009E65A /* DateCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCategory.m; sourceTree = "<group>"; };
+		D0728AB616344CFB00FD0FA3 /* iTunesPlay-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iTunesPlay-Info.plist"; path = "iTunesPlay/iTunesPlay-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D0728AB716344CFB00FD0FA3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iTunesPlay/main.m; sourceTree = SOURCE_ROOT; };
 		D08636EB13D03D1E00EA7D50 /* pmEvent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pmEvent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08636EF13D03D1E00EA7D50 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D08636F213D03D1E00EA7D50 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -177,8 +178,8 @@
 		D0091BF2163431C8009D0734 /* iTunesPlay */ = {
 			isa = PBXGroup;
 			children = (
-				D0091BF4163431C8009D0734 /* iTunesPlay-Info.plist */,
-				D0091BF8163431C8009D0734 /* main.m */,
+				D0728AB616344CFB00FD0FA3 /* iTunesPlay-Info.plist */,
+				D0728AB716344CFB00FD0FA3 /* main.m */,
 			);
 			name = iTunesPlay;
 			path = iTunesSleep;
@@ -421,6 +422,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0728AB816344CFB00FD0FA3 /* iTunesPlay-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,7 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0091BF9163431C8009D0734 /* main.m in Sources */,
+				D0728AB916344CFB00FD0FA3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +592,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "iTunesSleep/iTunesPlay-Info.plist";
+				INFOPLIST_FILE = "iTunesPlay/iTunesPlay-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
@@ -613,7 +615,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "iTunesSleep/iTunesPlay-Info.plist";
+				INFOPLIST_FILE = "iTunesPlay/iTunesPlay-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
@@ -807,6 +809,7 @@
 				D0091C04163431C8009D0734 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0091C25163438E5009D0734 /* Build configuration list for PBXNativeTarget "Sleep" */ = {
 			isa = XCConfigurationList;
@@ -815,6 +818,7 @@
 				D0091C27163438E5009D0734 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0091C4416343ABB009D0734 /* Build configuration list for PBXNativeTarget "Shutdown" */ = {
 			isa = XCConfigurationList;
@@ -823,6 +827,7 @@
 				D0091C4616343ABB009D0734 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D08636E513D03D1E00EA7D50 /* Build configuration list for PBXProject "pmEvent" */ = {
 			isa = XCConfigurationList;

@@ -1,6 +1,6 @@
 //
 //  main.m
-//  iTunesSleep
+//  iTunesPlay
 //
 
 #import <Cocoa/Cocoa.h>
