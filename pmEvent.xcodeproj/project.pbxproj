@@ -11,10 +11,8 @@
 		D0091BF0163431C8009D0734 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */; };
 		D0091C12163438E5009D0734 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
 		D0091C13163438E5009D0734 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */; };
-		D0091C1B163438E5009D0734 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0091C1A163438E5009D0734 /* main.m */; };
 		D0091C3116343ABB009D0734 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
 		D0091C3216343ABB009D0734 /* AppleScriptObjC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */; };
-		D0091C3A16343ABB009D0734 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0091C3916343ABB009D0734 /* main.m */; };
 		D0091C5616343F53009D0734 /* iTunesPlay.app in Resources */ = {isa = PBXBuildFile; fileRef = D0091BEC163431C8009D0734 /* iTunesPlay.app */; };
 		D0091C5716343F53009D0734 /* Sleep.app in Resources */ = {isa = PBXBuildFile; fileRef = D0091C10163438E5009D0734 /* Sleep.app */; };
 		D0091C5816343F53009D0734 /* Shutdown.app in Resources */ = {isa = PBXBuildFile; fileRef = D0091C2F16343ABB009D0734 /* Shutdown.app */; };
@@ -24,8 +22,12 @@
 		D06695A313D04475008063F0 /* TransformerNumberBoolValueToString.m in Sources */ = {isa = PBXBuildFile; fileRef = D06695A213D04475008063F0 /* TransformerNumberBoolValueToString.m */; };
 		D06695AD13D04F9C008063F0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D06695AB13D04F9C008063F0 /* MainMenu.xib */; };
 		D06809A913D1E5150009E65A /* DateCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D06809A813D1E5150009E65A /* DateCategory.m */; };
-		D0728AB816344CFB00FD0FA3 /* iTunesPlay-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0728AB616344CFB00FD0FA3 /* iTunesPlay-Info.plist */; };
-		D0728AB916344CFB00FD0FA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0728AB716344CFB00FD0FA3 /* main.m */; };
+		D0728ACB1634524300FD0FA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0728AC91634524300FD0FA3 /* main.m */; };
+		D0728ACC1634524300FD0FA3 /* Sleep-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0728ACA1634524300FD0FA3 /* Sleep-Info.plist */; };
+		D0728ACF1634529100FD0FA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0728ACD1634529000FD0FA3 /* main.m */; };
+		D0728AD01634529100FD0FA3 /* Shutdown-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0728ACE1634529000FD0FA3 /* Shutdown-Info.plist */; };
+		D0728AD3163452D800FD0FA3 /* iTunesPlay-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0728AD1163452D800FD0FA3 /* iTunesPlay-Info.plist */; };
+		D0728AD4163452D800FD0FA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0728AD2163452D800FD0FA3 /* main.m */; };
 		D08636F013D03D1E00EA7D50 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08636EF13D03D1E00EA7D50 /* Cocoa.framework */; };
 		D08636FA13D03D1E00EA7D50 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D08636F813D03D1E00EA7D50 /* InfoPlist.strings */; };
 		D08636FD13D03D1E00EA7D50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D08636FC13D03D1E00EA7D50 /* main.m */; };
@@ -78,11 +80,7 @@
 		D0091BEF163431C8009D0734 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		D0091BF1163431C8009D0734 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D0091C10163438E5009D0734 /* Sleep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sleep.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0091C16163438E5009D0734 /* Sleep-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sleep-Info.plist"; sourceTree = "<group>"; };
-		D0091C1A163438E5009D0734 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D0091C2F16343ABB009D0734 /* Shutdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shutdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0091C3516343ABB009D0734 /* Shutdown-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shutdown-Info.plist"; sourceTree = "<group>"; };
-		D0091C3916343ABB009D0734 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D018E23113DDF0F000D3FE20 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		D018E23213DDF0F000D3FE20 /* ScreenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ScreenShot.png; path = ../ScreenShot.png; sourceTree = "<group>"; };
 		D05863A013EC95100083A8A1 /* AlarmController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlarmController.h; sourceTree = "<group>"; };
@@ -96,8 +94,12 @@
 		D06695AC13D04F9C008063F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		D06809A713D1E5140009E65A /* DateCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateCategory.h; sourceTree = "<group>"; };
 		D06809A813D1E5150009E65A /* DateCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateCategory.m; sourceTree = "<group>"; };
-		D0728AB616344CFB00FD0FA3 /* iTunesPlay-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iTunesPlay-Info.plist"; path = "iTunesPlay/iTunesPlay-Info.plist"; sourceTree = SOURCE_ROOT; };
-		D0728AB716344CFB00FD0FA3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iTunesPlay/main.m; sourceTree = SOURCE_ROOT; };
+		D0728AC91634524300FD0FA3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AlarmActions/Sleep/main.m; sourceTree = SOURCE_ROOT; };
+		D0728ACA1634524300FD0FA3 /* Sleep-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Sleep-Info.plist"; path = "AlarmActions/Sleep/Sleep-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D0728ACD1634529000FD0FA3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AlarmActions/Shutdown/main.m; sourceTree = SOURCE_ROOT; };
+		D0728ACE1634529000FD0FA3 /* Shutdown-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Shutdown-Info.plist"; path = "AlarmActions/Shutdown/Shutdown-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D0728AD1163452D800FD0FA3 /* iTunesPlay-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "iTunesPlay-Info.plist"; path = "AlarmActions/iTunesPlay/iTunesPlay-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D0728AD2163452D800FD0FA3 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AlarmActions/iTunesPlay/main.m; sourceTree = SOURCE_ROOT; };
 		D08636EB13D03D1E00EA7D50 /* pmEvent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pmEvent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08636EF13D03D1E00EA7D50 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D08636F213D03D1E00EA7D50 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -178,8 +180,8 @@
 		D0091BF2163431C8009D0734 /* iTunesPlay */ = {
 			isa = PBXGroup;
 			children = (
-				D0728AB616344CFB00FD0FA3 /* iTunesPlay-Info.plist */,
-				D0728AB716344CFB00FD0FA3 /* main.m */,
+				D0728AD1163452D800FD0FA3 /* iTunesPlay-Info.plist */,
+				D0728AD2163452D800FD0FA3 /* main.m */,
 			);
 			name = iTunesPlay;
 			path = iTunesSleep;
@@ -198,8 +200,8 @@
 		D0091C14163438E5009D0734 /* Sleep */ = {
 			isa = PBXGroup;
 			children = (
-				D0091C16163438E5009D0734 /* Sleep-Info.plist */,
-				D0091C1A163438E5009D0734 /* main.m */,
+				D0728AC91634524300FD0FA3 /* main.m */,
+				D0728ACA1634524300FD0FA3 /* Sleep-Info.plist */,
 			);
 			path = Sleep;
 			sourceTree = "<group>";
@@ -207,8 +209,8 @@
 		D0091C3316343ABB009D0734 /* Shutdown */ = {
 			isa = PBXGroup;
 			children = (
-				D0091C3516343ABB009D0734 /* Shutdown-Info.plist */,
-				D0091C3916343ABB009D0734 /* main.m */,
+				D0728ACD1634529000FD0FA3 /* main.m */,
+				D0728ACE1634529000FD0FA3 /* Shutdown-Info.plist */,
 			);
 			path = Shutdown;
 			sourceTree = "<group>";
@@ -422,7 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0728AB816344CFB00FD0FA3 /* iTunesPlay-Info.plist in Resources */,
+				D0728AD3163452D800FD0FA3 /* iTunesPlay-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +432,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0728ACC1634524300FD0FA3 /* Sleep-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +440,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0728AD01634529100FD0FA3 /* Shutdown-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0728AB916344CFB00FD0FA3 /* main.m in Sources */,
+				D0728AD4163452D800FD0FA3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,7 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0091C1B163438E5009D0734 /* main.m in Sources */,
+				D0728ACB1634524300FD0FA3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,7 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0091C3A16343ABB009D0734 /* main.m in Sources */,
+				D0728ACF1634529100FD0FA3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,7 +596,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "iTunesPlay/iTunesPlay-Info.plist";
+				INFOPLIST_FILE = "AlarmActions/iTunesPlay/iTunesPlay-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
@@ -615,7 +619,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "iTunesPlay/iTunesPlay-Info.plist";
+				INFOPLIST_FILE = "AlarmActions/iTunesPlay/iTunesPlay-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
@@ -642,7 +646,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "Sleep/Sleep-Info.plist";
+				INFOPLIST_FILE = "AlarmActions/Sleep/Sleep-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
@@ -665,7 +669,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "Sleep/Sleep-Info.plist";
+				INFOPLIST_FILE = "AlarmActions/Sleep/Sleep-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
@@ -692,7 +696,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "Shutdown/Shutdown-Info.plist";
+				INFOPLIST_FILE = "AlarmActions/Shutdown/Shutdown-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
@@ -715,7 +719,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "Shutdown/Shutdown-Info.plist";
+				INFOPLIST_FILE = "AlarmActions/Shutdown/Shutdown-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx10.7;
